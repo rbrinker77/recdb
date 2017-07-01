@@ -1,0 +1,126 @@
+@media screen
+{
+
+body {
+	background-color:black;
+	color:white;
+	font: 100% Arial, Helvetica, sans-serif;
+}
+
+table {
+	width:90%;
+}
+
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
+td {
+	border:none !important;
+	vertical-align:text-top;
+}
+
+th {
+	text-align:left !important;
+	vertical-align:middle;
+}
+
+th:after {
+	content:"\0000a0\0000a0\0000a0 (+/-)";
+}
+
+.sortedplus, .sortedminus{
+	color:black;
+	background:#e1e0e0;
+}
+
+.sortedminus:after {
+	content:"\0000a0\0000a0\0000a0 (-)" !important;
+	color:green;
+}
+
+.sortedplus:after {
+	content:"\0000a0\0000a0\0000a0 (+)" !important;
+	color:green;
+}
+
+.field {
+	font-size: 16pt;
+}
+
+.label {
+	font-size: 18pt;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.negAmount {
+	font-size: 16pt;
+	color:red;
+	font-weight: bold;
+}
+
+.posAmount {
+	font-size: 16pt;
+	color:green;
+	font-weight: bold;
+}
+
+.backButton, .deleteButton {
+	color: #FFFFFF;
+	background-color:red;
+}
+
+.addButton, .updateButton, .homeButton {
+	color: #FFFFFF;
+	background-color:green;
+}
+
+.searchButton {
+	color: #FFFFFF;
+	background-color:#660099;
+}
+
+}
+		
+@media print 
+{
+
+body {
+	background-color:white;
+	color:black;
+	font: 100% Arial, Helvetica, sans-serif;
+}
+
+table {
+	width:90%;
+}
+
+td {
+	border:none !important;
+	vertical-align:text-top;
+}
+
+.field {
+	font-size: 12pt;
+}
+
+.label {
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.negAmount, .posAmount {
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.backButton, .addButton, .updateButton, .searchButton, .deleteButton, .noPrint { 
+	display: none; 
+}
+
+}
