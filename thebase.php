@@ -9,5 +9,6 @@ $headers = 'From: rbrinker77@gmail.com' . "\r\n" .
     'Reply-To: rbrinker77@gmail.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-mail($to, $subject, $message, $headers);
+mail($to, $subject, $message, $headers) or die("Failed to send");
+echo "Mail sent";
 ?>
