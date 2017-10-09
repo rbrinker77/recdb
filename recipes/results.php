@@ -69,81 +69,18 @@ echo "
 			."WHERE \n"
 				."LOWER(recName) LIKE LOWER('%".$recName."%') ";
 
+//loop for wanted ingredients
 		foreach ($ingred as $wantingred) {
 			if ($wantingred <> "xxxxxxxxxxx") {
 				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20)) LIKE LOWER('%".$wantingred."%')";
 			}
 		}
-/*loop for wanted ingredients
-		$searchIngredNum = 0;
 
-		while ($searchIngredNum < 4)
-		{
-			$thisIngred = @$ingred[$searchIngredNum];
-
-			$baseIngredNum = 1;
-
-			while ($baseIngredNum < 21)
-			{
-				if ($thisIngred <> "" && $thisIngred <> " " && $thisIngred <> "xxxxxxxxxxx")
-				{
-					if ($baseIngredNum == 1)
-					{
-						$searchLoop .= " AND (";
-					}
-
-					$searchLoop .= "(LOWER(ingred".$baseIngredNum.") LIKE LOWER('%".$thisIngred."%')) ";
-
-					if ($baseIngredNum <> 20)
-					{
-						$searchLoop .= " OR \n";
-					}
-					else
-					{
-						$searchLoop .= ") ";
-					}
-				}
-
-				$baseIngredNum++;
-			}
-
-			$searchIngredNum++;
-		}
-*/
 //loop for unwanted ingredients
-		$searchMinusIngredNum = 0;
-
-		while ($searchMinusIngredNum < 4)
-		{
-			$thisIngred = @$minusIngred[$searchMinusIngredNum];
-
-			$baseIngredNum = 1;
-
-			while ($baseIngredNum < 21)
-			{
-				if ($thisIngred <> "" && $thisIngred <> " " && $thisIngred <> "xxxxxxxxxxx")
-				{
-					if ($baseIngredNum == 1)
-					{
-						$searchLoop .= " AND (";
-					}
-
-					$searchLoop .= "(LOWER(ingred".$baseIngredNum.") NOT LIKE LOWER('%".$thisIngred."%')) ";
-
-					if ($baseIngredNum <> 20)
-					{
-						$searchLoop .= " AND \n";
-					}
-					else
-					{
-						$searchLoop .= ") ";
-					}
-				}
-
-				$baseIngredNum++;
+		foreach ($ingred as $wantingred) {
+			if ($wantingred <> "xxxxxxxxxxx") {
+				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20)) NOT LIKE LOWER('%".$wantingred."%')";
 			}
-
-			$searchMinusIngredNum++;
 		}
 
  		if ($cat1 > 0)
