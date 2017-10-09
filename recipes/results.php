@@ -69,7 +69,12 @@ echo "
 			."WHERE \n"
 				."LOWER(recName) LIKE LOWER('%".$recName."%') ";
 
-//loop for wanted ingredients
+		foreach ($ingred as $wantingred) {
+			if ($wantingred <> "xxxxxxxxxxx") {
+				$searchLoop .= " AND LOWER(".$wantingred.") IN (LOWER(SELECT LOWER(ingred1,ingred2,ingred3,ingred4,ingred5,ingred6,ingred7,ingred8,ingred9,ingred10,ingred11,ingred12,ingred13,ingred14,ingred5,ingred16,ingred17,ingred18,ingred19,ingred20)) ";
+			}
+		}
+/*loop for wanted ingredients
 		$searchIngredNum = 0;
 
 		while ($searchIngredNum < 4)
@@ -104,7 +109,7 @@ echo "
 
 			$searchIngredNum++;
 		}
-
+*/
 //loop for unwanted ingredients
 		$searchMinusIngredNum = 0;
 
