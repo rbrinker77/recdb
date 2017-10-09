@@ -83,16 +83,7 @@ echo "
 			}
 		}
 
- 		/*if ($cat1 > 0)
-		{
-			$searchLoop .= "AND \n"
-				."((cat1 = '".$cat1."') or \n"
-				."(cat2 = '".$cat1."') or \n"
-				."(cat3 = '".$cat1."') or \n"
-				."(cat4 = '".$cat1."') or \n"
-				."(cat5 = '".$cat1."'))";
-		}*/
-
+//add logic for categories
 		if ($cat1 > 0) {
 			$searchLoop .= " AND ".$cat1." IN (cat1,cat2,cat3,cat4,cat5) ";
 		}
@@ -131,6 +122,7 @@ echo "
 		$searchLoop = $_SESSION["compiledQuery"];
 	}
 
+//build results page after query is ready
 echo	"<div class=\"buttons\">
 			<input class=\"smallRed twoButtons\" type=\"button\" value=\"New Search\"  onclick=\"window.location.href='./search.php'\">
 			<input class=\"smallGreen twoButtons\" type=\"button\" value=\"Home\"  onclick=\"window.location.href='./index.php'\">
@@ -143,6 +135,7 @@ $mysql_rows = $dbConnection->query($searchLoop)->rowCount();
 $pages = ceil($mysql_rows / 100);
 $i = 0;
 
+//top page numbering start
 while ($i < $pages)
 {
 	$i++;
@@ -170,6 +163,7 @@ while ($i < $pages)
 		</form>
 		</div>";
 }
+//top page numbering end
 
 echo 	"</div>
 		<div class=\"pageDiv pagePad\">
@@ -210,6 +204,7 @@ echo 	"</div>
 
 $dbConnection = null;
 
+//bottom page numbering start
 $i = 0;
 
 echo "<div class=\"pageButtons\" >";
@@ -241,6 +236,7 @@ while ($i < $pages)
 		</form>
 		</div>";
 }
+//bottom page numbering end
 
 echo 	"</div>
 		<div class=\"buttons\">
