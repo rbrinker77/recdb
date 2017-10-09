@@ -94,23 +94,23 @@ echo "
 		}*/
 
 		if ($cat1 > 0) {
-			$searchLoop .= " AND ".$cat1." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
+			$searchLoop .= " AND '".$cat1."' IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if ($cat2 > 0) {
-			$searchLoop .= " AND ".$cat2." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
+			$searchLoop .= " AND '".$cat2."' IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if ($cat3 > 0) {
-			$searchLoop .= " AND ".$cat3." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
+			$searchLoop .= " AND '".$cat3."' IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if ($cat4 > 0) {
-			$searchLoop .= " AND ".$cat4." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
+			$searchLoop .= " AND '".$cat4."' IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if ($cat5 > 0) {
-			$searchLoop .= " AND ".$cat5." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
+			$searchLoop .= " AND '".$cat5."' IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if (!isset($_POST['viewByName']))
