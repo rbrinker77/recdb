@@ -71,7 +71,7 @@ echo "
 
 		foreach ($ingred as $wantingred) {
 			if ($wantingred <> "xxxxxxxxxxx") {
-				$searchLoop .= " AND LOWER(".$wantingred.") IN (LOWER(SELECT LOWER(ingred1,ingred2,ingred3,ingred4,ingred5,ingred6,ingred7,ingred8,ingred9,ingred10,ingred11,ingred12,ingred13,ingred14,ingred5,ingred16,ingred17,ingred18,ingred19,ingred20)) ";
+				$searchLoop .= " AND LOWER(".$wantingred.") IN (LOWER(ingred1,ingred2,ingred3,ingred4,ingred5,ingred6,ingred7,ingred8,ingred9,ingred10,ingred11,ingred12,ingred13,ingred14,ingred5,ingred16,ingred17,ingred18,ingred19,ingred20)) ";
 			}
 		}
 /*loop for wanted ingredients
