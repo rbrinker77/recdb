@@ -83,7 +83,7 @@ echo "
 			}
 		}
 
- 		if ($cat1 > 0)
+ 		/*if ($cat1 > 0)
 		{
 			$searchLoop .= "AND \n"
 				."((cat1 = '".$cat1."') or \n"
@@ -91,42 +91,26 @@ echo "
 				."(cat3 = '".$cat1."') or \n"
 				."(cat4 = '".$cat1."') or \n"
 				."(cat5 = '".$cat1."'))";
+		}*/
+
+		if ($cat1 > 0) {
+			$searchLoop .= " AND ".$cat1." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
-		if ($cat2 > 0)
-		{
-			$searchLoop .= "AND \n"
-				."((cat1 = '".$cat2."') or \n"
-				."(cat2 = '".$cat2."') or \n"
-				."(cat3 = '".$cat2."') or \n"
-				."(cat4 = '".$cat2."') or \n"
-				."(cat5 = '".$cat2."'))";
+
+		if ($cat2 > 0) {
+			$searchLoop .= " AND ".$cat2." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
-		if ($cat3 > 0)
-		{
-			$searchLoop .= "AND \n"
-				."((cat1 = '".$cat3."') or \n"
-				."(cat2 = '".$cat3."') or \n"
-				."(cat3 = '".$cat3."') or \n"
-				."(cat4 = '".$cat3."') or \n"
-				."(cat5 = '".$cat3."'))";
+
+		if ($cat3 > 0) {
+			$searchLoop .= " AND ".$cat3." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
-		if ($cat4 > 0)
-		{
-			$searchLoop .= "AND \n"
-				."((cat1 = '".$cat4."') or \n"
-				."(cat2 = '".$cat4."') or \n"
-				."(cat3 = '".$cat4."') or \n"
-				."(cat4 = '".$cat4."') or \n"
-				."(cat5 = '".$cat4."'))";
+
+		if ($cat4 > 0) {
+			$searchLoop .= " AND ".$cat4." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
-		if ($cat5 > 0)
-		{
-			$searchLoop .= "AND \n"
-				."((cat1 = '".$cat5."') or \n"
-				."(cat2 = '".$cat5."') or \n"
-				."(cat3 = '".$cat5."') or \n"
-				."(cat4 = '".$cat5."') or \n"
-				."(cat5 = '".$cat5."'))";
+
+		if ($cat5 > 0) {
+			$searchLoop .= " AND ".$cat5." IN CONCAT_WS(',',cat1,cat2,cat3,cat4,cat5) ";
 		}
 
 		if (!isset($_POST['viewByName']))
