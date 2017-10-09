@@ -23,7 +23,7 @@ echo "
 	if (isset($_POST['viewByName']) || isset($_POST['viewByDate']))
 	{
 		unset($_SESSION["compiledQuery"]);
-		
+
 		$recName = $_POST['recName'];
 		$ingred = array_values(array_filter($_POST['ingred']));
 		$ingred1 = @$ingred[0];
@@ -40,31 +40,31 @@ echo "
 		$cat3 = @$_POST['cat'][2];
 		$cat4 = @$_POST['cat'][3];
 		$cat5 = @$_POST['cat'][4];
-		
+
 		if ($minusIngred1 == "" OR $minusIngred1 == " " OR is_null($minusIngred1))
 		{
 			$minusIngred1 = "xxxxxxxxxxx";
 		}
-		
+
 		if ($minusIngred2 == "" OR $minusIngred2 == " " OR is_null($minusIngred2))
 		{
 			$minusIngred2 = "xxxxxxxxxxx";
 		}
-		
+
 		if ($minusIngred3 == "" OR $minusIngred3 == " " OR is_null($minusIngred3))
 		{
 			$minusIngred3 = "xxxxxxxxxxx";
 		}
-		
+
 		if ($minusIngred4 == "" OR $minusIngred4 == " " OR is_null($minusIngred4))
 		{
 			$minusIngred4 = "xxxxxxxxxxx";
 		}
-			
+
 		$searchLoop = "SELECT recNumber,recName";
-		
+
 		$searchLoop .= ",IF(dateModified IS NULL, dateAdded, dateModified) as dateChanged";
-		
+
 		$searchLoop .= "\n FROM theboxli_Recipes \n"
 			."WHERE \n"
 				."LOWER(recName) LIKE LOWER('%".$recName."%') ";
@@ -86,9 +86,9 @@ echo "
 					{
 						$searchLoop .= " AND (";
 					}
-					
+
 					$searchLoop .= "(LOWER(ingred".$baseIngredNum.") LIKE LOWER('%".$thisIngred."%')) ";
-			
+
 					if ($baseIngredNum <> 20)
 					{
 						$searchLoop .= " OR \n";
@@ -98,13 +98,13 @@ echo "
 						$searchLoop .= ") ";
 					}
 				}
-			
+
 				$baseIngredNum++;
 			}
-			
+
 			$searchIngredNum++;
 		}
-		
+
 //loop for unwanted ingredients
 		$searchMinusIngredNum = 0;
 
@@ -113,7 +113,7 @@ echo "
 			$thisIngred = @$minusIngred[$searchMinusIngredNum];
 
 			$baseIngredNum = 1;
-			
+
 			while ($baseIngredNum < 21)
 			{
 				if ($thisIngred <> "" && $thisIngred <> " " && $thisIngred <> "xxxxxxxxxxx")
@@ -122,9 +122,9 @@ echo "
 					{
 						$searchLoop .= " AND (";
 					}
-					
+
 					$searchLoop .= "(LOWER(ingred".$baseIngredNum.") NOT LIKE LOWER('%".$thisIngred."%')) ";
-			
+
 					if ($baseIngredNum <> 20)
 					{
 						$searchLoop .= " AND \n";
@@ -134,10 +134,10 @@ echo "
 						$searchLoop .= ") ";
 					}
 				}
-			
+
 				$baseIngredNum++;
 			}
-			
+
 			$searchMinusIngredNum++;
 		}
 
@@ -220,7 +220,7 @@ $i = 0;
 while ($i < $pages)
 {
 	$i++;
-	
+
 	echo "<div class=\"pageButton\">
 		<form name=\"topPage".$i."\" method=\"post\" action=\"./results.php\" >
 			<input type=\"hidden\" name=\"page\" id=\"page\" value=\"".$i."\">";
@@ -239,7 +239,7 @@ while ($i < $pages)
 	{
 		echo "<input class=\"blackButton\" type=\"submit\" name=\"newTopPage".$i."\" id=\"newTopPage".$i."\" value=\"".$i."\" >";
 	}
-	
+
 	echo "<input type=\"hidden\" width=\"100%\">
 		</form>
 		</div>";
@@ -252,7 +252,7 @@ echo 	"</div>
 		$count = ($page * 100) - 100;
 
 		$finalSearch = $searchLoop." LIMIT ".$count.",100;";
-		
+
 		foreach($dbConnection->query($finalSearch) as $row)
 		{
 			echo "<div class=\"recipeLine\">
@@ -270,7 +270,7 @@ echo 	"</div>
 			echo "<div class=\"dates\">".$dateChanged."</div>";
 
 			echo "<div class='modLink'>
-						<form name=\"modLink".$i."\" method=\"post\" action=\"./rec_modify_form.php?recNum=".$row['recNumber']."\" target=\"_blank\">
+						<form name=\"modLink".$i."\" method=\"post\" action=\"./modrec.php?recNum=".$row['recNumber']."\" target=\"_blank\">
 							<input class=\"modButton\" type='submit' value='MODIFY'>
 						</form>
 					</div>";
@@ -278,10 +278,10 @@ echo 	"</div>
 			echo "</span>
 				</div>";
 		}
-		
+
 		echo "<div class=\"push\"></div>
 			</div>";
-		
+
 $dbConnection = null;
 
 $i = 0;
@@ -291,7 +291,7 @@ echo "<div class=\"pageButtons\" >";
 while ($i < $pages)
 {
 	$i++;
-	
+
 	echo "<div class=\"pageButton\" >
 		<form name=\"bottomPage".$i."\" method=\"post\" action=\"./results.php\" >
 			<input type=\"hidden\" name=\"page\" id=\"page\" value=\"".$i."\">";
@@ -310,7 +310,7 @@ while ($i < $pages)
 	{
 		echo "<input class=\"blackButton\" type=\"submit\" name=\"newBottomPage".$i."\" id=\"newBottomPage".$i."\" value=\"".$i."\">";
 	}
-	
+
 	echo "<input type=\"hidden\" width=\"100%\">
 		</form>
 		</div>";

@@ -24,7 +24,7 @@ ini_set('display_errors', '1');
 			<input class="indexButton" type="button" name="searchRec" id="searchRec" value="Search Recipes" onclick="window.location='./search.php'"/>
 		</div>
 		<div class="indexContainer">
-			<input class="indexButton" type="button" name="addRec" id="addRec" value="Add Recipe" onclick="window.location='./rec_insert_form.php'"/>
+			<input class="indexButton" type="button" name="addRec" id="addRec" value="Add Recipe" onclick="window.location='./newrec.php'"/>
 		</div>
 	</body>
 </html>

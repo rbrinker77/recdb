@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/Chicago');
-	
+
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -13,7 +13,7 @@ function updateDB() {
 //write records to database
 		$recNum = $_GET['recNum'];
 		$recName = $_POST['recName'];
-		
+
 		$ingred[] = $_POST['ingred'];
 		$instruct[] = $_POST['instruct'];
 		$cat[] = @$_POST['cat'];
@@ -26,21 +26,21 @@ function updateDB() {
 			echo "<html><body>You must enter a NAME. Please <a href=\"javascript:history.back()\">GO BACK</a> and correct this.</body></html>";
 			die();
 		}
-		
+
 		while ($i < 20)
 		{
 			$ingredLen = $ingredLen + strlen(trim($ingred[0][$i]));
 			$i++;
 		}
-		
+
 		if ($ingredLen == 0)
 		{
 			echo "<html><body>You must enter at least one INGREDIENT. Please <a href=\"javascript:history.back()\">GO BACK</a> and correct this.</body></html>";
 			die();
 		}
-		
+
 		$i = 0;
-		
+
 		while ($i < 10)
 		{
 			$instructLen = $instructLen + strlen(trim($instruct[0][$i]));
@@ -62,7 +62,7 @@ function updateDB() {
 		{
 			$cat1 = $cat[0][0];
 		}
-		
+
 		if (@is_null($cat[0][1]))
 		{
 			$cat2 = 0;
@@ -71,7 +71,7 @@ function updateDB() {
 		{
 			$cat2 = $cat[0][1];
 		}
-		
+
 		if (@is_null($cat[0][2]))
 		{
 			$cat3 = 0;
@@ -80,7 +80,7 @@ function updateDB() {
 		{
 			$cat3 = $cat[0][2];
 		}
-		
+
 		if (@is_null($cat[0][3]))
 		{
 			$cat4 = 0;
@@ -89,7 +89,7 @@ function updateDB() {
 		{
 			$cat4 = $cat[0][3];
 		}
-		
+
 		if (@is_null($cat[0][4]))
 		{
 			$cat5 = 0;
@@ -104,14 +104,14 @@ function updateDB() {
 		$post = "UPDATE theboxli_Recipes \n"
 			."SET \n"
 			."recName = '".trim($recName)."', ";
-			
+
 		$i = 0;
 		$count = 1;
-		
+
 		while ($i < 20)
 		{
 			$post .= "ingred".$count." = '".trim($ingred[0][$i])."', ";
-			
+
 			$i++;
 			$count++;
 		}
@@ -122,11 +122,11 @@ function updateDB() {
 		while ($i < 10)
 		{
 			$post .= "instruct".$count." = '".trim($instruct[0][$i])."', ";
-			
+
 			$i++;
 			$count++;
 		}
-		
+
 		$post .= "cat1 = '".$cat1."', \n"
 			."cat2 = '".$cat2."', \n"
 			."cat3 = '".$cat3."', \n"
@@ -151,7 +151,7 @@ function updateDB() {
 function deleteRec()
 {
 	$recNum = $_GET['recNum'];
-	
+
 	include("./DB/dbconnect.php");
 
 	$deleteQuery="DELETE FROM theboxli_Recipes WHERE recNumber = ".$recNum;
@@ -159,8 +159,8 @@ function deleteRec()
 	$deleteRec->execute();
 
 	$dbConnection = null;
-	
-	echo "<script type=\"text/javascript\">			
+
+	echo "<script type=\"text/javascript\">
 			if (confirm('The recipe has been deleted!\\nReturn home?')) {
 		    	window.location = './index.php';
 			}
@@ -203,12 +203,12 @@ echo "
 		MODIFY RECIPE
 	</div>
 	<div class=\"buttons\">
-		<form class=\"floatForm\" name=\"deleteRecipe\" method=\"post\" action=\"./rec_modify_form.php?recNum=".$recNum."\" onsubmit='return confirmDelete();'>
+		<form class=\"floatForm\" name=\"deleteRecipe\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return confirmDelete();'>
 			<input class=\"smallRed twoButtons\" name=\"isDelete\" type=\"submit\" value=\"DELETE?\" \">
 		</form>
 	</div>
 	<div class=\"pageDiv\">
-	<form name=\"recModify\" method=\"post\" action=\"./rec_modify_form.php?recNum=".$recNum."\" onsubmit='return validateRecipe(\"recModify\");'>
+	<form name=\"recModify\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return validateRecipe(\"recModify\");'>
 	<div class=\"nameDiv\">
 		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" value=\"".$row['recName']."\" onKeyPress=\"return limitchar(this, event)\"/></td>
 	</div>
@@ -216,18 +216,18 @@ echo "
 		<div class=\"headerDiv\">
 			INGREDIENTS
 		</div>";
-		
+
 $i = 1;
 
 while ($i < 21)
-{	
+{
 	$ingredNum = "ingred".$i;
-		
+
 	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" value=\"".$row[$ingredNum]."\" onKeyPress=\"return limitchar(this, event)\" /></div>";
-	
+
 	$i++;
 }
-		
+
 echo "</div>
 	<div class=\"lowerContainer\">
 		<div class=\"instructBox\">
@@ -240,9 +240,9 @@ $i = 1;
 while ($i < 11)
 {
 	$instructNum = "instruct".$i;
-	
+
 	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"500\" onKeyPress=\"return limitchar(this, event)\" >".$row[$instructNum]."</textarea></div>";
-	
+
 	$i++;
 }
 
@@ -254,9 +254,9 @@ echo "
 			</div>";
 
 		include("./DB/dbconnect.php");
-		
+
 		$catLoop = "SELECT * FROM theboxli_Categories ORDER BY catName;";
-		
+
 		foreach($dbConnection->query($catLoop) as $row2)
 		{
 			if ($row2['catNumber'] == $row['cat1'] || $row2['catNumber'] == $row['cat2'] || $row2['catNumber'] == $row['cat3'] || $row2['catNumber'] == $row['cat4'] || $row2['catNumber'] == $row['cat5'])
@@ -266,13 +266,13 @@ echo "
 			}
 			else
 			{
-				$checked = "";	
+				$checked = "";
 			}
 			echo "<div class=\"categoryDiv\">
 				<label><input type=\"checkbox\" value=\"".$row2['catNumber']."\" name=\"cat[]\" id=\"cat[]\" onclick=\"setChecks(this)\" ".$checked."/> ".$row2['catName']."</label>
 				</div>";
 		}
-		
+
 		$dbConnection = null;
 
 		echo "</div>

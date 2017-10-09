@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/Chicago');
-	
+
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -9,10 +9,10 @@ ini_set('display_errors', '1');
 function savetoDB() {
 
 //write records to database
-		
+
 		$recName = $_POST['recName'];
 		$today = date('Ymd');
-		
+
 		$ingred[] = $_POST['ingred'];
 		$instruct[] = $_POST['instruct'];
 		$cat[] = @$_POST['cat'];
@@ -26,7 +26,7 @@ function savetoDB() {
 		{
 			$cat1 = $cat[0][0];
 		}
-		
+
 		if (@is_null($cat[0][1]))
 		{
 			$cat2 = 0;
@@ -35,7 +35,7 @@ function savetoDB() {
 		{
 			$cat2 = $cat[0][1];
 		}
-		
+
 		if (@is_null($cat[0][2]))
 		{
 			$cat3 = 0;
@@ -44,7 +44,7 @@ function savetoDB() {
 		{
 			$cat3 = $cat[0][2];
 		}
-		
+
 		if (@is_null($cat[0][3]))
 		{
 			$cat4 = 0;
@@ -53,7 +53,7 @@ function savetoDB() {
 		{
 			$cat4 = $cat[0][3];
 		}
-		
+
 		if (@is_null($cat[0][4]))
 		{
 			$cat5 = 0;
@@ -85,7 +85,7 @@ function savetoDB() {
 				$instruct[0][$i] = str_replace($badCharacter, " ", $instruct[0][$i]);
 			}
 		}
-		
+
 		include("./DB/dbconnect.php");
 
 		$post = "INSERT INTO theboxli_Recipes \n"
@@ -99,13 +99,13 @@ function savetoDB() {
 			."instruct6,instruct7,instruct8,instruct9,instruct10, \n"
 			."cat1,cat2,cat3,cat4,cat5) \n"
 			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
-			
+
 		$i = 0;
-		
+
 		while ($i < 20)
 		{
 			$post .= "'".trim($ingred[0][$i])."',";
-			
+
 			$i++;
 		}
 
@@ -114,12 +114,12 @@ function savetoDB() {
 		while ($i < 10)
 		{
 			$post .= "'".trim($instruct[0][$i])."',";
-			
+
 			$i++;
 		}
-			
+
 		$post .= "'".$cat1."','".$cat2."','".$cat3."','".$cat4."','".$cat5."');";
-		
+
 		try
 		{
     		$insertRec = $dbConnection->prepare($post);
@@ -131,9 +131,9 @@ function savetoDB() {
 			die();
 		}
 
-		echo "<script type=\"text/javascript\">			
+		echo "<script type=\"text/javascript\">
 			if (confirm('Insert another recipe?')) {
-		    	window.location = './rec_insert_form.php';
+		    	window.location = './newrec.php';
 			}
 			else
 			{
@@ -159,7 +159,7 @@ echo "
 	</head>
 	<body setFocus(); document.recInsert.reset(); document.onkeypress = stopRKey; \">
 	<div class=\"pageDiv\">
-	<form name=\"recInsert\" id=\"insertRec\" method=\"post\" action=\"./rec_insert_form.php\" onsubmit='return validateRecipe(\"recInsert\");'>
+	<form name=\"recInsert\" id=\"insertRec\" method=\"post\" action=\"./newrec.php\" onsubmit='return validateRecipe(\"recInsert\");'>
 	<div class=\"nameDiv\">
 		Name <input autocorrect=\"off\" autocapitalize=\"off\" class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" onKeyPress=\"return limitchar(this, event)\" />
 	</div>
@@ -173,7 +173,7 @@ $i = 1;
 while ($i < 21)
 {
 	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" class=\"ingredBox\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" onKeyPress=\"return limitchar(this, event)\" /></div>";
-		
+
 	$i++;
 }
 
@@ -201,16 +201,16 @@ echo "
 			</div>";
 
 		include("./DB/dbconnect.php");
-		
+
 		$catLoop = "SELECT * FROM theboxli_Categories ORDER BY catName;";
-		
+
 		foreach($dbConnection->query($catLoop) as $row)
 		{
 			echo "<div class=\"categoryDiv\">
 				<label><input type=\"checkbox\" value=\"".$row['catNumber']."\" name=\"cat[]\" id=\"cat[]\" onclick=\"setChecks(this)\" /> ".$row['catName']."</label>
 				</div>";
 		}
-		
+
 		$dbConnection = null;
 
 		echo "</div>
@@ -218,7 +218,7 @@ echo "
 			<div class=\"push\"></div>
 		</div>
 		<div class=\"footerDiv buttons\">
-				<input class=\"smallRed\" type=\"reset\" value=\"Reset\"  onclick=\"window.location.href='./rec_insert_form.php\">
+				<input class=\"smallRed\" type=\"reset\" value=\"Reset\"  onclick=\"window.location.href='./newrec.php\">
 				<input class=\"smallPurple\" name=\"saveRec\" type=\"submit\" value=\"Submit\" >
 				<input class=\"smallGreen\" type=\"button\" value=\"Home\"  onclick=\"window.location.href='./index.php'\">
 		</div>
