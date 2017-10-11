@@ -7,7 +7,7 @@ function get_paging_info($tot_rows,$pp,$curr_page)
     $data = array(); // start out array
     $data['si']        = ($curr_page * $pp) - $pp; // what row to start at
     $data['pages']     = $pages;                   // add the pages
-    $data['curr_page'] = $curr_page;               // Whats the current page
+    $data['curr_page'] = $_GET['p'];               // Whats the current page
 
     return $data; //return the paging data
 }
@@ -17,8 +17,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 date_default_timezone_set('America/Chicago');
 session_start();
-
-$page = $_GET['page'];
 
 echo "
 	<html>
@@ -142,16 +140,15 @@ echo	"<div class=\"buttons\">
 		<div class=\"pageButtons\" >";
 
 include("./DB/dbconnect.php");
-
 include("./paging.php");
 
 echo 	"</div>
 		<div class=\"pageDiv pagePad\">
 			<div class=\"recipeLine\"> </div>";
 
-		$count = ($page * 100) - 100;
+		$count = ($paging_info['curr_page'] * 50) - 50;
 
-		$finalSearch = $searchLoop." LIMIT ".$count.",100;";
+		$finalSearch = $searchLoop." LIMIT ".$count.",50;";
 
 		foreach($dbConnection->query($finalSearch) as $row)
 		{
@@ -182,41 +179,8 @@ echo 	"</div>
 		echo "<div class=\"push\"></div>
 			</div>";
 
+include("./paging.php");
 $dbConnection = null;
-
-//bottom page numbering start
-$i = 0;
-
-echo "<div class=\"pageButtons\" >";
-
-while ($i < $pages)
-{
-	$i++;
-
-	echo "<div class=\"pageButton\" >
-		<form name=\"bottomPage".$i."\" method=\"post\" action=\"./results.php\" >
-			<input type=\"hidden\" name=\"page\" id=\"page\" value=\"".$i."\">";
-
-	if (isset($_POST['searchRec']))
-	{
-		$searchRec = $_POST['searchRec'];
-		echo "<input type=\"hidden\" name=\"searchRec\" id=\"searchRec\" value=\"".$searchRec."\">";
-	}
-
-	if ($i <> $page)
-	{
-		echo "<input class=\"greenButton\" type=\"submit\" name=\"newBottomPage".$i."\" id=\"newBottomPage".$i."\" value=\"".$i."\" >";
-	}
-	else
-	{
-		echo "<input class=\"blackButton\" type=\"submit\" name=\"newBottomPage".$i."\" id=\"newBottomPage".$i."\" value=\"".$i."\">";
-	}
-
-	echo "<input type=\"hidden\" width=\"100%\">
-		</form>
-		</div>";
-}
-//bottom page numbering end
 
 echo 	"</div>
 		<div class=\"buttons\">
