@@ -62,7 +62,7 @@ for($i = $sp; $i <= ($sp + $max -1);$i++) {
 
 //If the current page is less than say the last page minus $max pages divided by 2-->
 if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
-  echo "<a href='./results.php?p=".($paging_info['curr_page']."' title='Page ".$paging_info['pages']."'>".$paging_info['pages']."</a>";
+  echo "<a href='./results.php?p=".$paging_info['curr_page']."' title='Page ".$paging_info['pages']."'>".$paging_info['pages']."</a>";
 }
 
 //Show last two pages if we're not near them -->
