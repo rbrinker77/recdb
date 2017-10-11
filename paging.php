@@ -53,17 +53,18 @@ if($paging_info['curr_page'] >= $max) {
 for($i = $sp; $i <= ($sp + $max -1);$i++) {
   if($i > $paging_info['pages']){
     continue;
-    if($paging_info['curr_page'] == $i) {
-      echo "<span class='bold'>".$i."</span>";
-    } else {
-      echo "<a href='./results.php?p=".$i."' title='Page ".$i."'>".$i."</a>";
-    }
+  }
+  if($paging_info['curr_page'] == $i) {
+    echo "<span class='bold'>".$i."</span>";
+  } else {
+    echo "<a href='./results.php?p=".$i."' title='Page ".$i."'>".$i."</a>";
   }
 }
 
 //If the current page is less than say the last page minus $max pages divided by 2-->
 if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
-  echo "..
+  echo "
+    ..
     <a href='./results.php?p=".$paging_info['pages']."' title='Page ".$paging_info['curr_page']."'>".$paging_info['pages']."</a>";
 }
 
