@@ -20,7 +20,7 @@ function get_paging_info($tot_rows,$pp,$curr_page)
 
 //Call page function from above
 //$paging_info = get_paging_info($count,5,34);
-$paging_info = get_paging_info(25,5,3);
+$paging_info = get_paging_info(31,5,3);
 
 echo "<p>";
 //If the current page is more than 1, show the First and Previous links -->
@@ -69,7 +69,7 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 if($paging_info['curr_page'] < $paging_info['pages']) {
   echo "<a href='./results.php?p=".($paging_info['curr_page']+1)." title='Page ".($paging_info['curr_page']+1)."'>Next</a>";
 
-  echo "<a href='./results.php?p=".++$paging_info['pages']." title='Page ".++$paging_info['pages']."'>Last</a>";
+  echo "<a href='./results.php?p=".$paging_info['pages']." title='Page ".$paging_info['pages']."'>Last</a>";
 }
 
 echo "</p>";
