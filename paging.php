@@ -19,7 +19,7 @@ $count = mysql_fetch_assoc( mysql_query ( "SELECT COUNT( rows ) as count FROM ta
 $count = $count[0]['count'];
 
 //Call page function from above
-$paging_info = get_paging_info($count,5,34);
+//$paging_info = get_paging_info($count,5,34);
 $paging_info = get_paging_info(25,5,3);
 
 echo "<p>";
@@ -66,7 +66,7 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page'] + 1)."' title='Page ".$paging_info['curr_page'] + 1)."'>Next</a>";
+  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page'] + 1)."' title='Page ".($paging_info['curr_page'] + 1)."'>Next</a>";
 
   echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
