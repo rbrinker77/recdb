@@ -5,7 +5,7 @@ $mysql_rows = $dbConnection->query($searchLoop)->rowCount();
 //Call page function from above
 $paging_info = get_paging_info($mysql_rows,$pp);
 
-echo "<p>";
+echo "<br /><p>";
 //If the current page is more than 1, show the First and Previous links -->
 if($paging_info['curr_page'] > 1) {
   echo "<a class='pnum' href='./results.php?p=1' title='Page 1'>First</a>";
@@ -58,6 +58,6 @@ if($paging_info['curr_page'] < $paging_info['pages']) {
   echo "<a class='pnum' href='./results.php?p=".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
 
-echo "</p>";
+echo "</p><br />";
 
 ?>
