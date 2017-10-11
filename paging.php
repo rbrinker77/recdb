@@ -1,4 +1,7 @@
 <?php
+//show errors
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
 function get_paging_info($tot_rows,$pp,$curr_page)
 {
