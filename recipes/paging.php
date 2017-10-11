@@ -38,7 +38,7 @@ for($i = $sp; $i <= ($sp + $max -1);$i++) {
     continue;
   }
   if($paging_info['curr_page'] == $i) {
-    echo "<span class='bold'>".$i."</span>";
+    echo "<span class='pnum'>".$i."</span>";
   } else {
     echo "<a class='pnum' href='./results.php?p=".$i."' title='Page ".$i."'>".$i."</a>";
   }
