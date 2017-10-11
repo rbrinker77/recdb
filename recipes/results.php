@@ -148,7 +148,7 @@ echo 	"</div>
 		<div class=\"pageDiv pagePad\">
 			<div class=\"recipeLine\"> </div>";
 
-		$count = ($paging_info['si'];
+		$count = $paging_info['si'];
 
 		$finalSearch = $searchLoop." LIMIT ".$count.",".$pp.";";
 
