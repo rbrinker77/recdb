@@ -50,7 +50,7 @@ if($paging_info['curr_page'] >= $max) {
 
 //Loop though max number of pages shown and show links either side equal to $max / 2 -->
 for($i = $sp; $i <= ($sp + $max -1);$i++) {
-  if($i > $paging_info['pages']){
+  if($i < $paging_info['pages']){
     continue;
     if($paging_info['curr_page'] == $i) {
       echo "<span class='bold'>".$i."</span>";
@@ -67,9 +67,9 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='./results.php?p=".($paging_info['curr_page']+1)." title='Page ".($paging_info['curr_page']+1)."'>Next</a>";
+  echo "<a href='./results.php?p=".($paging_info['curr_page']+1)."' title='Page ".($paging_info['curr_page']+1)."'>Next</a>";
 
-  echo "<a href='./results.php?p=".$paging_info['pages']." title='Page ".$paging_info['pages']."'>Last</a>";
+  echo "<a href='./results.php?p=".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
 
 echo "</p>";
