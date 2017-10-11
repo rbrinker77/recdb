@@ -32,7 +32,7 @@ if($paging_info['curr_page'] > 1) {
 
 //setup starting point
 //$max is equal to number of links shown
-$max = 7;
+$max = 10;
 if($paging_info['curr_page'] < $max){
   $sp = 1;
 }
