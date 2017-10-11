@@ -3,8 +3,7 @@
 $mysql_rows = $dbConnection->query($searchLoop)->rowCount();
 
 //Call page function from above
-//$paging_info = get_paging_info($count,5,34);
-$paging_info = get_paging_info($mysql_rows,50,3);
+$paging_info = get_paging_info($mysql_rows,$pp);
 
 echo "<p>";
 //If the current page is more than 1, show the First and Previous links -->

@@ -1,6 +1,6 @@
 <?php
 
-function get_paging_info($tot_rows,$pp,$curr_page)
+function get_paging_info($tot_rows,$pp)
 {
     $pages = ceil($tot_rows / $pp); // calc pages
 
@@ -17,6 +17,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 date_default_timezone_set('America/Chicago');
 session_start();
+
+$pp = 30;
 
 echo "
 	<html>
@@ -146,9 +148,9 @@ echo 	"</div>
 		<div class=\"pageDiv pagePad\">
 			<div class=\"recipeLine\"> </div>";
 
-		$count = ($paging_info['curr_page'] * 50) - 50;
+		$count = ($paging_info['si'];
 
-		$finalSearch = $searchLoop." LIMIT ".$count.",50;";
+		$finalSearch = $searchLoop." LIMIT ".$count.",".$pp.";";
 
 		foreach($dbConnection->query($finalSearch) as $row)
 		{
