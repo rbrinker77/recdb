@@ -33,37 +33,44 @@ if($paging_info['curr_page'] > 1) {
 //$max is equal to number of links shown
 $max = 7;
 if($paging_info['curr_page'] < $max){
-  $sp = 1;}
+  $sp = 1;
+}
 elseif($paging_info['curr_page'] >= ($paging_info['pages'] - floor($max / 2)) ){
-  $sp = $paging_info['pages'] - $max + 1;}
+  $sp = $paging_info['pages'] - $max + 1;
+}
 elseif($paging_info['curr_page'] >= $max){
-  $sp = $paging_info['curr_page']  - floor($max/2);}
+  $sp = $paging_info['curr_page']  - floor($max/2);
+}
 
 //If the current page >= $max then show link to 1st page -->
 if($paging_info['curr_page'] >= $max) {
-  echo "<a href='' title='Page 1'>1</a>";}
+  echo "<a href='' title='Page 1'>1</a>";
+}
 
 //Loop though max number of pages shown and show links either side equal to $max / 2 -->
 for($i = $sp; $i <= ($sp + $max -1);$i++) {
   if($i > $paging_info['pages']){
     continue;
     if($paging_info['curr_page'] == $i) {
-      echo "<span class='bold'>".$i."</span>";}
-    else {
-      echo "<a href='' title='Page ".$i."'>".$i."</a>";}
+      echo "<span class='bold'>".$i."</span>";
+    } else {
+      echo "<a href='' title='Page ".$i."'>".$i."</a>";
+    }
   }
 }
 
 //If the current page is less than say the last page minus $max pages divided by 2-->
 if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
-  echo "<a href='' title='Page ".$paging_info['pages']."'>".$paging_info['pages']."</a>";}
+  echo "<a href='' title='Page ".$paging_info['pages']."'>".$paging_info['pages']."</a>";
+}
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page'] + 1)."' title='Page ".$paging_info['curr_page'] + 1)."'>Next</a>";}
+  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page'] + 1)."' title='Page ".$paging_info['curr_page'] + 1)."'>Next</a>";
 
-  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";}
+  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
+
 echo "</p>";
 
 ?>
