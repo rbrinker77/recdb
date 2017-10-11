@@ -22,6 +22,12 @@ input[type="checkbox"] + label {
     color: blue;
 }
 
+.pnum {
+	padding-left: .2em;
+	padding-right: .2em;
+	font-size: 1.3em;
+}
+
 .floatForm {
     width: 100%;
     margin: 0;
