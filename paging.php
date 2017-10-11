@@ -25,8 +25,9 @@ $paging_info = get_paging_info(25,5,3);
 echo "<p>";
 //If the current page is more than 1, show the First and Previous links -->
 if($paging_info['curr_page'] > 1) {
-  echo "<a href='./results.php?p=1' title='Page 1'>First</a>
-    <a href='./results.php?p=".--$paging_info['curr_page']."' title='Page ".--$paging_info['curr_page']."'>Prev</a>";
+  echo "<a href='./results.php?p=1' title='Page 1'>First</a>";
+
+  echo "<a href='./results.php?p=".($paging_info['curr_page']-1)."' title='Page ".($paging_info['curr_page']-1)."'>Prev</a>";
 }
 
 //setup starting point
@@ -66,7 +67,7 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='./results.php?p=".++$paging_info['curr_page']." title='Page ".++$paging_info['curr_page']."'>Next</a>";
+  echo "<a href='./results.php?p=".($paging_info['curr_page']+1)." title='Page ".($paging_info['curr_page']+1)."'>Next</a>";
 
   echo "<a href='./results.php?p=".++$paging_info['pages']." title='Page ".++$paging_info['pages']."'>Last</a>";
 }
