@@ -66,7 +66,7 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".++$paging_info['curr_page']."' title='Page ".++$paging_info['curr_page']."'>Next</a>";
+  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page']+1)."' title='Page ".($paging_info['curr_page']+1)."'>Next</a>";
 
   echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
