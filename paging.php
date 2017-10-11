@@ -15,8 +15,8 @@ function get_paging_info($tot_rows,$pp,$curr_page)
     return $data; //return the paging data
 }
 
-$count = mysql_fetch_assoc( mysql_query ( "SELECT COUNT( rows ) as count FROM table" ) ) ;
-$count = $count[0]['count'];
+//$count = mysql_fetch_assoc( mysql_query ( "SELECT COUNT( rows ) as count FROM table" ) ) ;
+//$count = $count[0]['count'];
 
 //Call page function from above
 //$paging_info = get_paging_info($count,5,34);
