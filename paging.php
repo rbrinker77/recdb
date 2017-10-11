@@ -32,7 +32,7 @@ if($paging_info['curr_page'] > 1) {
 
 //setup starting point
 //$max is equal to number of links shown
-$max = 10;
+$max = 7;
 if($paging_info['curr_page'] < $max){
   $sp = 1;
 }
@@ -51,7 +51,7 @@ if($paging_info['curr_page'] >= $max) {
 
 //Loop though max number of pages shown and show links either side equal to $max / 2 -->
 for($i = $sp; $i <= ($sp + $max -1);$i++) {
-  if($i > $paging_info['pages']){
+  if( ($i == 1 && $paging_info['curr_page'] > 1) || $i => $paging_info['pages']){
     continue;
   }
   if($paging_info['curr_page'] == $i) {
