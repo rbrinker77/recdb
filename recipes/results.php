@@ -5,7 +5,8 @@ function get_paging_info($tot_rows,$pp)
     $pages = ceil($tot_rows / $pp); // calc pages
 
     $data = array(); // start out array
-    $data['si']        = ($curr_page * $pp) - $pp; // what row to start at
+    $data['curr_page'] = $_GET['p'];               // Whats the current page
+    $data['si']        = ($data['curr_page'] * $pp) - $pp; // what row to start at
     $data['pages']     = $pages;                   // add the pages
     $data['curr_page'] = $_GET['p'];               // Whats the current page
 
