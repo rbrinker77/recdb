@@ -1,5 +1,5 @@
 <?php
-
+session_unset();
 
 echo "<html>
 	<head>
@@ -8,7 +8,7 @@ echo "<html>
 		<title>Recipe Portal - Search Recipes</title>
 	</head>
 	<body onload=\"setFocus(); document.recSearch.reset(); \">
-	<form name=\"recSearch\" method=\"post\" action=\"./results.php\" >
+	<form name=\"recSearch\" method=\"post\" action=\"./results.php?p=1\" >
 	<div class=\"headerDiv\">
 		SEARCH RECIPES
 	</div>
@@ -37,10 +37,10 @@ while ($i < 4)
 	echo "<div class=\"ingredDiv\">
 		<input autocorrect=\"off\" autocapitalize=\"off\" class=\"searchBox\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" />
 		</div>";
-	
+
 	$i++;
 }
-			
+
 echo "</div>
 	<div>
 	<div class=\"headerDiv\">
@@ -54,10 +54,10 @@ while ($i < 4)
 	echo "<div class=\"ingredDiv\">
 		<input autocorrect=\"off\" autocapitalize=\"off\" class=\"searchBox\" type=\"text\" name=\"minusIngred[]\" id=\"minusIngred[]\" maxlength=\"75\" />
 		</div>";
-	
+
 	$i++;
 }
-			
+
 echo "</div>
 	<div>
 	<div class=\"headerDiv\">
@@ -75,7 +75,7 @@ $catCount = $dbConnection->query($catLoop)->rowCount();
 $catRows = ceil($catCount / 4);
 $c = 1;
 $i = 1;
-	
+
 foreach($dbConnection->query($catLoop) as $row)
 {
 	echo "<div class=\"classSearchContainer\">
@@ -87,7 +87,7 @@ foreach($dbConnection->query($catLoop) as $row)
 
 echo "</div>
 	</div>";
-	
+
 $dbConnection = null;
 
 echo "<div class=\"push\"></div>

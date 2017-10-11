@@ -1,12 +1,24 @@
 <?php
-session_start();
-date_default_timezone_set('America/Chicago');
+
+function get_paging_info($tot_rows,$pp,$curr_page)
+{
+    $pages = ceil($tot_rows / $pp); // calc pages
+
+    $data = array(); // start out array
+    $data['si']        = ($curr_page * $pp) - $pp; // what row to start at
+    $data['pages']     = $pages;                   // add the pages
+    $data['curr_page'] = $curr_page;               // Whats the current page
+
+    return $data; //return the paging data
+}
 
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+date_default_timezone_set('America/Chicago');
+session_start();
 
-$page = $_POST['page'];
+$page = $_GET['page'];
 
 echo "
 	<html>
@@ -131,39 +143,7 @@ echo	"<div class=\"buttons\">
 
 include("./DB/dbconnect.php");
 
-$mysql_rows = $dbConnection->query($searchLoop)->rowCount();
-$pages = ceil($mysql_rows / 100);
-$i = 0;
-
-//top page numbering start
-while ($i < $pages)
-{
-	$i++;
-
-	echo "<div class=\"pageButton\">
-		<form name=\"topPage".$i."\" method=\"post\" action=\"./results.php\" >
-			<input type=\"hidden\" name=\"page\" id=\"page\" value=\"".$i."\">";
-
-	if (isset($_POST['searchRec']))
-	{
-		$searchRec = $_POST['searchRec'];
-		echo "<input type=\"hidden\" name=\"searchRec\" id=\"searchRec\" value=\"".$searchRec."\">";
-	}
-
-	if ($i <> $page)
-	{
-		echo "<input class=\"greenButton\" type=\"submit\" name=\"newTopPage".$i."\" id=\"newTopPage".$i."\" value=\"".$i."\" >";
-	}
-	else
-	{
-		echo "<input class=\"blackButton\" type=\"submit\" name=\"newTopPage".$i."\" id=\"newTopPage".$i."\" value=\"".$i."\" >";
-	}
-
-	echo "<input type=\"hidden\" width=\"100%\">
-		</form>
-		</div>";
-}
-//top page numbering end
+include("./paging.php");
 
 echo 	"</div>
 		<div class=\"pageDiv pagePad\">
