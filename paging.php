@@ -45,17 +45,17 @@ elseif($paging_info['curr_page'] >= $max){
 
 //If the current page >= $max then show link to 1st page -->
 if($paging_info['curr_page'] >= $max) {
-  echo "<a href='' title='Page 1'>1</a>";
+  echo "<a href='./results.php?p='1' title='Page 1'>1</a>";
 }
 
 //Loop though max number of pages shown and show links either side equal to $max / 2 -->
 for($i = $sp; $i <= ($sp + $max -1);$i++) {
-  if($i < $paging_info['pages']){
+  if($i > $paging_info['pages']){
     continue;
     if($paging_info['curr_page'] == $i) {
       echo "<span class='bold'>".$i."</span>";
     } else {
-      echo "<a href='<a href='./results.php?p=".$i."' title='Page ".$i."'>".$i."</a>";
+      echo "<a href='./results.php?p=".$i."' title='Page ".$i."'>".$i."</a>";
     }
   }
 }
