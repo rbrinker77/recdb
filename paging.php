@@ -26,7 +26,7 @@ echo "<p>";
 //If the current page is more than 1, show the First and Previous links -->
 if($paging_info['curr_page'] > 1) {
   echo "<a href='' title='Page 1'>First</a>
-    <a href='' title='Page ".$paging_info['curr_page'] - 1)."'>Prev</a>";
+    <a href='' title='Page ".--$paging_info['curr_page']."'>Prev</a>";
 }
 
 //setup starting point
@@ -66,7 +66,7 @@ if($paging_info['curr_page'] < ($paging_info['pages'] - floor($max / 2))) {
 
 //Show last two pages if we're not near them -->
 if($paging_info['curr_page'] < $paging_info['pages']) {
-  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".($paging_info['curr_page'] + 1)."' title='Page ".($paging_info['curr_page'] + 1)."'>Next</a>";
+  echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".++$paging_info['curr_page']."' title='Page ".++$paging_info['curr_page']."'>Next</a>";
 
   echo "<a href='".str_replace('/page'.$paging_info['curr_page'], '', $paging_info['curr_url']) . "/page".$paging_info['pages']."' title='Page ".$paging_info['pages']."'>Last</a>";
 }
