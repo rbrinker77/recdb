@@ -204,7 +204,7 @@ echo "
 	</div>
 	<div class=\"buttons\">
 		<form class=\"floatForm\" name=\"deleteRecipe\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return confirmDelete();'>
-			<input class=\"smallPurple twoButtons\" name=\"isView\" type=\"button\" onclick=\"window.location.href='./view.php?recNum=".$recNum."'\" value=\"View\" \">
+			<input class=\"smallBlue twoButtons\" name=\"isView\" type=\"button\" onclick=\"window.location.href='./view.php?recNum=".$recNum."'\" value=\"View\" \">
 			<input class=\"smallRed twoButtons\" name=\"isDelete\" type=\"submit\" value=\"DELETE?\" \">
 		</form>
 	</div>

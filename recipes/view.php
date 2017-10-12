@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/Chicago');
-	
+
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -38,11 +38,12 @@ foreach($dbConnection->query($recQuery) as $row)
 			$when = date("m-d-Y @ h:m",strtotime($row['dateModified']));
 			echo "Last Modified: ".$when;
 		}
-		
+
 		echo "</div>
 			<div class=\"buttons\">
-				<input class=\"smallGreen twoButtons\" type=\"button\" value=\"Home\" onclick=\"window.location.href='./index.php'\">
-				<input class=\"smallRed twoButtons\" type=\"button\" value=\"New Search\" onclick=\"window.location.href='./search.php'\">
+				<input class=\"smallGreen\" type=\"button\" value=\"Home\" onclick=\"window.location.href='./index.php'\">
+				<input class=\"smallBlue\" name=\"isMod\" type=\"button\" onclick=\"window.location.href='./modrec.php?recNum=".$recNum."'\" value=\"Modify\" \">
+				<input class=\"smallRed\" type=\"button\" value=\"New Search\" onclick=\"window.location.href='./search.php'\">
 			</div>
 			<div class=\"category\">
 				INGREDIENTS
@@ -54,7 +55,7 @@ foreach($dbConnection->query($recQuery) as $row)
 	while ($i < 21)
 	{
 		$ingredNum = "ingred".$i;
-		
+
 		if ($row[$ingredNum] <> "")
 		{
 			echo "<div class=\"ingredLine\">&bull; ".$row[$ingredNum]."</div>";
@@ -75,7 +76,7 @@ foreach($dbConnection->query($recQuery) as $row)
 	while ($i < 11)
 	{
 		$instructNum = "instruct".$i;
-		
+
 		if ($row[$instructNum] <> "")
 		{
 			echo "<div class=\"instructLine\"> ".$count.". ".$row[$instructNum]."</div>";
@@ -90,8 +91,9 @@ foreach($dbConnection->query($recQuery) as $row)
 $dbConnection = null;
 
 echo "<div class=\"buttons\">
-			<input class=\"smallGreen twoButtons\" type=\"button\" value=\"Home\" onclick=\"window.location.href='./index.php'\">
-			<input class=\"smallRed twoButtons\" type=\"button\" value=\"New Search\" onclick=\"window.location.href='./search.php'\">
+			<input class=\"smallGreen\" type=\"button\" value=\"Home\" onclick=\"window.location.href='./index.php'\">
+			<input class=\"smallBlue\" name=\"isMod\" type=\"button\" onclick=\"window.location.href='./modrec.php?recNum=".$recNum."'\" value=\"Modify\" \">
+			<input class=\"smallRed\" type=\"button\" value=\"New Search\" onclick=\"window.location.href='./search.php'\">
 		</div>
 	</div>
 	</body>

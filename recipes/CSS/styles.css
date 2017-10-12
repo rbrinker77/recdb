@@ -457,6 +457,42 @@ input[type="checkbox"] + label {
 	position:relative;
 	top:1px;
 }
+.smallBlue
+{
+	padding: 0 1em;
+	-moz-box-shadow:inset 0px 1px 0px 0px #66ccff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #66ccff;
+	box-shadow:inset 0px 1px 0px 0px #66ccff;
+	background-color:#336eff;
+	-webkit-border-top-left-radius:37px;
+	-moz-border-radius-topleft:37px;
+	border-top-left-radius:37px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:37px;
+	-moz-border-radius-bottomright:37px;
+	border-bottom-right-radius:37px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	border:1px solid #0099ff;
+	display:inline-block;
+	color: #FFFFFF;
+	font-size: 0.8em;
+	font-weight:bold;
+	height:2em;
+	line-height:23px;
+	width:auto;
+	text-align:center;
+	text-shadow:1px 1px 0px #0000cc;
+	margin:0.75em 0.125em 0.75em 0.125em;
+}.smallBlue:hover {
+	background-color:#0066ff;
+}.smallBlue:active {
+	position:relative;
+	top:1px;
+}
 
 .modLink, .titles, .names, .dates {
 	font-size: .9em;
@@ -559,7 +595,7 @@ input[type="checkbox"] + label {
 }
 
 @media (max-width: 480px) {
-	.smallGreen, .smallRed, .smallPurple {
+	.smallGreen, .smallRed, .smallPurple, .smallBlue {
 		width: 25%;
 		padding-left: 0;
 		margin-left: 0;
@@ -568,7 +604,7 @@ input[type="checkbox"] + label {
 		float: left;
 	}
 
-	.twoButtons.smallGreen, .twoButtons.smallRed, .twoButtons.smallPurple {
+	.twoButtons.smallGreen, .twoButtons.smallRed, .twoButtons.smallPurple, .twoButtons.smallBlue {
 		width: 50%;
 		float: right;
 	 }
@@ -627,7 +663,7 @@ input[type="checkbox"] + label {
 		float:left;
 	}
 
-	.noprint, .indexContainer, .indexButton, .links, .viewLink, .modLink, .buttons, .pageButtons, .greenButton, .blackButton, .smallGreen, .smallRed, .smallPurple, .viewButton, .modButton {
+	.noprint, .indexContainer, .indexButton, .links, .viewLink, .modLink, .buttons, .pageButtons, .greenButton, .blackButton, .smallGreen, .smallRed, .smallPurple, .smallBlue, .viewButton, .modButton {
 		display:none;
 	}
 }
