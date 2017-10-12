@@ -195,6 +195,7 @@ input[type="checkbox"] + label {
 .push {
 	height:1em;
 	clear:both;
+	padding-top: 1em;
 }
 
 .footerDiv {
@@ -615,7 +616,6 @@ input[type="checkbox"] + label {
 		margin-left:auto;
 		margin-right:auto;
 		text-align: center;
-		padding-bottom: 1em;
 	}
 
 	.catSearch {
