@@ -215,6 +215,7 @@ echo "
 
 		echo "</div>
 			</div>
+			<br />
 			<div class=\"push\"></div>
 		</div>
 		<div class=\"footerDiv buttons\">
