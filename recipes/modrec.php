@@ -203,8 +203,8 @@ echo "
 		MODIFY RECIPE
 	</div>
 	<div class=\"buttons\">
-		<button class=\"smallPurple twoButtons\" name=\"isView\" type=\"submit\" value=\"View\" \">
 		<form class=\"floatForm\" name=\"deleteRecipe\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return confirmDelete();'>
+			<input class=\"smallPurple twoButtons\" name=\"isView\" type=\"button\" value=\"View\" \">
 			<input class=\"smallRed twoButtons\" name=\"isDelete\" type=\"submit\" value=\"DELETE?\" \">
 		</form>
 	</div>
