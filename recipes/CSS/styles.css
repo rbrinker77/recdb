@@ -23,8 +23,8 @@ input[type="checkbox"] + label {
 }
 
 .pnum {
-	padding-left: .2em;
-	padding-right: .2em;
+	padding-left: .3em;
+	padding-right: .3em;
 	font-size: 1.3em;
 	color: #33ff46;
 }
