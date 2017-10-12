@@ -223,6 +223,7 @@ echo "
 				<input class=\"smallGreen\" type=\"button\" value=\"Home\"  onclick=\"window.location.href='./index.php'\">
 		</div>
 		</form>
+		<div/>
 	</body>
 	</html>";
 ?>
