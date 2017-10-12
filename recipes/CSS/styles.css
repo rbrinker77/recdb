@@ -309,46 +309,6 @@ input[type="checkbox"] + label {
 	float: left;
 }
 
-.greenButton, .blackButton {
-	display:inline-block;
-	margin:.3em;
-	font-weight:bold;
-	min-height:1.2em;
-	min-width:1.2em;
-	text-align:center;
-	font-size: 1.2em;
-}
-
-.greenButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
-	box-shadow:inset 0px 1px 0px 0px #caefab;
-	background-color:#539916;
-	border:1px solid #268a16;
-	color:#000000;
-	text-shadow:1px 1px 0px #578031;
-}
-
-.greenButton:hover {
-	background-color:#8ffa37;
-}
-
-.greenButton:active, .blackButton:active {
-	position:relative;
-	top:1px;
-}
-
-.blackButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:#000000;
-	border:none !important;
-	display:inline-block;
-	color:#ffffff;
-	text-shadow:1px 1px 0px #6b686b;
-	pointer-events: none;
-}
-
 .smallGreen {
 	padding: 0 1em;
 	-moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;

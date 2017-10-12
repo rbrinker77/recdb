@@ -7,7 +7,7 @@ echo "<html>
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
 		<title>Recipe Portal - Search Recipes</title>
 	</head>
-	<body onload=\"setFocus(); document.recSearch.reset(); \">
+	<body document.recSearch.reset(); \">
 	<form name=\"recSearch\" method=\"post\" action=\"./results.php?p=1\" >
 	<div class=\"headerDiv\">
 		SEARCH RECIPES

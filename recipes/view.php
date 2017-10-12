@@ -90,12 +90,7 @@ foreach($dbConnection->query($recQuery) as $row)
 
 $dbConnection = null;
 
-echo "<div class=\"buttons\">
-			<input class=\"smallGreen\" type=\"button\" value=\"Home\" onclick=\"window.location.href='./index.php'\">
-			<input class=\"smallBlue\" name=\"isMod\" type=\"button\" onclick=\"window.location.href='./modrec.php?recNum=".$recNum."'\" value=\"Modify\" \">
-			<input class=\"smallRed\" type=\"button\" value=\"New Search\" onclick=\"window.location.href='./search.php'\">
-		</div>
-	</div>
+echo "
 	</body>
 	</html>";
 ?>

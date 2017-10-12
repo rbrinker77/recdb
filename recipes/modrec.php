@@ -198,7 +198,7 @@ echo "
 		<script type=\"text/javascript\" src=\"./JS/functions.js\"></script>
 		<title>Modify ".$row['recName']."</title>
 	</head>
-	<body onload=\"setFocus(); document.onkeypress = stopRKey;\">
+	<body document.onkeypress = stopRKey;\">
 	<div class=\"headerDiv\">
 		MODIFY RECIPE
 	</div>
