@@ -47,26 +47,20 @@ foreach($dbConnection->query($recQuery) as $row)
 			</div>
 			<div class=\"category\">
 				INGREDIENTS
-			</div>";
+			</div>
+			<ul>";
 
-	$i = 1;
-	$count = 1;
-
-	while ($i < 21)
+	for ($i=1; $i < 21; $i++)
 	{
 		$ingredNum = "ingred".$i;
 
 		if ($row[$ingredNum] <> "")
 		{
-			echo "<div class=\"ingredLine\">&bull; ".$row[$ingredNum]."</div>";
-
-			$count++;
+			echo "<li class=\"ingredLine\">".$row[$ingredNum]."</li>";
 		}
-
-		$i++;
 	}
 
-	echo	"<div class=\"category\">
+	echo	"</ul><div class=\"category\">
 				INSTRUCTIONS
 			</div><ol>";
 
@@ -81,7 +75,7 @@ foreach($dbConnection->query($recQuery) as $row)
 	}
 	echo "</ol>";
 }
- 
+
 $dbConnection = null;
 
 echo "
