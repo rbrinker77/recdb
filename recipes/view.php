@@ -81,7 +81,7 @@ foreach($dbConnection->query($recQuery) as $row)
 	}
 	echo "</ol>";
 }
-
+ 
 $dbConnection = null;
 
 echo "
