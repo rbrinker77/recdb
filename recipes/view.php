@@ -71,7 +71,6 @@ foreach($dbConnection->query($recQuery) as $row)
 			</div><ol>";
 
 	$i = 1;
-	$count = 1;
 
 	while ($i < 11)
 	{
@@ -80,8 +79,6 @@ foreach($dbConnection->query($recQuery) as $row)
 		if ($row[$instructNum] <> "")
 		{
 			echo "<li class=\"instructLine\"> ".$row[$instructNum]."</li>";
-
-			$count++;
 		}
 
 		$i++;
