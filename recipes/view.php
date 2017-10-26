@@ -68,7 +68,7 @@ foreach($dbConnection->query($recQuery) as $row)
 
 	echo	"<div class=\"category\">
 				INSTRUCTIONS
-			</div>";
+			</div><ol>";
 
 	$i = 1;
 	$count = 1;
@@ -79,13 +79,14 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$instructNum] <> "")
 		{
-			echo "<div class=\"instructLine\"><table><tr><td>".$count.". </td><td>".$row[$instructNum]."</td></tr></table></div>";
+			echo "<li class=\"instructLine\"> ".$row[$instructNum]."</li>";
 
 			$count++;
 		}
 
 		$i++;
 	}
+	echo "</ol>";
 }
 
 $dbConnection = null;
