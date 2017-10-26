@@ -70,9 +70,7 @@ foreach($dbConnection->query($recQuery) as $row)
 				INSTRUCTIONS
 			</div><ol>";
 
-	$i = 1;
-
-	while ($i < 11)
+	for ($i=1; $i < 11; $i++)
 	{
 		$instructNum = "instruct".$i;
 
@@ -80,8 +78,6 @@ foreach($dbConnection->query($recQuery) as $row)
 		{
 			echo "<li class=\"instructLine\"> ".$row[$instructNum]."</li>";
 		}
-
-		$i++;
 	}
 	echo "</ol>";
 }
