@@ -79,7 +79,7 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$instructNum] <> "")
 		{
-			echo "<div class=\"instructLine\"><td>".$count.". </td><td>".$row[$instructNum]."</td></div>";
+			echo "<div class=\"instructLine\"><table><tr><td>".$count.". </td><td>".$row[$instructNum]."</td></tr></table></div>";
 
 			$count++;
 		}
