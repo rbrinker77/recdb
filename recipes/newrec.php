@@ -78,7 +78,7 @@ function savetoDB() {
 			}
 		}
 
-		for ($i=0; $i < 10; $i++)
+		for ($i=0; $i < 15; $i++)
 		{
 			foreach($badCharacters as $badCharacter)
 			{
@@ -97,6 +97,7 @@ function savetoDB() {
 			."ingred17,ingred18,ingred19,ingred20, \n"
 			."instruct1,instruct2,instruct3,instruct4,instruct5, \n"
 			."instruct6,instruct7,instruct8,instruct9,instruct10, \n"
+			."instruct11,instruct12,instruct13,instruct14,instruct15, \n"
 			."cat1,cat2,cat3,cat4,cat5) \n"
 			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
 
@@ -111,7 +112,7 @@ function savetoDB() {
 
 		$i = 0;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$post .= "'".trim($instruct[0][$i])."',";
 
@@ -188,7 +189,7 @@ $i = 1;
 
 while ($i < 11)
 {
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"500\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
 
 	$i++;
 }

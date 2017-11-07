@@ -41,7 +41,7 @@ function updateDB() {
 
 		$i = 0;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$instructLen = $instructLen + strlen(trim($instruct[0][$i]));
 			$i++;
@@ -119,7 +119,7 @@ function updateDB() {
 		$i = 0;
 		$count = 1;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$post .= "instruct".$count." = '".trim($instruct[0][$i])."', ";
 
@@ -242,7 +242,7 @@ while ($i < 11)
 {
 	$instructNum = "instruct".$i;
 
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"500\" onKeyPress=\"return limitchar(this, event)\" >".$row[$instructNum]."</textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" >".$row[$instructNum]."</textarea></div>";
 
 	$i++;
 }
