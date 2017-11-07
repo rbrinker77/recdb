@@ -187,7 +187,7 @@ echo "</div>
 
 $i = 1;
 
-while ($i < 11)
+while ($i < 16)
 {
 	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
 

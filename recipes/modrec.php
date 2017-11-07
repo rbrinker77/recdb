@@ -20,7 +20,7 @@ function updateDB() {
 		$ingredLen = 0;
 		$instructLen = 0;
 		$i = 0;
- 
+
 		if ($recName == "")
 		{
 			echo "<html><body>You must enter a NAME. Please <a href=\"javascript:history.back()\">GO BACK</a> and correct this.</body></html>";
@@ -238,7 +238,7 @@ echo "</div>
 
 $i = 1;
 
-while ($i < 11)
+while ($i < 16)
 {
 	$instructNum = "instruct".$i;
 
