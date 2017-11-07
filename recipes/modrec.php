@@ -27,7 +27,7 @@ function updateDB() {
 			die();
 		}
 
-		while ($i < 20)
+		while ($i < 24)
 		{
 			$ingredLen = $ingredLen + strlen(trim($ingred[0][$i]));
 			$i++;
@@ -108,7 +108,7 @@ function updateDB() {
 		$i = 0;
 		$count = 1;
 
-		while ($i < 20)
+		while ($i < 24)
 		{
 			$post .= "ingred".$count." = '".trim($ingred[0][$i])."', ";
 
@@ -220,7 +220,7 @@ echo "
 
 $i = 1;
 
-while ($i < 21)
+while ($i < 25)
 {
 	$ingredNum = "ingred".$i;
 

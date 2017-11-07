@@ -50,7 +50,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			</div>
 			<ul>";
 
-	for ($i=1; $i < 21; $i++)
+	for ($i=1; $i < 25; $i++)
 	{
 		$ingredNum = "ingred".$i;
 
