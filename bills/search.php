@@ -24,7 +24,8 @@ $mobile = $_GET["mobile"];
 $brink = @$_GET["brink"];
 $selectPayee = "";
 $currDate = date("Y-m-d");
-$pastDate = date("Y-m-d")-7;
+$pastDate = strtotime ( "-7 day" , strtotime ( $currDate ) ) ;
+$pastDate = date ( "Y-m-d" , $pastDate );
 $dueDateStart_default = $pastDate;
 $dueDateEnd_default = $currDate;
 
