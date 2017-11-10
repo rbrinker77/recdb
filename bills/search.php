@@ -19,12 +19,12 @@
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
- 
+
 $mobile = $_GET["mobile"];
 $brink = @$_GET["brink"];
 $selectPayee = "";
 $currDate = date("Y-m-d");
-$pastDate = $currDate->modify("-7 days");
+$pastDate = date("Y-m-d")-7;
 $dueDateStart_default = $pastDate;
 $dueDateEnd_default = $currDate;
 
