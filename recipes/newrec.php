@@ -70,7 +70,7 @@ function savetoDB() {
 			$recName = str_replace($badCharacter, " ", $recName);
 		}
 
-		for ($i=0; $i < 20; $i++)
+		for ($i=0; $i < 24; $i++)
 		{
 			foreach($badCharacters as $badCharacter)
 			{
@@ -78,7 +78,7 @@ function savetoDB() {
 			}
 		}
 
-		for ($i=0; $i < 10; $i++)
+		for ($i=0; $i < 15; $i++)
 		{
 			foreach($badCharacters as $badCharacter)
 			{
@@ -90,19 +90,20 @@ function savetoDB() {
 
 		$post = "INSERT INTO theboxli_Recipes \n"
 			."(recNumber,recName,dateAdded,dateModified,\n"
-			."ingred1,ingred2, ingred3,ingred4, \n"
-			."ingred5,ingred6,ingred7,ingred8, \n"
-			."ingred9, ingred10,ingred11,ingred12, \n"
-			."ingred13,ingred14,ingred15, ingred16, \n"
-			."ingred17,ingred18,ingred19,ingred20, \n"
+			."ingred1,ingred2, ingred3,ingred4,ingred5,\n"
+			."ingred6,ingred7,ingred8,ingred9, ingred10,\n"
+			."ingred11,ingred12,ingred13,ingred14,ingred15,\n"
+			."ingred16,ingred17,ingred18,ingred19,ingred20,\n"
+			."ingred21,ingred22,ingred23,ingred24,\n"
 			."instruct1,instruct2,instruct3,instruct4,instruct5, \n"
 			."instruct6,instruct7,instruct8,instruct9,instruct10, \n"
+			."instruct11,instruct12,instruct13,instruct14,instruct15, \n"
 			."cat1,cat2,cat3,cat4,cat5) \n"
 			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
 
 		$i = 0;
 
-		while ($i < 20)
+		while ($i < 24)
 		{
 			$post .= "'".trim($ingred[0][$i])."',";
 
@@ -111,7 +112,7 @@ function savetoDB() {
 
 		$i = 0;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$post .= "'".trim($instruct[0][$i])."',";
 
@@ -170,7 +171,7 @@ echo "
 
 $i = 1;
 
-while ($i < 21)
+while ($i < 25)
 {
 	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" class=\"ingredBox\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" onKeyPress=\"return limitchar(this, event)\" /></div>";
 
@@ -186,9 +187,9 @@ echo "</div>
 
 $i = 1;
 
-while ($i < 11)
+while ($i < 16)
 {
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"500\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
 
 	$i++;
 }

@@ -50,7 +50,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			</div>
 			<ul>";
 
-	for ($i=1; $i < 21; $i++)
+	for ($i=1; $i < 25; $i++)
 	{
 		$ingredNum = "ingred".$i;
 
@@ -64,7 +64,7 @@ foreach($dbConnection->query($recQuery) as $row)
 				INSTRUCTIONS
 			</div><ol>";
 
-	for ($i=1; $i < 11; $i++)
+	for ($i=1; $i < 16; $i++)
 	{
 		$instructNum = "instruct".$i;
 

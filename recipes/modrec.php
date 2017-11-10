@@ -27,7 +27,7 @@ function updateDB() {
 			die();
 		}
 
-		while ($i < 20)
+		while ($i < 24)
 		{
 			$ingredLen = $ingredLen + strlen(trim($ingred[0][$i]));
 			$i++;
@@ -41,7 +41,7 @@ function updateDB() {
 
 		$i = 0;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$instructLen = $instructLen + strlen(trim($instruct[0][$i]));
 			$i++;
@@ -108,7 +108,7 @@ function updateDB() {
 		$i = 0;
 		$count = 1;
 
-		while ($i < 20)
+		while ($i < 24)
 		{
 			$post .= "ingred".$count." = '".trim($ingred[0][$i])."', ";
 
@@ -119,7 +119,7 @@ function updateDB() {
 		$i = 0;
 		$count = 1;
 
-		while ($i < 10)
+		while ($i < 15)
 		{
 			$post .= "instruct".$count." = '".trim($instruct[0][$i])."', ";
 
@@ -220,7 +220,7 @@ echo "
 
 $i = 1;
 
-while ($i < 21)
+while ($i < 25)
 {
 	$ingredNum = "ingred".$i;
 
@@ -238,11 +238,11 @@ echo "</div>
 
 $i = 1;
 
-while ($i < 11)
+while ($i < 16)
 {
 	$instructNum = "instruct".$i;
 
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"500\" onKeyPress=\"return limitchar(this, event)\" >".$row[$instructNum]."</textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" >".$row[$instructNum]."</textarea></div>";
 
 	$i++;
 }

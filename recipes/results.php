@@ -85,14 +85,14 @@ echo "
 //loop for wanted ingredients
 		foreach ($ingred as $wantingred) {
 			if ($wantingred <> "xxxxxxxxxxx") {
-				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20)) LIKE LOWER('%".$wantingred."%') ";
+				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20),LOWER(ingred21),LOWER(ingred22),LOWER(ingred23),LOWER(ingred24)) LIKE LOWER('%".$wantingred."%') ";
 			}
 		}
 
 //loop for unwanted ingredients
 		foreach ($minusIngred as $notingred) {
 			if ($notingred <> "xxxxxxxxxxx") {
-				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20)) NOT LIKE LOWER('%".$notingred."%') ";
+				$searchLoop .= " AND CONCAT_WS(',',LOWER(ingred1),LOWER(ingred2),LOWER(ingred3),LOWER(ingred4),LOWER(ingred5),LOWER(ingred6),LOWER(ingred7),LOWER(ingred8),LOWER(ingred9),LOWER(ingred10),LOWER(ingred11),LOWER(ingred12),LOWER(ingred13),LOWER(ingred14),LOWER(ingred5),LOWER(ingred16),LOWER(ingred17),LOWER(ingred18),LOWER(ingred19),LOWER(ingred20),LOWER(ingred21),LOWER(ingred22),LOWER(ingred23),LOWER(ingred24)) NOT LIKE LOWER('%".$notingred."%') ";
 			}
 		}
 
