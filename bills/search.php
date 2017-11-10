@@ -23,8 +23,10 @@ ini_set('display_errors', '1');
 $mobile = $_GET["mobile"];
 $brink = @$_GET["brink"];
 $selectPayee = "";
-$dueDateStart_default = "2012-01-01";
-$dueDateEnd_default = "2012-01-01";
+$currDate = date("Y-m-d");
+$pastDate = $currDate->modify("-7 days");
+$dueDateStart_default = $pastDate;
+$dueDateEnd_default = $currDate;
 
 if (isset($_POST['searchBills']))
 {
@@ -41,7 +43,7 @@ else
 function createPayeeList ($selectPayee,$firstList)
 {
 	include("./DB/dbconnect.php");
-	
+
 	$payeesQuery = "SELECT * \n"
 		."FROM theboxli_Payees \n"
 		."ORDER BY payeeName";
@@ -50,7 +52,7 @@ function createPayeeList ($selectPayee,$firstList)
 	{
 		$payeeNum = $dropdown['payeeNum'];
 		$payeeName = $dropdown['payeeName'];
-		
+
 		if ($payeeNum == $selectPayee)
 		{
 			$selected = "selected";
@@ -59,16 +61,16 @@ function createPayeeList ($selectPayee,$firstList)
 		{
 			$selected = "";
 		}
-		
+
 		if ($firstList == "yes")
 		{
 			echo "<option value=\"\" >All</option>";
 			$firstList = "no";
 		}
-		
+
 		echo "<option value=\"".$payeeNum."\" ".$selected." >".$payeeName."</option>";
 	}
-	
+
 	$dbConnection = null;
 }
 
@@ -88,7 +90,7 @@ echo "		<td>
 					createPayeeList($selectPayee,"yes");
 echo "			</select>
 			</td>";
-		
+
 echo "		<td>";
    				$dateDueCalendar = new tc_calendar("dueDateStart", true, false);
    				$dateDueCalendar->setIcon("./calendar/images/iconCalendar.gif");
@@ -99,7 +101,7 @@ echo "		<td>";
    				$dateDueCalendar->setYearInterval(2012, 2050);
    				$dateDueCalendar->setAlignment('left', 'bottom');
    				$dateDueCalendar->setDatePair('dueDateStart', 'dueDateEnd', $dueDateEnd);
-   				$dateDueCalendar->writeScript();	  
+   				$dateDueCalendar->writeScript();
 
    				$dateDueCalendar = new tc_calendar("dueDateEnd", true, false);
    				$dateDueCalendar->setIcon("./calendar/images/iconCalendar.gif");
@@ -110,9 +112,9 @@ echo "		<td>";
    				$dateDueCalendar->setYearInterval(2012, 2050);
    				$dateDueCalendar->setAlignment('left', 'bottom');
    				$dateDueCalendar->setDatePair('dueDateStart', 'dueDateEnd', $dueDateStart);
-   				$dateDueCalendar->writeScript();	
+   				$dateDueCalendar->writeScript();
 echo "
-			</td>";	
+			</td>";
 
 echo"		<td><input name=\"searchBills\" type=\"submit\" class=\"searchButton\" value=\"Search\" ><input type=\"button\" class=\"backButton\" value=\"Reset\" onclick=\"window.location.href='./search.php?mobile=".$mobile."&brink=".$brink."'\" ><input name=\"back\" type=\"button\" class=\"homeButton\" value=\"Back\"  onclick=\"window.location.href='./billsPage.php?mobile=".$mobile."&brink=".$brink."'\"></td>
 	</tr>
@@ -122,7 +124,7 @@ echo"		<td><input name=\"searchBills\" type=\"submit\" class=\"searchButton\" va
 if (isset($_POST['searchBills']))
 {
 	include("./DB/dbconnect.php");
-	
+
 	$searchQuery = "SELECT * \n"
 		."FROM theboxli_Bills, theboxli_Payees \n"
 		."WHERE theboxli_Bills.payeeNum = theboxli_Payees.payeeNum ";
@@ -140,7 +142,7 @@ if (isset($_POST['searchBills']))
 	$searchQuery .= "ORDER BY theboxli_Payees.payeeName, theboxli_Bills.amount";
 
 	$i = 0;
-		
+
 	foreach($dbConnection->query($searchQuery) as $row)
 	{
 		if ($i == 0)
@@ -176,9 +178,9 @@ if (isset($_POST['searchBills']))
 			<td headers=\"duedate\" axis=\"date\">".$row['dateDue']."</td>
 		</tr>";
 	}
-	
+
 	$dbConnection = null;
-	
+
 	echo "</tbody>
 		</table>";
 }
