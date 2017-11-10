@@ -89,16 +89,6 @@ function savetoDB() {
 		include("./DB/dbconnect.php");
 
 		$post = "INSERT INTO theboxli_Recipes \n"
-			."(recNumber,recName,dateAdded,dateModified,\n"
-			."ingred1,ingred2, ingred3,ingred4,ingred5,\n"
-			."ingred6,ingred7,ingred8,ingred9, ingred10,\n"
-			."ingred11,ingred12,ingred13,ingred14,ingred15,\n"
-			."ingred16,ingred17,ingred18,ingred19,ingred20,\n"
-			."ingred21,ingred22,ingred23,ingred24,\n"
-			."instruct1,instruct2,instruct3,instruct4,instruct5, \n"
-			."instruct6,instruct7,instruct8,instruct9,instruct10, \n"
-			."instruct11,instruct12,instruct13,instruct14,instruct15, \n"
-			."cat1,cat2,cat3,cat4,cat5) \n"
 			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
 
 		$i = 0;
