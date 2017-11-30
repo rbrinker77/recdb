@@ -72,10 +72,11 @@ function savetoDB() {
 
 		for ($i=0; $i < 24; $i++)
 		{
-			foreach($badCharacters as $badCharacter)
+			/*foreach($badCharacters as $badCharacter)
 			{
 				$ingred[0][$i] = str_replace($badCharacter, " ", $ingred[0][$i]);
-			}
+			}*/
+			$ingred[0][$i] = htmlentities($ingred[0][$i], ENT_QUOTES);
 		}
 
 		for ($i=0; $i < 15; $i++)
