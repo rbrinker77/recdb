@@ -211,7 +211,7 @@ echo "
 	<div class=\"pageDiv\">
 	<form name=\"recModify\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return validateRecipe(\"recModify\");'>
 	<div class=\"nameDiv\">
-		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" value=\"".html_entity_decode($row['recName'], ENT_QUOTES)."\" /></td>
+		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" value=\"".$row['recName']."\" /></td>
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">
@@ -224,7 +224,7 @@ while ($i < 25)
 {
 	$ingredNum = "ingred".$i;
 
-	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" value=\"".html_entity_decode($row[$ingredNum], ENT_QUOTES)."\" /></div>";
+	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" value=\"".$row[$ingredNum]."\" /></div>";
 
 	$i++;
 }
@@ -242,7 +242,7 @@ while ($i < 16)
 {
 	$instructNum = "instruct".$i;
 
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" >".html_entity_decode($row[$instructNum], ENT_QUOTES)."</textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" >".$row[$instructNum]."</textarea></div>";
 
 	$i++;
 }
