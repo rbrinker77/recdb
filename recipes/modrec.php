@@ -103,14 +103,14 @@ function updateDB() {
 
 		$post = "UPDATE theboxli_Recipes \n"
 			."SET \n"
-			."recName = '".trim($recName)."', ";
+			."recName = '".trim(htmlentities($row['recName'], ENT_QUOTES))."', ";
 
 		$i = 0;
 		$count = 1;
 
 		while ($i < 24)
 		{
-			$post .= "ingred".$count." = '".trim($ingred[0][$i])."', ";
+			$post .= "ingred".$count." = '".trim(htmlentities($ingred[0][$i], ENT_QUOTES))."', ";
 
 			$i++;
 			$count++;
@@ -121,7 +121,7 @@ function updateDB() {
 
 		while ($i < 15)
 		{
-			$post .= "instruct".$count." = '".trim($instruct[0][$i])."', ";
+			$post .= "instruct".$count." = '".trim(htmlentities($instruct[0][$i], ENT_QUOTES))."', ";
 
 			$i++;
 			$count++;
@@ -196,7 +196,7 @@ echo "
 		<meta name=\"viewport\" content=\"width=device-width\">
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
 		<script type=\"text/javascript\" src=\"./JS/functions.js\"></script>
-		<title>Modify ".$row['recName']."</title>
+		<title>Modify ".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 	</head>
 	<body document.onkeypress = stopRKey;\">
 	<div class=\"headerDiv\">
@@ -211,7 +211,7 @@ echo "
 	<div class=\"pageDiv\">
 	<form name=\"recModify\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return validateRecipe(\"recModify\");'>
 	<div class=\"nameDiv\">
-		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" value=\"".$row['recName']."\" /></td>
+		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" value=\"".html_entity_decode($row['recName'], ENT_QUOTES)."\" /></td>
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">
@@ -224,7 +224,7 @@ while ($i < 25)
 {
 	$ingredNum = "ingred".$i;
 
-	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" value=\"".$row[$ingredNum]."\" /></div>";
+	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" value=\"".html_entity_decode($row[$ingredNum], ENT_QUOTES)."\" /></div>";
 
 	$i++;
 }
@@ -242,7 +242,7 @@ while ($i < 16)
 {
 	$instructNum = "instruct".$i;
 
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" >".$row[$instructNum]."</textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" >".html_entity_decode($row[$instructNum], ENT_QUOTES)."</textarea></div>";
 
 	$i++;
 }
