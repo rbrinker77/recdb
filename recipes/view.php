@@ -57,7 +57,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		if ($row[$ingredNum] <> "")
 		{
 			//echo "<li class=\"ingredLine\">".$row[$ingredNum]."</li>";
-			echo "<li class=\"ingredLine\">".htmlentities($row[$ingredNum], ENT_QUOTES)."</li>";
+			echo "<li class=\"ingredLine\">".html_entity_decode($row[$ingredNum], ENT_QUOTES)."</li>";
 		}
 	}
 
