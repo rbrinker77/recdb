@@ -19,12 +19,12 @@ foreach($dbConnection->query($recQuery) as $row)
 		<head>
 			<meta name=\"viewport\" content=\"width=device-width\">
 			<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
-			<title>".$row['recName']."</title>
+			<title>".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 		</head>
 		<body>
 		<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
-				.$row['recName']."
+				.html_entity_decode($row['recName'], ENT_QUOTES)."
 			</div>
 			<div class=\"dateDiv\">";
 
@@ -56,7 +56,6 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$ingredNum] <> "")
 		{
-			//echo "<li class=\"ingredLine\">".$row[$ingredNum]."</li>";
 			echo "<li class=\"ingredLine\">".html_entity_decode($row[$ingredNum], ENT_QUOTES)."</li>";
 		}
 	}
@@ -71,7 +70,7 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$instructNum] <> "")
 		{
-			echo "<li class=\"instructLine\"> ".$row[$instructNum]."</li>";
+			echo "<li class=\"instructLine\">".html_entity_decode($row[$instructNum], ENT_QUOTES)."</li>";
 		}
 	}
 	echo "</ol>";

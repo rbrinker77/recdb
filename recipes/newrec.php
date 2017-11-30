@@ -63,28 +63,16 @@ function savetoDB() {
 			$cat5 = $cat[0][4];
 		}
 
-		$badCharacters[] = array("\"", "'", "!", "@", "#", "$", "%", "^", "*", "+", "=", "[", "]", "{", "}", "\\", "|", ";", ":", "?", "<", ">", "`", "~", "     ", "    ", "   ", "  ");
-
-		foreach($badCharacters as $badCharacter)
-		{
-			$recName = str_replace($badCharacter, " ", $recName);
-		}
+		$recName = htmlentities($recName, ENT_QUOTES);
 
 		for ($i=0; $i < 24; $i++)
 		{
-			/*foreach($badCharacters as $badCharacter)
-			{
-				$ingred[0][$i] = str_replace($badCharacter, " ", $ingred[0][$i]);
-			}*/
 			$ingred[0][$i] = htmlentities($ingred[0][$i], ENT_QUOTES);
 		}
 
 		for ($i=0; $i < 15; $i++)
 		{
-			foreach($badCharacters as $badCharacter)
-			{
-				$instruct[0][$i] = str_replace($badCharacter, " ", $instruct[0][$i]);
-			}
+			$instruct[0][$i] = htmlentities($instruct[0][$i], ENT_QUOTES);
 		}
 
 		include("./DB/dbconnect.php");
@@ -153,7 +141,7 @@ echo "
 	<div class=\"pageDiv\">
 	<form name=\"recInsert\" id=\"insertRec\" method=\"post\" action=\"./newrec.php\" onsubmit='return validateRecipe(\"recInsert\");'>
 	<div class=\"nameDiv\">
-		Name <input autocorrect=\"off\" autocapitalize=\"off\" class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" onKeyPress=\"return limitchar(this, event)\" />
+		Name <input autocorrect=\"off\" autocapitalize=\"off\" class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"75\" />
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">
@@ -164,7 +152,7 @@ $i = 1;
 
 while ($i < 25)
 {
-	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" class=\"ingredBox\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" onKeyPress=\"return limitchar(this, event)\" /></div>";
+	echo "<div class=\"ingredDiv\"><input autocorrect=\"off\" autocapitalize=\"off\" class=\"ingredBox\" type=\"text\" name=\"ingred[]\" id=\"ingred[]\" maxlength=\"75\" /></div>";
 
 	$i++;
 }
@@ -180,7 +168,7 @@ $i = 1;
 
 while ($i < 16)
 {
-	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" onKeyPress=\"return limitchar(this, event)\" ></textarea></div>";
+	echo "<div class=\"instructDiv\"><textarea autocorrect=\"off\" autocapitalize=\"off\" class=\"instructBox\" name=\"instruct[]\" id=\"instruct[]\" maxlength=\"1000\" ></textarea></div>";
 
 	$i++;
 }
