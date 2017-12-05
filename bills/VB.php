@@ -13,11 +13,7 @@
 </head>
 <body>
 
-  <a class="twitter-timeline"
-    href="https://twitter.com/RileyBell22"
-    data-width="300"
-    data-height="300">
-  </a>
+  <a class="twitter-timeline" href="https://twitter.com/RileyBell22?ref_src=twsrc%5Etfw">Tweets by RileyBell22</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 <!-- jQuery library -->
 <script src="libs/js/jquery.js"></script>
