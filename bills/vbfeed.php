@@ -2,7 +2,12 @@
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-  $name=$_POST['name'].", #".$_POST['jersey'];
+  if ( $_POST['jersey'] > 0 ) {
+    $name=$_POST['name'].", #".$_POST['jersey'];
+  }
+  else {
+    $name=$_POST['name'];
+  }
   $twittername=$_POST['twitter'];
   $instaname=$_POST['instagram'];
 ?>
