@@ -26,7 +26,7 @@
     echo "<p class='instapic'>
       <figure>
         <b><figcaption>".$name."</figcaption></b>
-        <a href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+        <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </figure>
       </p>
       <br />
@@ -34,7 +34,7 @@
 
     foreach ($instas['user']['media']['nodes'] as $insta) {
       $postdate = date("m-d-Y @ H:i", $insta['date']);
-      echo "<a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
+      echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
     }
   }
   else {
@@ -42,7 +42,7 @@
   }
 
   if ( $twittername <> "" ) {
-    echo "</br /></br /></br /><a class='twitter-timeline' data-theme='dark' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+    echo "</br /></br /></br /><a class='twitter-timeline' data-theme='dark' target='_blank' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   }
 ?>
 
