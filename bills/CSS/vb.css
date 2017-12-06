@@ -9,6 +9,7 @@ form {
 }
 
 .thumbs {
-	width:150px;
-	height:150px;
+	float:left;
+	border: 1px;
+	border-color: white;
 }
