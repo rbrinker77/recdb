@@ -25,17 +25,20 @@
 
 //var_dump($instas);die();
 
-  if ( $instaname <> "" || is_null($instas['user']['media']['nodes']['count']) ) {
+  if ( $instaname <> "" ) {
     echo "<h3>".$name."</h3>";
     echo "<p class='instapic'>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </p>
-      <br />
-      <h2>Instagram</h2>";
+      <br />";
 
-    foreach ($instas['user']['media']['nodes'] as $insta) {
-      $postdate = date("m-d-Y @ H:i", $insta['date']);
-      echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
+    if ( $instas['user']['media']['nodes']['count'] > 0 ) {
+      echo "<h2>Instagram</h2>";
+
+      foreach ($instas['user']['media']['nodes'] as $insta) {
+        $postdate = date("m-d-Y @ H:i", $insta['date']);
+        echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
+      }
     }
   }
 
