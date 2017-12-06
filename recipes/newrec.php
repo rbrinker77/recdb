@@ -75,7 +75,7 @@ function savetoDB() {
 			$instruct[0][$i] = htmlentities($instruct[0][$i], ENT_QUOTES);
 		}
 
-		include("./DB/dbconnect.php");
+		include("../DB/dbconnect.php");
 
 		$post = "INSERT INTO theboxli_Recipes \n"
 			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
@@ -133,8 +133,8 @@ echo "
 	<html>
 	<head>
 		<meta name=\"viewport\" content=\"width=device-width\">
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
-		<script type=\"text/javascript\" src=\"./JS/functions.js\"></script>
+		<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
+		<script type=\"text/javascript\" src=\"../JS/functions.js\"></script>
 		<title>Recipe Portal - Add Recipe</title>
 	</head>
 	<body setFocus(); document.recInsert.reset(); document.onkeypress = stopRKey; \">
@@ -180,7 +180,7 @@ echo "
 				CATEGORIES
 			</div>";
 
-		include("./DB/dbconnect.php");
+		include("../DB/dbconnect.php");
 
 		$catLoop = "SELECT * FROM theboxli_Categories ORDER BY catName;";
 

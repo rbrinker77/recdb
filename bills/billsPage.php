@@ -5,9 +5,9 @@
 ?>
 
 <head>
-	<link rel="stylesheet" href="./CSS/bills.css" type="text/css">
-	<script type="text/javascript" src="./JS/Event.js"></script>
-	<script type="text/javascript" src="./JS/SortedTable.js"></script>
+	<link rel="stylesheet" href="../CSS/bills.css" type="text/css">
+	<script type="text/javascript" src="../JS/Event.js"></script>
+	<script type="text/javascript" src="../JS/SortedTable.js"></script>
 	<script type="text/javascript">onload = function() {var myTable = new SortedTable();}</script>
 </head>
 
@@ -44,17 +44,17 @@ if (isset($_POST['isPaid']))
 
 function createPayeeList ($payee)
 {
-	include("./DB/dbconnect.php");
-	
+	include("../DB/dbconnect.php");
+
 	$payeesQuery = "SELECT * \n"
 		."FROM theboxli_Payees \n"
 		."ORDER BY payeeName";
-	
+
 	foreach($dbConnection->query($payeesQuery) as $dropdown)
 	{
 		$payeeNum = $dropdown['payeeNum'];
 		$payeeName = $dropdown['payeeName'];
-		
+
 		if ($payeeName == $payee)
 		{
 			$selected = "selected";
@@ -67,12 +67,12 @@ function createPayeeList ($payee)
 
 		echo "<option value=\"".$payeeNum."\" ".$selected." >".$payeeName."</option>";
 	}
-	
+
 }
 
 function updateRec($billNum)
 {
-	include("./DB/dbconnect.php");
+	include("../DB/dbconnect.php");
 
 	$chars = array("-", " ", "/");
 	$dateDue = str_replace($chars, "", $_POST["dateDue".$billNum]);
@@ -82,19 +82,19 @@ function updateRec($billNum)
 	$descU = $_POST["description".$billNum];
 	$dateDueU = date('Ymd', strtotime($formedDate));
 	$updateQuery="UPDATE theboxli_Bills SET payeeNum = ".$payeeNumU.", amount = ".$amountU.", description = '".$descU."', dateDue = ".$dateDueU." WHERE billNum = ".$billNum;
-	
+
 	$updateBill = $dbConnection->prepare($updateQuery);
 	$updateBill->execute();
-	
+
 	$dbConnection = null;
 }
 
 function paidRec($billNum)
 {
-	include("./DB/dbconnect.php");
-	
+	include("../DB/dbconnect.php");
+
 	$paidQuery="UPDATE theboxli_Bills SET isPaid = 1, datePaid = CURDATE() WHERE billNum = ".$billNum;
-	
+
 	$setPaid = $dbConnection->prepare($paidQuery);
 	$setPaid->execute();
 
@@ -103,8 +103,8 @@ function paidRec($billNum)
 
 function addRec()
 {
-	include("./DB/dbconnect.php");
-	
+	include("../DB/dbconnect.php");
+
 	$chars = array("-", " ", "/");
 	$dateDue = str_replace($chars, "", $_POST["dateDue"]);
 	$formedDate = substr($dateDue,4,4).substr($dateDue,0,4);
@@ -116,29 +116,29 @@ function addRec()
 	$addQuery="INSERT INTO theboxli_Bills \n"
 		."(payeeNum, amount, description, dateDue, dateAdded) \n"
 		."VALUES (".$payeeNumA.", ".$amountA.", '".$descA."', '".$dateDueA."', '".$dateAdded."')";
-	
+
 	$addBill = $dbConnection->prepare($addQuery);
 	$addBill->execute();
-	
+
 	$dbConnection = null;
 }
 
 function deleteRec($billNum)
 {
-	include("./DB/dbconnect.php");
-	
+	include("../DB/dbconnect.php");
+
 	$deleteQuery="DELETE FROM theboxli_Bills WHERE billNum = ".$billNum;
-	
+
 	$deleteBill = $dbConnection->prepare($deleteQuery);
 	$deleteBill->execute();
-	
+
 	$dbConnection = null;
 }
 
 echo "<html>
 <body>";
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $owedQuery = "SELECT SUM(amount) FROM theboxli_Bills WHERE amount > 0";
 
@@ -200,7 +200,7 @@ echo "<table align=\"center\">
 		</thead>
 		<tbody>";
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $billsQuery = "SELECT * \n"
 	."FROM theboxli_Bills, theboxli_Payees \n"
@@ -216,7 +216,7 @@ foreach($dbConnection->query($billsQuery) as $row)
 	$amount = $row['amount'];
 	$description = $row['description'];
 	$dateDue = date('m-d-Y',strtotime($row['dateDue']));
-	
+
 	echo "<tr>";
 	echo "<form name=\"update".$billNum."\" action=\"./billsPage.php?mobile=".$mobile."&brink=".$brink."&billNum=".$billNum."\" method=\"post\">";
 		if ($brink == "brink")
@@ -224,7 +224,7 @@ foreach($dbConnection->query($billsQuery) as $row)
 			echo "<td><input name=\"isUpdate\" id=\"isUpdate\" type=\"submit\" class=\"updateButton\" value=\"Update\" ><input name=\"isDelete\" id=\"isDelete\" type=\"submit\" class=\"deleteButton\" value=\"Delete\" ></td>";
 
 			echo "<td headers=\"payee\"><select name=\"payee".$billNum."\" id=\"payee".$billNum."\">";
-			
+
 			createPayeeList($payee);
 
 			echo "</select></td>";
@@ -244,7 +244,7 @@ foreach($dbConnection->query($billsQuery) as $row)
 	echo "</form>";
 	echo "</tr>";
 }
-		
+
 $dbConnection = null;
 
 echo "<tr><td> </td></tr>
@@ -266,7 +266,7 @@ echo "<tr><td> </td></tr>
 		</thead>
 		<tbody>";
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $creditsQuery = "SELECT * \n"
 	."FROM theboxli_Bills, theboxli_Payees \n"
@@ -284,7 +284,7 @@ foreach($dbConnection->query($creditsQuery) as $row)
 	$dateDue = date('m-d-Y',strtotime($row['dateDue']));
 
 	echo "<tr>";
-	
+
 	if ($brink == "brink")
 	{
 		echo "<form name=\"update".$billNum."\" action=\"./billsPage.php?mobile=".$mobile."&brink=".$brink."&billNum=".$billNum."\" method=\"post\">";
@@ -292,7 +292,7 @@ foreach($dbConnection->query($creditsQuery) as $row)
 		echo "<td><input name=\"isUpdate\" id=\"isUpdate\" type=\"submit\" class=\"updateButton\" value=\"Update\" ><input name=\"isDelete\" id=\"isDelete\" type=\"submit\" class=\"deleteButton\" value=\"Delete\" ></td>";
 
 		echo "<td headers=\"payee\"><select name=\"payee".$billNum."\" id=\"payee".$billNum."\">";
-			
+
 		createPayeeList($payee);
 
 		echo "</select></td>";
@@ -309,10 +309,10 @@ foreach($dbConnection->query($creditsQuery) as $row)
 		echo "<td headers=\"desc\" class=\"field\" axis=\"sstring\">".$description."</td>";
 		echo "<td headers=\"duedate\" class=\"field\" >".$dateDue."</td>";
 	}
-		
+
 	echo "</tr>";
 }
-		
+
 $dbConnection = null;
 
 echo "</tbody>
@@ -322,7 +322,7 @@ echo "<br />";
 
 if ($brink == "brink")
 {
-	
+
 	echo "<table align=\"center\">
 	<tr>
 		<td width=\"10%\"></td>
@@ -331,13 +331,13 @@ if ($brink == "brink")
 		<td width=\"45%\"></td>
 		<td width=\"15%\"></td>
 	</tr>";
-	
+
 	echo "<form name=\"addBill\" action=\"./billsPage.php?mobile=".$mobile."&brink=".$brink."\" method=\"post\">";
-	
+
 	echo "<tr>
 		<td><input name=\"addRec\" type=\"submit\" class=\"addButton\" value=\"Add\" ></td>";
 	echo "<td><select name=\"payee\" id=\"payee\">";
-			
+
 	createPayeeList("");
 
 	echo "</select></td>";
@@ -349,7 +349,7 @@ if ($brink == "brink")
 	echo "</form>
 		</table>";
 }
-	
+
 echo "</body>
 </html>";
 

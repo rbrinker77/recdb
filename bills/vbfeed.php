@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
   <title>Volleyball feed for <?php echo $name; ?></title>
-  <link rel="stylesheet" href="./CSS/vb.css" type="text/css">
+  <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
 </head>
 <body>
 <?php

@@ -8,7 +8,7 @@ ini_set('display_errors', '1');
 
 $recNum = $_GET['recNum'];
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
@@ -18,7 +18,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		<html>
 		<head>
 			<meta name=\"viewport\" content=\"width=device-width\">
-			<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
+			<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 			<title>".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 		</head>
 		<body>
@@ -83,4 +83,4 @@ echo "
 	</html>";
 ?>
 
-<script type="text/javascript" src="./JS/functions.js"></script>
+<script type="text/javascript" src="../JS/functions.js"></script>

@@ -13,7 +13,7 @@ ini_set('display_errors', '1');
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+		<link rel="stylesheet" type="text/css" href="../CSS/styles.css">
 		<title>Recipe Portal</title>
 	</head>
 	<body>

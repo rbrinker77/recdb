@@ -7,11 +7,11 @@
 	require_once('./calendar/tc_calendar.php');
 ?>
 <head>
-	<link rel="stylesheet" href="./CSS/bills.css" type="text/css">
+	<link rel="stylesheet" href="../CSS/bills.css" type="text/css">
 	<link href="./calendar/calendar.css" rel="stylesheet" type="text/css">
 	<script language="javascript" src="./calendar/calendar.js"></script>
-	<script type="text/javascript" src="./JS/Event.js"></script>
-	<script type="text/javascript" src="./JS/SortedTable.js"></script>
+	<script type="text/javascript" src="../JS/Event.js"></script>
+	<script type="text/javascript" src="../JS/SortedTable.js"></script>
 	<script type="text/javascript">onload = function() {var myTable = new SortedTable();}</script>
 </head>
 
@@ -43,7 +43,7 @@ else
 
 function createPayeeList ($selectPayee,$firstList)
 {
-	include("./DB/dbconnect.php");
+	include("../DB/dbconnect.php");
 
 	$payeesQuery = "SELECT * \n"
 		."FROM theboxli_Payees \n"
@@ -124,7 +124,7 @@ echo"		<td><input name=\"searchBills\" type=\"submit\" class=\"searchButton\" va
 
 if (isset($_POST['searchBills']))
 {
-	include("./DB/dbconnect.php");
+	include("../DB/dbconnect.php");
 
 	$searchQuery = "SELECT * \n"
 		."FROM theboxli_Bills, theboxli_Payees \n"

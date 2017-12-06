@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <title>Volleyball Feeds</title>
-  <link rel="stylesheet" href="./CSS/vb.css" type="text/css">
+  <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
 <body>
   <?php
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $vbroster = "SELECT * FROM vb ORDER BY name ASC;";
 

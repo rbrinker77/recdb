@@ -4,7 +4,7 @@ session_unset();
 echo "<html>
 	<head>
 		<meta name=\"viewport\" content=\"width=device-width\">
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
+		<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 		<title>Recipe Portal - Search Recipes</title>
 	</head>
 	<body document.recSearch.reset(); \">
@@ -64,7 +64,7 @@ echo "</div>
 		CATEGORIES
 	</div>";
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $catLoop = "SELECT * FROM theboxli_Categories ORDER BY catName;";
 $i = 1;
@@ -107,4 +107,4 @@ echo "
 	</html>";
 ?>
 
-<script type="text/javascript" src="./JS/functions.js"></script>
+<script type="text/javascript" src="../JS/functions.js"></script>

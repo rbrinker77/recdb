@@ -25,7 +25,7 @@ echo "
 	<html>
 	<head>
 		<meta name=\"viewport\" content=\"width=device-width\">
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
+		<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 		<title>Recipe Portal - Search Results</title>
 	</head>
 	<body>
@@ -142,7 +142,7 @@ echo	"<div class=\"buttons\">
 		</div>
 		<div class=\"pageButtons\" >";
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 include("./paging.php");
 
 echo 	"</div>
@@ -194,4 +194,4 @@ echo 	"</div>
 	</html>";
 ?>
 
-<script type="text/javascript" src="./JS/functions.js"></script>
+<script type="text/javascript" src="../JS/functions.js"></script>

@@ -99,7 +99,7 @@ function updateDB() {
 			$cat5 = $cat[0][4];
 		}
 
-		include("./DB/dbconnect.php");
+		include("../DB/dbconnect.php");
 
 		$post = "UPDATE theboxli_Recipes \n"
 			."SET \n"
@@ -152,7 +152,7 @@ function deleteRec()
 {
 	$recNum = $_GET['recNum'];
 
-	include("./DB/dbconnect.php");
+	include("../DB/dbconnect.php");
 
 	$deleteQuery="DELETE FROM theboxli_Recipes WHERE recNumber = ".$recNum;
 	$deleteRec = $dbConnection->prepare($deleteQuery);
@@ -181,7 +181,7 @@ if (!empty($_REQUEST['isDelete']))
 	deleteRec();
 }
 
-include("./DB/dbconnect.php");
+include("../DB/dbconnect.php");
 
 $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 $result = $dbConnection->prepare($recQuery);
@@ -194,8 +194,8 @@ echo "
 	<html>
 	<head>
 		<meta name=\"viewport\" content=\"width=device-width\">
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"./CSS/styles.css\">
-		<script type=\"text/javascript\" src=\"./JS/functions.js\"></script>
+		<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
+		<script type=\"text/javascript\" src=\"../JS/functions.js\"></script>
 		<title>Modify ".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 	</head>
 	<body document.onkeypress = stopRKey;\">
@@ -254,7 +254,7 @@ echo "
 				CATEGORIES
 			</div>";
 
-		include("./DB/dbconnect.php");
+		include("../DB/dbconnect.php");
 
 		$catLoop = "SELECT * FROM theboxli_Categories ORDER BY catName;";
 
