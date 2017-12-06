@@ -32,7 +32,7 @@ ini_set('display_errors', 1);
   //var_dump($insta);
   echo "<p class='instapic'>
     <figure>
-      <figcaption>".$name."</figcaption>
+      <b><figcaption>".$name."</figcaption></b>
       <img src='".$instas['user']['profile_pic_url_hd']."' alt='".$instaname." Profile Pic' />
     </figure>
     </p>
