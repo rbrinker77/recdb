@@ -32,7 +32,7 @@
       </p>
       <br />";
 
-    if ( count(($instas['user']['media']['nodes']) > 0 ) {
+    if ( count($instas['user']['media']['nodes']) > 0 ) {
       echo "<h2>Instagram</h2>";
 
       foreach ($instas['user']['media']['nodes'] as $insta) {
