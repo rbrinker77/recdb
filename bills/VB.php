@@ -25,7 +25,7 @@ ini_set('display_errors', 1);
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
   //var_dump($insta);
-  echo "<p class='insta-timeline'><img src='".$insta['user']['profile_pic_url_hd']."' alt='".$username." HD Profile Pic' /></p>";
+  echo "<p class='insta-timeline'><img src='".$instas['user']['profile_pic_url_hd']."' alt='".$instaname." HD Profile Pic' /></p>";
   foreach ($instas['user']['nodes'] as $insta) {
     $postdate = date("m-d-Y @ H:i", $insta['date']);
     echo "<a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0].['src']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
