@@ -7,7 +7,7 @@
 
 include("./DB/dbconnect.php");
 
-$vbroster = "SELECT * FROM vb ORDER BY jersey ASC, name ASC;";
+$vbroster = "SELECT * FROM vb ORDER BY name ASC;";
 
 echo "<h2>Volleyball Feeds</h2>";
 
