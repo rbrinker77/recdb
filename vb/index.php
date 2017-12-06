@@ -13,7 +13,7 @@ else {
     <title>Volleyball Feeds</title>
     <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
   <body>
-    <?php
+  <?php
 
   include("../DB/dbconnect.php");
 
@@ -21,7 +21,7 @@ else {
 
   foreach($dbConnection->query($vbroster) as $row)
   {
-  	echo "<div class='thumbs'><form action='./vbfeed.php' method='post'>
+  	echo "<div class='thumbs'><form action='./index.php' method='post'>
       <input type='image' src='./Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
@@ -36,6 +36,6 @@ else {
   ?>
   </body>
   </html>
-<?
+<?php
 }
 ?>
