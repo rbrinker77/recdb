@@ -22,8 +22,8 @@
 
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
-echo $instas['user']['media']['nodes']['count'];
-//var_dump($instas); 
+var_dump( $instas['user']['media']['nodes']['count']);
+//var_dump($instas);
 die();
 
   if ( $instaname <> "" || 1==2) {
