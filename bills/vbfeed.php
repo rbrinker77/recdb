@@ -34,7 +34,7 @@
 
     foreach ($instas['user']['media']['nodes'] as $insta) {
       $postdate = date("m-d-Y @ H:i", $insta['date']);
-      echo "<br /><a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
+      echo "<a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
     }
   }
   else {
@@ -42,7 +42,7 @@
   }
 
   if ( $twittername <> "" ) {
-    echo "</br /><a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+    echo "</br /><a class='twitter-timeline' data-theme="dark" href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   }
 ?>
 
