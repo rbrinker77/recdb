@@ -24,7 +24,6 @@
   $instas = json_decode($instaResult,true);
 
   //var_dump($instas);die();
-  echo count(($instas['user']['media']['nodes']));
 
   if ( $instaname <> "" ) {
     echo "<h3>".$name."</h3>";
@@ -33,7 +32,7 @@
       </p>
       <br />";
 
-    if ( $instas['user']['media']['nodes']['count'] > 0 ) {
+    if ( count(($instas['user']['media']['nodes']) > 0 ) {
       echo "<h2>Instagram</h2>";
 
       foreach ($instas['user']['media']['nodes'] as $insta) {
