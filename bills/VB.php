@@ -19,11 +19,11 @@ ini_set('display_errors', 1);
 <body>
 <?php
   //Riley Bell
-  $name="Riley Bell, #5"
+  $name="Riley Bell, #5";
   $twittername="RileyBell22";
   $instaname="rileybell2";
   //Sydney Hilley
-  $name="Sydney Hilley, #2"
+  $name="Sydney Hilley, #2";
   $twittername="sydhil_";
   $instaname="sydneyhilley";
 
