@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
  <?php
   $username="rileybell2";
   $instaResult = file_get_contents("https://www.instagram.com/".$username."/?__a=1");
-  $insta = json_decode($instaResult);
+  $insta = json_decode($instaResult,true);
   var_dump($insta);
   echo "<p class='insta-timeline'><img src=".$insta['profile_pic_url_hd']." alt=".$username." HD Profile Pic' /></p>";
  ?>
