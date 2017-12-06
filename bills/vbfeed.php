@@ -23,11 +23,9 @@
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
     $instas = json_decode($instaResult,true);
     //var_dump($insta);
+    echo "<h3>".$name."</h3>";
     echo "<p class='instapic'>
-      <figure>
-        <figcaption><h3>".$name."</h3></figcaption>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
-      </figure>
       </p>
       <br />
       <h2>Instagram</h2>";
@@ -36,9 +34,6 @@
       $postdate = date("m-d-Y @ H:i", $insta['date']);
       echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
     }
-  }
-  else {
-    echo "<h3>".$name."</h3>";
   }
 
   if ( $twittername <> "" ) {
