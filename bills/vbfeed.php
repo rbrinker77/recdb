@@ -26,7 +26,7 @@
     echo "<p class='instapic'>
       <figure>
         <b><figcaption>".$name."</figcaption></b>
-        <img src='".$instas['user']['profile_pic_url_hd']."' alt='".$instaname." Profile Pic' />
+        <a href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </figure>
       </p>
       <br />
