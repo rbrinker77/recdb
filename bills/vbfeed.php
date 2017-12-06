@@ -22,11 +22,10 @@
 
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
-var_dump( $instas['user']['media']['nodes']['count']);
-//var_dump($instas);
-die();
 
-  if ( $instaname <> "" || 1==2) {
+//var_dump($instas);die();
+
+  if ( $instaname <> "" || is_null($instas['user']['media']['nodes']['count']) ) {
     echo "<h3>".$name."</h3>";
     echo "<p class='instapic'>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
