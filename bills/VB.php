@@ -20,8 +20,11 @@ ini_set('display_errors', 1);
 <?php
   //Riley Bell
   $twittername="RileyBell22";
-  //echo "<a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   $instaname="rileybell2";
+  //Sydney Hilley
+  $twittername="sydhil_";
+  $instaname="sydneyhilley";
+
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
   //var_dump($insta);
@@ -30,6 +33,7 @@ ini_set('display_errors', 1);
     $postdate = date("m-d-Y @ H:i", $insta['date']);
     echo "<a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
   }
+  echo "<a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
 ?>
 <!-- jQuery library -->
 <script src="libs/js/jquery.js"></script>
