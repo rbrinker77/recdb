@@ -9,7 +9,7 @@ echo "<div class=\"roster\">
 
 foreach($dbConnection->query($vbroster) as $row)
 {
-	echo "<form action='./vbfeed.php' type='post'>
+	echo "<form action='./vbfeed.php' method='post'>
     <input type='submit' name='submit' value='".$row['name']."'>
     <input type='hidden' name='name' value='".$row['name']."'>
     <input type='hidden' name='jersey' value='".$row['jersey']."'>
