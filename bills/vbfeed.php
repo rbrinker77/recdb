@@ -33,9 +33,12 @@
       echo "<br /><a class='instapost' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
     }
   }
+  else {
+    echo "<h3>".$name."</h3>";
+  }
 
   if ( $twittername <> "" ) {
-    echo "<h2>Twitter</h2></br /><a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+    echo "</br /><a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   }
 ?>
 
