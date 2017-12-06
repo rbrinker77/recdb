@@ -25,7 +25,7 @@
     //var_dump($insta);
     echo "<p class='instapic'>
       <figure>
-        <b><figcaption>".$name."</figcaption></b>
+        <figcaption><h3>".$name."</h3></figcaption>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </figure>
       </p>
