@@ -19,10 +19,12 @@
 </head>
 <body>
 <?php
-  if ( $instaname <> "" ) {
-    $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
-    $instas = json_decode($instaResult,true);
-    //var_dump($insta);
+
+  $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
+  $instas = json_decode($instaResult,true);
+var_dump($instas);
+
+  if ( $instaname <> "" || ) {
     echo "<h3>".$name."</h3>";
     echo "<p class='instapic'>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
