@@ -14,7 +14,7 @@ echo "<h2>Volleyball Feeds</h2>";
 foreach($dbConnection->query($vbroster) as $row)
 {
 	echo "<form action='./vbfeed.php' method='post'>
-    <input type='submit' name='submit' value='".$row['name']."'>
+    <input class='thumbs' type='image' src='./Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
     <input type='hidden' name='name' value='".$row['name']."'>
     <input type='hidden' name='jersey' value='".$row['jersey']."'>
     <input type='hidden' name='twitter' value='".$row['twitter']."'>
