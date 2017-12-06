@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php
-  if ( !is_null($instaname) ) {
+  if ( $instaname <> "" ) {
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
     $instas = json_decode($instaResult,true);
     //var_dump($insta);
@@ -34,7 +34,7 @@
     }
   }
 
-  if ( !is_null($twittername) ) {
+  if ( $twittername <> "" ) {
     echo "<h2>Twitter</h2></br /><a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   }
 ?>
