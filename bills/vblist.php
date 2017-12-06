@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>Volleyball Feeds</title>
+  <link rel="stylesheet" href="./CSS/vb.css" type="text/css">
 <body>
   <?php
 
@@ -13,13 +14,14 @@ echo "<h2>Volleyball Feeds</h2>";
 
 foreach($dbConnection->query($vbroster) as $row)
 {
-	echo "<form action='./vbfeed.php' method='post'>
-    <input class='thumbs' type='image' src='./Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
+	echo "<div class='thumbs'><form action='./vbfeed.php' method='post'>
+    <input type='image' src='./Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
     <input type='hidden' name='name' value='".$row['name']."'>
     <input type='hidden' name='jersey' value='".$row['jersey']."'>
     <input type='hidden' name='twitter' value='".$row['twitter']."'>
     <input type='hidden' name='instagram' value='".$row['instagram']."'>
-    </form>";
+    </form>
+    </div>";
 }
 
 $dbConnection = null;

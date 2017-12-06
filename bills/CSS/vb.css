@@ -1,0 +1,14 @@
+body {
+	background-color:black;
+	color:white;
+	font: 100% Arial, Helvetica, sans-serif;
+}
+
+form {
+	padding: 0;
+}
+
+.thumbs {
+	width:150px;
+	height:150px;
+}

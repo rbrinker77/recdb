@@ -16,6 +16,7 @@
 <html lang="en">
 <head>
   <title>Volleyball feed for <?php echo $name; ?></title>
+  <link rel="stylesheet" href="./CSS/vb.css" type="text/css">
 </head>
 <body>
 <?php
@@ -26,7 +27,7 @@
   //var_dump($instas);die();
 
   echo "<h3>".$name."</h3>";
-  
+
   if ( $instaname <> "" ) {
     echo "<p class='instapic'>
         <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
