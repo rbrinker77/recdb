@@ -42,7 +42,7 @@
   }
 
   if ( $twittername <> "" ) {
-    echo "</br /><a class='twitter-timeline' data-theme='dark' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+    echo "</br /></br /></br /><a class='twitter-timeline' data-theme='dark' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
   }
 ?>
 
