@@ -12,9 +12,15 @@
     <link href="libs/js/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
 </head>
 <body>
-
-  <a class="twitter-timeline" href="https://twitter.com/RileyBell22?ref_src=twsrc%5Etfw">Tweets by RileyBell22</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-
+  <!-- //Riley Bell
+  <a class="twitter-timeline" href="https://twitter.com/RileyBell22?ref_src=twsrc%5Etfw">Tweets by RileyBell22</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+ ––>
+ <?php
+  $username="rileybell2";
+  $instaResult = file_get_contents('https://www.instagram.com/'.$username.'/?__a=1');
+  $insta = json_decode($instaResult);
+  var_dump($insta);
+ ?>
 <!-- jQuery library -->
 <script src="libs/js/jquery.js"></script>
 
