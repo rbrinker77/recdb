@@ -10,8 +10,6 @@ include("./DB/dbconnect.php");
 
 $vbroster = "SELECT * FROM vb ORDER BY name ASC;";
 
-echo "<h2>Volleyball Feeds</h2><br />";
-
 foreach($dbConnection->query($vbroster) as $row)
 {
 	echo "<div class='thumbs'><form action='./vbfeed.php' method='post'>
