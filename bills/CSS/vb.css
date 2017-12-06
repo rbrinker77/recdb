@@ -10,6 +10,7 @@ form {
 
 .thumbs {
 	float:left;
-	border: 1px;
+	border-style: solid;
+	border-width: 1px;
 	border-color: black;
 }
