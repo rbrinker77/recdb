@@ -17,16 +17,16 @@ ini_set('display_errors', 1);
     <link href="libs/js/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
 </head>
 <body>
-  <!-- //Riley Bell
-  <a class="twitter-timeline" href="https://twitter.com/RileyBell22?ref_src=twsrc%5Etfw">Tweets by RileyBell22</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
- ––>
- <?php
-  $username="rileybell2";
-  $instaResult = file_get_contents("https://www.instagram.com/".$username."/?__a=1");
+<?php
+  //Riley Bell
+  $twittername="RileyBell22";
+  //echo "<a class='twitter-timeline' href='https://twitter.com/".$twittername."?ref_src=twsrc%5Etfw'>Tweets by ".$twittername."</a> <script async src='https://platform.twitter.com/widgets.js' charset='utf-8'></script>";
+  $instaname="rileybell2";
+  $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $insta = json_decode($instaResult,true);
   var_dump($insta);
   echo "<p class='insta-timeline'><img src='".$insta['user']['profile_pic_url_hd']."' alt='".$username." HD Profile Pic' /></p>";
- ?>
+?>
 <!-- jQuery library -->
 <script src="libs/js/jquery.js"></script>
 
