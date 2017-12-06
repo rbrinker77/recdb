@@ -1,4 +1,9 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Volleyball Feeds</title>
+<body>
+  <?php
 
 include("./DB/dbconnect.php");
 
@@ -20,3 +25,5 @@ foreach($dbConnection->query($vbroster) as $row)
 $dbConnection = null;
 
 ?>
+</body>
+</html>
