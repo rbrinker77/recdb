@@ -23,7 +23,6 @@
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
     $instas = json_decode($instaResult,true);
     //var_dump($insta);
-    var_dump($instaname);
     echo "<p class='instapic'>
       <figure>
         <b><figcaption>".$name."</figcaption></b>
