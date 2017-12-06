@@ -23,7 +23,7 @@
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
 
-//var_dump($instas);die();
+var_dump($instas);die();
 
   if ( $instaname <> "" ) {
     echo "<h3>".$name."</h3>";
