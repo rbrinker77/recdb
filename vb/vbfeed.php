@@ -26,7 +26,7 @@
 
   //$instas = json_decode($instaResult);var_dump($instas);die();
 
-  echo "<div><h3>".$name."</h3>";
+  echo "<div style='width:100%;'><h3>".$name."</h3>";
 
   if ( $instaname <> "" ) {
     echo "<div class='instapic'>";
