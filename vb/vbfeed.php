@@ -32,13 +32,13 @@
     echo "<div class='instapic'>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
-      <div class='instapic'>";
+      <div>";
 
     if ( $instas['user']['external_url'] <> "" ) {
         echo "External: <a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
     }
 
-    echo "</div><br />";
+    echo "</div></div><br />";
 
     if ( count($instas['user']['media']['nodes']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
