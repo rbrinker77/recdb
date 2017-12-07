@@ -26,10 +26,10 @@
 
   //$instas = json_decode($instaResult);var_dump($instas);die();
 
-  echo "<div style='width:100%;'><h3>".$name."</h3>";
+  echo "<div class='instapic'><h3>".$name."</h3>";
 
   if ( $instaname <> "" ) {
-    echo "<div class='instapic'>";
+    echo "<div>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
