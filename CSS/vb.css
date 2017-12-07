@@ -20,6 +20,6 @@ form {
 	white-space:nowrap;
 }
 
-.instapic div div {
+.instapic>div  {
 	display:inline-block
 }
