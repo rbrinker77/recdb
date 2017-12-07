@@ -24,7 +24,7 @@
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
 
-  var_dump($instas);die();
+  $instas = json_decode($instaResult);var_dump($instas);die();
 
   echo "<div><h3>".$name."</h3>";
 
@@ -41,7 +41,7 @@
     echo "</div><br />";
 
     if ( count($instas['user']['media']['nodes']) > 0 ) {
-      echo "<h2>Instagram</h2>";
+      echo "<h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
       foreach ($instas['user']['media']['nodes'] as $insta) {
         $postdate = date("m-d-Y @ H:i", $insta['date']);
