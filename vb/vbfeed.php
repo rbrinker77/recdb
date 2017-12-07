@@ -24,7 +24,7 @@
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
 
-  $instas = json_decode($instaResult);var_dump($instas);die();
+  //$instas = json_decode($instaResult);var_dump($instas);die();
 
   echo "<div><h3>".$name."</h3>";
 
@@ -34,8 +34,9 @@
       </div>
       <div style='float:left;'>";
 
-    if ( $instas['user']['external_url'] <> "" ) {
-        echo "<a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
+    if ( $instas['user']['external_url'] <> "" || $instas['user']['connected_fb_page'] <> "" ) {
+        echo "External: <a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
+        echo "Facebook: <a target='_blank' href='".$instas['user']['connected_fb_page']."'>".$instas['user']['connected_fb_page']."</a>";
     }
 
     echo "</div><br />";
