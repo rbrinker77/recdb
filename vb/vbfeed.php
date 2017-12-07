@@ -29,8 +29,11 @@
   echo "<h3>".$name."</h3>";
 
   if ( $instaname <> "" ) {
-    echo "<p class='instapic'>
-        <a target='_blank' href='".$instas['user']['external_url']."'><img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<p class='instapic'>";
+    if ( $instas['user']['external_url'] <> "" ) {
+      echo "<a target='_blank' href='".$instas['user']['external_url']."'>";
+    }
+    echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </p>
       <br />";
 
