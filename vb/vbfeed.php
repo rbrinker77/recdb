@@ -24,7 +24,7 @@
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
 
-  //var_dump($instas);die();
+  var_dump($instas);die();
 
   echo "<div><h3>".$name."</h3>";
 
@@ -32,7 +32,7 @@
     echo "<div class='instapic'>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
-      <div>";
+      <div style='float:left;'>";
 
     if ( $instas['user']['external_url'] <> "" ) {
         echo "<a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
