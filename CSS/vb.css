@@ -15,6 +15,7 @@ form {
 	border-color: black;
 }
 
-.instapic {
+.instapic div div {
 	height: 350px;
+	width: 50%;
 }
