@@ -38,7 +38,7 @@
         echo "External: <a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
     }
 
-    echo "</div><br /><div>";
+    echo "</div><br />";
 
     if ( count($instas['user']['media']['nodes']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
