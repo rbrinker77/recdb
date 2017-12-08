@@ -48,6 +48,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			<div class=\"category\">
 				INGREDIENTS
 			</div>
+			<div>
 			<ul>";
 
 	for ($i=1; $i < 25; $i++)
@@ -60,9 +61,9 @@ foreach($dbConnection->query($recQuery) as $row)
 		}
 	}
 
-	echo	"</ul><div class=\"category\">
+	echo	"</ul></div><div class=\"category\">
 				INSTRUCTIONS
-			</div><ol>";
+			</div><div><ol>";
 
 	for ($i=1; $i < 16; $i++)
 	{
@@ -73,7 +74,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			echo "<li class=\"instructLine\">".html_entity_decode($row[$instructNum], ENT_QUOTES)."</li>";
 		}
 	}
-	echo "</ol>";
+	echo "</ol></div>";
 }
 
 $dbConnection = null;
