@@ -48,7 +48,7 @@ else {
 
 
   $limit = 10; // Set the number of articles to load here
-  for($n=0;$x<$limit;$n++) {
+  for($n=0;$n<$limit;$n++) {
   	$title = str_replace(' & ', ' &amp; ', $feed[$n]['title']);
   	$link = $feed[$n]['link'];
   	$description = $feed[$n]['desc'];
