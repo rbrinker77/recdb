@@ -21,7 +21,7 @@ else {
 
   foreach($dbConnection->query($vbroster) as $row)
   {
-    echo "<div><a href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>"
+    echo "<div><a href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>";
   	echo "<div class='thumbs'><form action='./index.php' method='post'>
       <input type='image' src='../Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
