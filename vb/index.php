@@ -32,7 +32,7 @@ else {
   }
 
   $dbConnection = null;
-//
+///
   $rss = new DOMDocument();
   $rss->load('http://host.madison.com/search/?f=rss&t=article&c=sports/college&l=25&s=start_time&sd=desc'); // Set the blog RSS feed url here
 
