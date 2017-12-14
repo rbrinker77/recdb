@@ -28,7 +28,7 @@
 
   echo "<div class='instapic'><h3>".$name."</h3>";
 
-  if ( $instaname <> "" ) {
+  if ( $instaname <> "" && !isnull($instaname) ) {
     echo "<div>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
