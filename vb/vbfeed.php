@@ -20,7 +20,7 @@
 </head>
 <body>
 <?php
-
+var_dump($instaname);
   $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
   $instas = json_decode($instaResult,true);
 
