@@ -20,15 +20,15 @@
 </head>
 <body>
 <?php
-var_dump($instaname);
-  $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
-  $instas = json_decode($instaResult,true);
-
-  //$instas = json_decode($instaResult);var_dump($instas);die();
 
   echo "<div class='instapic'><h3>".$name."</h3>";
 
-  if ( $instaname <> "" && !isnull($instaname) ) {
+  if ( $instaname <> "" ) {
+
+    $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
+    $instas = json_decode($instaResult,true);
+
+    //$instas = json_decode($instaResult);var_dump($instas);die();
     echo "<div>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
