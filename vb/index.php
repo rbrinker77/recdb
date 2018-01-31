@@ -19,7 +19,7 @@ else {
 
   include("../DB/dbconnect.php");
 
-  $vbroster = "SELECT * FROM vb ORDER BY name ASC;";
+  $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY name ASC;";
 
   foreach($dbConnection->query($vbroster) as $row)
   {
