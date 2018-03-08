@@ -6,6 +6,23 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 function randomRec($meat) {
+	//Main dish
+	$cat1	= 1;
+
+	//Meatless
+	$cat2 = 14;
+
+	$flag1 = $cat1." IN (cat1,cat2,cat3,cat4,cat5) ";
+
+	if ($meat == 'y') {
+		$flag2 = $cat2." IN (cat1,cat2,cat3,cat4,cat5) ";
+	} else {
+		$flag2 = "1=1";
+	}
+	if ($flag1 > 0) {
+		$searchLoop .= " AND ".$cat1." IN (cat1,cat2,cat3,cat4,cat5) ";
+	}
+
 	$randQuery = "SELECT r.recNumber "
 		."FROM theboxli_Recipes AS r "
 		."WHERE ".$flag1." "
