@@ -1,12 +1,26 @@
 <?php
-
 date_default_timezone_set('America/Chicago');
 
 //show errors
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-$recNum = $_GET['recNum'];
+function randomRec($meat) {
+	$randQuery = "SELECT r.recNumber "
+		."FROM theboxli_Recipes AS r "
+		."WHERE ".$flag1." "
+		."AND ".$flag2." "
+		."ORDER BY RAND() "
+		."LIMIT 1;";
+echo $randQuery;
+	return $recNum;
+}
+
+if ($_GET['rdm'] == 'y') {
+	$recNum = randomRec($_GET['meat']);
+} else {
+	$recNum = $_GET['recNum'];
+}
 
 include("../DB/dbconnect.php");
 
