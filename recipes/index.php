@@ -26,5 +26,11 @@ ini_set('display_errors', '1');
 		<div class="indexContainer">
 			<input class="indexButton" type="button" name="addRec" id="addRec" value="Add Recipe" onclick="window.location='./newrec.php'"/>
 		</div>
+		<div class="indexContainer">
+			<input class="indexButton" type="button" name="randRecM" id="randRecM" value="Random Meat Dish" onclick="window.location='./view.php?rdm=y&meat=y'"/>
+		</div>
+		<div class="indexContainer">
+			<input class="indexButton" type="button" name="randRecV" id="randRecM" value="Random Veggie Dish" onclick="window.location='./view.php?rdm=y&meat=n'"/>
+		</div>
 	</body>
 </html>
