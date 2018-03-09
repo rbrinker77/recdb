@@ -19,9 +19,6 @@ function randomRec($meat) {
 	} else {
 		$flag2 = "1=1";
 	}
-	if ($flag1 > 0) {
-		$searchLoop .= " AND ".$cat1." IN (cat1,cat2,cat3,cat4,cat5) ";
-	}
 
 	$randQuery = "SELECT r.recNumber "
 		."FROM theboxli_Recipes AS r "
@@ -29,7 +26,9 @@ function randomRec($meat) {
 		."AND ".$flag2." "
 		."ORDER BY RAND() "
 		."LIMIT 1;";
-echo $randQuery;
+	foreach($dbConnection->query($randQuery) as $row) {
+		$recNum = $row['recNumber'];
+	}
 	return $recNum;
 }
 
