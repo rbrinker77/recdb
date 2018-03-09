@@ -14,7 +14,7 @@ function randomRec($meat) {
 
 	$flag1 = $cat1." IN (cat1,cat2,cat3,cat4,cat5) ";
 
-	if ($meat == 'y') {
+	if ($meat == 'n') {
 		$flag2 = $cat2." IN (cat1,cat2,cat3,cat4,cat5) ";
 	} else {
 		$flag2 = "1=1";
@@ -28,7 +28,7 @@ function randomRec($meat) {
 		."LIMIT 1;";
 
 	include("../DB/dbconnect.php");
-	
+
 	foreach($dbConnection->query($randQuery) as $row) {
 		$recNum = $row['recNumber'];
 	}
