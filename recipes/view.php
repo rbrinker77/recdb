@@ -26,6 +26,9 @@ function randomRec($meat) {
 		."AND ".$flag2." "
 		."ORDER BY RAND() "
 		."LIMIT 1;";
+
+	include("../DB/dbconnect.php");
+	
 	foreach($dbConnection->query($randQuery) as $row) {
 		$recNum = $row['recNumber'];
 	}
