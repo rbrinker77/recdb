@@ -90,7 +90,8 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$ingredNum] <> "")
 		{
-			echo "<li class=\"ingredLine\">".html_entity_decode($row[$ingredNum], ENT_QUOTES)."</li>";
+			$ingredient = html_entity_decode($row[$ingredNum], ENT_QUOTES);
+			echo "<li class=\"ingredLine\">".$ingredient."</li>";
 		}
 	}
 
@@ -104,7 +105,8 @@ foreach($dbConnection->query($recQuery) as $row)
 
 		if ($row[$instructNum] <> "")
 		{
-			echo "<li class=\"instructLine\">".html_entity_decode($row[$instructNum], ENT_QUOTES)."</li>";
+			$instruction = html_entity_decode($row[$instructNum], ENT_QUOTES);
+			echo "<li class=\"instructLine\">".$instruction."</li>";
 		}
 	}
 	echo "</ol></div>";
