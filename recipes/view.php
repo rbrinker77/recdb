@@ -114,6 +114,14 @@ foreach($dbConnection->query($recQuery) as $row)
 		if ($row[$instructNum] <> "")
 		{
 			$instruction = html_entity_decode($row[$instructNum], ENT_QUOTES);
+			if(strpos($instruction, "##") !== FALSE) {
+				$ingredientparts = (explode("##",$ingredient));
+
+				$instruction = $instructionparts[0];
+				$instruction .= "<a class='reclink' href='./view.php?recNum=".$instructionparts[1]."' target='_blank'>";
+				$instruction .= $instructionparts[2]."</a>";
+				$instruction .= $instructionparts[3];
+			}
 			echo "<li class=\"instructLine\">".$instruction."</li>";
 		}
 	}
