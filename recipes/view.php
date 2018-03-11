@@ -115,7 +115,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		{
 			$instruction = html_entity_decode($row[$instructNum], ENT_QUOTES);
 			if(strpos($instruction, "##") !== FALSE) {
-				$ingredientparts = (explode("##",$ingredient));
+				$instructionparts = (explode("##",$instruction));
 
 				$instruction = $instructionparts[0];
 				$instruction .= "<a class='reclink' href='./view.php?recNum=".$instructionparts[1]."' target='_blank'>";
