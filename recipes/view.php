@@ -35,7 +35,7 @@ function randomRec($meat) {
 	return $recNum;
 }
 
-if ($_GET['rdm'] == 'y') {
+if (@$_GET['rdm'] == 'y') {
 	$recNum = randomRec($_GET['meat']);
 } else {
 	$recNum = $_GET['recNum'];
