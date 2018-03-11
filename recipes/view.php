@@ -91,6 +91,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		if ($row[$ingredNum] <> "")
 		{
 			$ingredient = html_entity_decode($row[$ingredNum], ENT_QUOTES);
+			$ingredientparts = (explode("##",$ingredient));echo $ingredientparts;
 			echo "<li class=\"ingredLine\">".$ingredient."</li>";
 		}
 	}
