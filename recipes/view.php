@@ -93,9 +93,9 @@ foreach($dbConnection->query($recQuery) as $row)
 			$ingredient = html_entity_decode($row[$ingredNum], ENT_QUOTES);
 			if(strpos($ingredient, "##") !== FALSE) {
 				$ingredientparts = (explode("##",$ingredient));
-				
+
 				$ingredient = $ingredientparts[0];
-				$ingredient .= "<a href='./view.php?recNum=".$ingredientparts[1]."' target='_blank'>";
+				$ingredient .= "<a class='reclink' href='./view.php?recNum=".$ingredientparts[1]."' target='_blank'>";
 				$ingredient .= $ingredientparts[2]."</a>";
 				$ingredient .= $ingredientparts[3];
 			}

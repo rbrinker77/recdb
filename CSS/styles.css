@@ -22,6 +22,10 @@ input[type="checkbox"] + label {
     color: blue;
 }
 
+.reclink {
+	color: #00FF33;
+}
+
 .pnum {
 	padding-left: .3em;
 	padding-right: .3em;
