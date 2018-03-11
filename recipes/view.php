@@ -91,8 +91,14 @@ foreach($dbConnection->query($recQuery) as $row)
 		if ($row[$ingredNum] <> "")
 		{
 			$ingredient = html_entity_decode($row[$ingredNum], ENT_QUOTES);
-			$ingredientparts = (explode("##",$ingredient));
-			var_dump($ingredientparts); die();
+			if(strpos($ingredient, "##") !== FALSE) {
+				$ingredientparts = (explode("##",$ingredient));
+				
+				$ingredient = $ingredientparts[0];
+				$ingredient .= "<a href='./view.php?recNum=".$ingredientparts[1]."' target='_blank'>";
+				$ingredient .= $ingredientparts[2]."</a>";
+				$ingredient .= $ingredientparts[3];
+			}
 			echo "<li class=\"ingredLine\">".$ingredient."</li>";
 		}
 	}
