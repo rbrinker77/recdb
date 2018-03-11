@@ -92,9 +92,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		{
 			$ingredient = html_entity_decode($row[$ingredNum], ENT_QUOTES);
 			$ingredientparts = (explode("##",$ingredient));
-			foreach ($ingredientparts as $ip) {
-				echo $ip."<br />";
-			}die();
+			var_dump($ingredientparts); die();
 			echo "<li class=\"ingredLine\">".$ingredient."</li>";
 		}
 	}
