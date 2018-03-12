@@ -5,6 +5,11 @@ function stopRKey(evt)
 	if ((evt.keyCode == 13) && (node.type=="text")) {return false;}
 }
 
+function copyLink(reclink) {
+	reclink.select();
+	document.execCommand("Copy");
+}
+
 function setFocus()
 	{
 		document.getElementById("recName").focus();
