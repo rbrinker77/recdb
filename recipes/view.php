@@ -37,7 +37,6 @@ function randomRec($meat) {
 
 if (@$_GET['rdm'] == 'y') {
 	$recNum = randomRec($_GET['meat']);
-	echo "<input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('https://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."')\" value=\"Recipe link\" \">";
 } else {
 	$recNum = $_GET['recNum'];
 	}
@@ -55,8 +54,11 @@ foreach($dbConnection->query($recQuery) as $row)
 			<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 			<title>".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 		</head>
-		<body>
-		<div class=\"pageDiv\">
+		<body>";
+	if (@$_GET['rdm'] == 'y') {
+		echo "<div><input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('https://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."')\" value=\"Recipe link\" \"></div>";
+	}
+	echo "<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
 				.html_entity_decode($row['recName'], ENT_QUOTES)."
 			</div>
