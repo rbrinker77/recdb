@@ -47,7 +47,7 @@ $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
 foreach($dbConnection->query($recQuery) as $row)
 {
-	echo " 
+	echo "
 		<html>
 		<head>
 			<meta name=\"viewport\" content=\"width=device-width\">
@@ -56,7 +56,10 @@ foreach($dbConnection->query($recQuery) as $row)
 		</head>
 		<body>";
 	if (@$_GET['rdm'] == 'y') {
-		echo "<div><input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('https://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."')\" value=\"Recipe link\" \"></div>";
+		echo "<div>
+			<input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('hidlink')\" value=\"Recipe link\" \"></div>
+			<input type='hidden' id='hidlink' value='https://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."'>
+			</div>";
 	}
 	echo "<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
