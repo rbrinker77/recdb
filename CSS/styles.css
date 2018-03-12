@@ -28,6 +28,10 @@ input[type="checkbox"] + label {
 
 .cplink {
 	border: 0;
+	background: black;
+	color: white;
+	width:30em;
+
 }
 
 .pnum {
