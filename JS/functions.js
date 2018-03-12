@@ -9,7 +9,6 @@ function copyLink(reclink) {
 	copylink = document.getElementById(reclink);
 	copylink.select();
 	document.execCommand("Copy");
-	alert(copylink.value);
 }
 
 function setFocus()

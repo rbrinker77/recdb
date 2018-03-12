@@ -26,6 +26,10 @@ input[type="checkbox"] + label {
 	color: #00FF33 !important;
 }
 
+.cplink {
+	border: 0;
+}
+
 .pnum {
 	padding-left: .3em;
 	padding-right: .3em;
