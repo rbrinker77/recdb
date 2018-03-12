@@ -8,6 +8,10 @@ form {
 	padding: 0;
 }
 
+.vblink {
+	color: #00FF33 !important;
+}
+
 .thumbs {
 	float:left;
 	border-style: solid;

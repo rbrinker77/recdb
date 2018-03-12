@@ -15,7 +15,7 @@ else {
   <body>
 <?php
 
-  echo "<div><a href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>";
+  echo "<div><a class='vblink' href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>";
 
   include("../DB/dbconnect.php");
 

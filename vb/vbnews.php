@@ -30,7 +30,7 @@
   	$title = str_replace(' & ', ' &amp; ', $feed[$n]['title']);
   	$link = $feed[$n]['link'];
   	$description = $feed[$n]['desc'];
-  	echo '<p><b><a href="'.$link.'" title="'.$title.'">'.$title.'</a></b><br />';
+  	echo '<p><b><a class="vblink" href="'.$link.'" title="'.$title.'">'.$title.'</a></b><br />';
   	echo '<p>'.$description.'</p>';
   }
 ?>
