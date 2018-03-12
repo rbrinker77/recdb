@@ -47,7 +47,7 @@ $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
 foreach($dbConnection->query($recQuery) as $row)
 {
-	echo "
+	echo " 
 		<html>
 		<head>
 			<meta name=\"viewport\" content=\"width=device-width\">
