@@ -57,8 +57,14 @@ foreach($dbConnection->query($recQuery) as $row)
 		<body>";
 	if (@$_GET['rdm'] == 'y') {
 		echo "<div>
-			<input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('reclink')\" value=\"Copy link\" \">
-			<input type='text' class='cplink' readonly='readonly' id='reclink' value='https://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."'/>
+			<p>
+				<input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('outsidelink')\" value=\"Copy Outside\" \">
+				<input type='text' class='cplink' readonly='readonly' id='outsidelink' value='http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."'/>
+			</p>
+			<p>
+				<input class=\"smallBlue\" name=\"cpLink\" type=\"button\" onclick=\"copyLink('insidelink')\" value=\"Copy Inside\" \">
+				<input type='text' class='cplink' readonly='readonly' id='insidelink' value='http://192.168.87.106/recipes/view.php?recNum=".$recNum."'/>
+			</p>
 			</div>";
 	}
 	echo "<div class=\"pageDiv\">
