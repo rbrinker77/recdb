@@ -31,6 +31,7 @@ input[type="checkbox"] + label {
 	background: black;
 	color: white;
 	width:35em !important;
+	resize: none;
 }
 
 .pnum {
