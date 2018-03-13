@@ -58,11 +58,11 @@ foreach($dbConnection->query($recQuery) as $row)
 	if (@$_GET['rdm'] == 'y') {
 		echo "<div>
 			<p>
-				<input class='smallBlue' name='cpLink' type='button' onclick='copyLink('outsidelink')' value='Copy Outside' >
+				<input class='smallBlue' name='cpLink' type='button' onclick=\"copyLink('outsidelink')\" value='Copy Outside' />
 				<textarea type='text' class='cplink' readonly='readonly' id='outsidelink' value='http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."&#13;newline1&#10;newline2'/>
 			</p>
 			<p>
-				<input class='smallBlue' name='cpLink' type='button' onclick='copyLink('insidelink')' value='Copy Inside' >
+				<input class='smallBlue' name='cpLink' type='button' onclick=\"copyLink('insidelink')\" value='Copy Inside' />
 				<input type='text' class='cplink' readonly='readonly' id='insidelink' value='http://192.168.87.106/recipes/view.php?recNum=".$recNum."'/>
 			</p>
 			</div>";
