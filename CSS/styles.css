@@ -30,7 +30,7 @@ input[type="checkbox"] + label {
 	border: 0;
 	background: black;
 	color: white;
-	width:30em;
+	width:35em !important;
 }
 
 .pnum {
