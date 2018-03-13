@@ -59,7 +59,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		echo "<div>
 			<p>
 				<input class='smallBlue' name='cpLink' type='button' onclick=\"copyLink('outsidelink')\" value='Copy Outside' />
-				<textarea type='text' class='cplink' readonly='readonly' id='outsidelink' value='http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."&#13;newline1&#10;newline2'/>
+				<textarea type='text' class='cplink' readonly='readonly' id='outsidelink' value=\"http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."&#13;newline1&#10;newline2\"/>
 			</p>
 			<p>
 				<input class='smallBlue' name='cpLink' type='button' onclick=\"copyLink('insidelink')\" value='Copy Inside' />
