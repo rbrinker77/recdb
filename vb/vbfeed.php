@@ -40,7 +40,7 @@
 
     echo "</div></div><br />";
 
-    if ( count($instas['graphql']['user']['edges']['edges']) > 0 ) {
+    if ( count($instas['graphql']['user']['edges']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
       foreach ($instas['graphql']['user']['edges']['edges'] as $insta) {
