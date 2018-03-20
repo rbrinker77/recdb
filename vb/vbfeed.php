@@ -27,7 +27,7 @@
 
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
     $instas = json_decode($instaResult,true);
-var_dump($instaResult);
+var_dump($instas);
     //$instas = json_decode($instaResult);var_dump($instas);die();
     echo "<div>";
     echo "<img src='".$instas['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
