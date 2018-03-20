@@ -11,7 +11,6 @@
   $twittername=$_POST['twitter'];
   $instaname=$_POST['instagram'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
