@@ -30,20 +30,20 @@
 var_dump($instas);
     //$instas = json_decode($instaResult);var_dump($instas);die();
     echo "<div>";
-    echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
 
-    if ( $instas['user']['external_url'] <> "" ) {
-        echo "External: <a target='_blank' href='".$instas['user']['external_url']."'>".$instas['user']['external_url']."</a>";
+    if ( $instas['graphql']['user']['external_url'] <> "" ) {
+        echo "External: <a target='_blank' href='".$instas['graphql']['user']['external_url']."'>".$instas['graphql']['user']['external_url']."</a>";
     }
 
     echo "</div></div><br />";
 
-    if ( count($instas['user']['media']['nodes']) > 0 ) {
+    if ( count($instas['graphql']['user']['media']['nodes']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
-      foreach ($instas['user']['media']['nodes'] as $insta) {
+      foreach ($instas['graphql']['user']['media']['nodes'] as $insta) {
         $postdate = date("m-d-Y @ H:i", $insta['date']);
         echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
       }
