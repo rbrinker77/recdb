@@ -44,8 +44,8 @@
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
       foreach ($instas['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $insta) {
-        $postdate = date("m-d-Y @ H:i", $insta['date']);
-        echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
+        $postdate = date("m-d-Y @ H:i", $insta['node']['taken_at_timestamp']);
+        echo "<a class='instapost' target='_blank' href='".$insta['node']['thumbnail_src']."'><img src='".$insta['node']['thumbnail_resources'][0]['src']."' title='".$insta['node']['edge_media_to_caption']."' alt='".$postdate." - ".$insta['node']['edge_media_to_caption']."' /></a>";
       }
 
       echo "</div>";
