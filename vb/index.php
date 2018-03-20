@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 else {
 ?>
-
   <!DOCTYPE html>
   <html lang="en">
   <head>
