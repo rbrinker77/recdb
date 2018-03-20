@@ -40,10 +40,10 @@
 
     echo "</div></div><br />";
 
-    if ( count($instas['graphql']['user']['edges']) > 0 ) {
+    if ( count($instas['graphql']['user']['edge_owner_to_timeline_media']['edges']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
-      foreach ($instas['graphql']['user']['edges']['edges'] as $insta) {
+      foreach ($instas['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $insta) {
         $postdate = date("m-d-Y @ H:i", $insta['date']);
         echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
       }
