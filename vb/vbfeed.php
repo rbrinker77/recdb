@@ -30,7 +30,7 @@
 var_dump($instas);
     //$instas = json_decode($instaResult);var_dump($instas);die();
     echo "<div>";
-    echo "<img src='".$instas['user']['biography']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
 
