@@ -27,7 +27,7 @@
 
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
     $instas = json_decode($instaResult,true);
-var_dump($instas);
+
     //$instas = json_decode($instaResult);var_dump($instas);die();
     echo "<div>";
     echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
@@ -40,10 +40,10 @@ var_dump($instas);
 
     echo "</div></div><br />";
 
-    if ( count($instas['graphql']['user']['media']['nodes']) > 0 ) {
+    if ( count($instas['graphql']['user']['edges']['edges']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
-      foreach ($instas['graphql']['user']['media']['nodes'] as $insta) {
+      foreach ($instas['graphql']['user']['edges']['edges'] as $insta) {
         $postdate = date("m-d-Y @ H:i", $insta['date']);
         echo "<a class='instapost' target='_blank' href='".$insta['thumbnail_src']."'><img src='".$insta['thumbnail_resources'][0]['src']."' title='".$insta['caption']."' alt='".$postdate." - ".$insta['caption']."' /></a>";
       }
