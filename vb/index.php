@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   include("./vbfeed.php");
 }
 else {
-?> 
+?>
   <!DOCTYPE html>
   <html lang="en">
   <head>
