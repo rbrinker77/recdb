@@ -47,6 +47,19 @@ input[type="checkbox"] + label {
 	text-align:center;
 }
 
+.cpbutton:hover {
+	background-color:white;
+	color:black;
+	border: none;
+	display:inline-block;
+	font-size:15px;
+	font-weight:bold;
+	height:21px;
+	line-height:21px;
+	width:98px;
+	text-align:center;
+}
+
 .pnum {
 	padding-left: .3em;
 	padding-right: .3em;
