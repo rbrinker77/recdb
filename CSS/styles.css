@@ -29,8 +29,8 @@ input[type="checkbox"] + label {
 .cplink {
 	border: 0;
 	background: black;
-	color: white;
-	width:35em !important;
+	color: black;
+	width:0em !important;
 	resize: none;
 }
 
