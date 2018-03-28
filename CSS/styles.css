@@ -36,7 +36,8 @@ input[type="checkbox"] + label {
 
 .cpbutton {
 	background-color:black;
-	color:#306108;
+	color:#F0F8FF;
+	border: none;
 	display:inline-block;
 	font-size:15px;
 	font-weight:bold;
