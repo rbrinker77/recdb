@@ -34,6 +34,19 @@ input[type="checkbox"] + label {
 	resize: none;
 }
 
+.cpbutton {
+	background-color:#696969;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-size:15px;
+	font-weight:bold;
+	height:21px;
+	line-height:21px;
+	width:98px;
+	text-align:center;
+}
+
 .pnum {
 	padding-left: .3em;
 	padding-right: .3em;
