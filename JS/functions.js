@@ -1,11 +1,16 @@
+var myinputs = ["recName","ingred[]","instruct[]"];
+
 window.addEventListener("dragover",function(e){
   e = e || event;
-  e.preventDefault();
+	if (myinputs.indexOf(e.target.id) == -1) {
+  	e.preventDefault();
+	}
 },false);
 window.addEventListener("drop",function(e){
   e = e || event;
-  e.preventDefault();
-	console.log(e.target.id);
+	if (myinputs.indexOf(e.target.id) == -1) {
+  	e.preventDefault();
+	}
 },false);
 
 function stopRKey(evt)
