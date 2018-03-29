@@ -39,7 +39,7 @@ if (@$_GET['rdm'] == 'y') {
 	$recNum = randomRec($_GET['meat']);
 } else {
 	$recNum = $_GET['recNum'];
-	}
+}
 
 include("../DB/dbconnect.php");
 
@@ -54,14 +54,13 @@ foreach($dbConnection->query($recQuery) as $row)
 			<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 			<title>".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
 		</head>
-		<body>";
-	if (@$_GET['rdm'] == 'y') {
-		echo "<div>
-				<input class='smallBlue' name='cpLink' type='button' onclick=\"copyLink('twolinks')\" value='Copy Links' />
+		<body>
+		  <div>
+				<input class='cpbutton' name='cpLink' type='button' onclick=\"copyLink('twolinks')\" value='Copy Links' />
 				<textarea rows='2' type='text' class='cplink' readonly='readonly' id='twolinks'>http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."&#13;http://192.168.87.106/recipes/view.php?recNum=".$recNum."</textarea>
-			</div>";
-	}
-	echo "<div class=\"pageDiv\">
+			</div>
+			<p></p>
+			<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
 				.html_entity_decode($row['recName'], ENT_QUOTES)."
 			</div>
