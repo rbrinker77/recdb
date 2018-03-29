@@ -5,7 +5,7 @@ window.addEventListener("dragover",function(e){
 window.addEventListener("drop",function(e){
   e = e || event;
   e.preventDefault();
-	console.log(e);
+	console.log(e.target.value);
 },false);
 
 function stopRKey(evt)
