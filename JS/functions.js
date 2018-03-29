@@ -6,7 +6,7 @@ window.addEventListener("drop",function(e){
   e = e || event;
   e.preventDefault();
 },false);
-
+ 
 function stopRKey(evt)
 {
 	var evt = (evt) ? evt : ((event) ? event : null);
