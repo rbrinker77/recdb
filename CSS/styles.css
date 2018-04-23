@@ -32,6 +32,7 @@ input[type="checkbox"] + label {
 	color: black;
 	width:0em !important;
 	resize: none;
+	overflow:hidden;
 }
 
 .cpbutton {
