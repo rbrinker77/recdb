@@ -157,10 +157,15 @@ input[type="checkbox"] + label {
 	opacity: .6;
 }
 
-.ingredLine {
+.ingredLine, .ingredLineWarning {
 	width:100%;
 	padding-bottom:0.3125em;
 	text-align: left !important;
+}
+
+.ingredLineWarning {
+	color: red !important;
+	font-weight: bold !important;
 }
 
 .instructLine {
@@ -623,7 +628,7 @@ input[type="checkbox"] + label {
 /*Printing media css */
 
 @media print {
- 	.ingredLine, .instructLine {
+ 	.ingredLinek, .ingredLineWarning, .instructLine {
 		font-size: 0.75em;
 	}
 
