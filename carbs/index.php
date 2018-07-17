@@ -14,7 +14,7 @@
     var iframe = document.getElementById('frame');
     iframe.onload = function() {
       var tags = iframe.contentWindow.document.getElementsByTagName("input");
-      alert(tags.value);
+      console.log(tags.value);
 
         if (iframe.src != "https://app.carbmanager.com/log/overview") {
             iframe.src = "https://app.carbmanager.com/log/overview";
