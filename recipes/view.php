@@ -104,7 +104,12 @@ foreach($dbConnection->query($recQuery) as $row)
 				$ingredient .= $ingredientparts[2]."</a>";
 				$ingredient .= $ingredientparts[3];
 			}
-			echo "<li class=\"ingredLine\">".$ingredient."</li>";
+			if (strpos(strtolower($ingredient), "sugar") !== FALSE || strpos(strtolower($ingredient), "concentrate") !== FALSE || strpos(strtolower($ingredient), "flour") !== FALSE || strpos(strtolower($ingredient), "potato") !== FALSE || strpos(strtolower($ingredient), "rice") !== FALSE || strpos(strtolower($ingredient), "tortilla") !== FALSE) {
+				echo "<li class=\"ingredLineWarning\">".$ingredient."</li>";
+			}
+			else {
+				echo "<li class=\"ingredLine\">".$ingredient."</li>";
+			}
 		}
 	}
 
