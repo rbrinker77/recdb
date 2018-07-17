@@ -1,7 +1,7 @@
 <?php  ?>
 <form id="login" target="frame" method="post" action="https://app.carbmanager.com/account/signin">
-    <input type="hidden" name="username" value="login" />
-    <input type="hidden" name="password" value="pass" />
+    <input type="hidden" name="username" value="rbrinker77@yahoo.com" />
+    <input type="hidden" name="password" value="vB6we2%LWyJWww9klWHu" />
 </form>
 
 <iframe id="frame" name="frame"></iframe>
