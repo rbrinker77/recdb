@@ -17,5 +17,4 @@
             iframe.src = "https://app.carbmanager.com/account/signin";
         }
     }
-    
 </script>
