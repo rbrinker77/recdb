@@ -37,8 +37,8 @@ function get_string_between($string, $start, $end){
     $instaString = get_string_between($instaResult, '<script type="text/javascript">window._sharedData = ', ';</script>');
 
     $instas = json_decode($instaString,true);
-var_dump($instas);
-    //$instas = json_decode($instaResult);var_dump($instas);die();
+$instas = json_encode($instas, JSON_PRETTY_PRINT);echo $instas);die();
+
     echo "<div>";
     echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
