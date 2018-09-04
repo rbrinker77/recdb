@@ -33,7 +33,7 @@
     return $result;
     }
 
-    $result = fetchData("https://api.instagram.com/v1/users/".$instaname."/media/recent/?access_token=ACCES TOKEN HERE&count=14");
+    $result = fetchData("https://api.instagram.com/v1/users/".$instaname."/media/recent/?count=14");
 
 
     $result = json_decode($result);
