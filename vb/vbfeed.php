@@ -20,17 +20,17 @@ function get_string_between($string, $start, $end){
   }
   $twittername=$_POST['twitter'];
   $instaname=$_POST['instagram'];
-//?>
-//<!DOCTYPE html>
-//<html lang="en">
-//<head>
-//  <title>Volleyball feed for <?php echo $name; ?></title>
-//  <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
-//</head>
-//<body>
-//<?php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Volleyball feed for <?php echo $name; ?></title>
+  <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
+</head>
+<body>
+<?php
 
-//  echo "<div class='instapic'><h3>".$name."</h3>";
+  echo "<div class='instapic'><h3>".$name."</h3>";
 
   if ( $instaname <> "" ) {
 
