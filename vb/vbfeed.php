@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
@@ -37,11 +37,11 @@ function get_string_between($string, $start, $end){
     $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/");
     $instaString = get_string_between($instaResult, '<script type="text/javascript">window._sharedData = ', ';</script>');
 
-    $instas = json_decode($instaString,true);
-$instas = json_encode($instas, JSON_PRETTY_PRINT);echo $instas;die();
+    $instas = json_decode($instaString,JSON_PRETTY_PRINT);
+//$instas = json_encode($instas, JSON_PRETTY_PRINT);echo $instas;die();
 
     echo "<div>";
-    echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<img src='".$instas['entry_data']['ProfilePage']['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
 
