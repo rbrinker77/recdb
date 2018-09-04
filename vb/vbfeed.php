@@ -23,31 +23,30 @@
   echo "<div class='instapic'><h3>".$name."</h3>";
 
   if ( $instaname <> "" ) {
-
-    $instaResult = file_get_contents("https://www.instagram.com/".$instaname."/?__a=1");
-    $instas = json_decode($instaResult,true);
-
-    //$instas = json_decode($instaResult);var_dump($instas);die();
-    echo "<div>";
-    echo "<img src='".$instas['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
-      </div>
-      <div>";
-
-    if ( $instas['graphql']['user']['external_url'] <> "" ) {
-        echo "External: <a target='_blank' href='".$instas['graphql']['user']['external_url']."'>".$instas['graphql']['user']['external_url']."</a>";
+    function fetchData($url){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
     }
 
-    echo "</div></div><br />";
+    $result = fetchData("https://api.instagram.com/v1/users/".$instaname."/media/recent/?access_token=ACCES TOKEN HERE&count=14");
 
-    if ( count($instas['graphql']['user']['edge_owner_to_timeline_media']['edges']) > 0 ) {
-      echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
-      foreach ($instas['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $insta) {
-        $postdate = date("m-d-Y @ H:i", $insta['node']['taken_at_timestamp']);
-        echo "<a class='instapost' target='_blank' href='".$insta['node']['thumbnail_src']."'><img src='".$insta['node']['thumbnail_resources'][0]['src']."' title='".$insta['node']['edge_media_to_caption']['edges'][0]['node']['text']."' alt='".$postdate." - ".$insta['node']['edge_media_to_caption']['edges'][0]['node']['text']."' /></a>";
-      }
+    $result = json_decode($result);
+    foreach ($result->data as $post) {
+       if(empty($post->caption->text)) {
+         // Do Nothing
+       }
+       else {
+          echo '<a class="instagram-unit" target="blank" href="'.$post->link.'">
+          <img src="'.$post->images->low_resolution->url.'" alt="'.$post->caption->text.'" width="100%" height="auto" />
+          <div class="instagram-desc">'.htmlentities($post->caption->text).' | '.htmlentities(date("F j, Y, g:i a", $post->caption->created_time)).'</div></a>';
+       }
 
-      echo "</div>";
     }
   }
   if ( $twittername <> "" ) {
