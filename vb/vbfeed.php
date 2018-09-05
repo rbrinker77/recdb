@@ -41,20 +41,20 @@ function get_string_between($string, $start, $end){
 //$instas = json_encode($instas, JSON_PRETTY_PRINT);echo $instas;die();
 
     echo "<div>";
-    echo "<img src='".$instas['entry_data']['ProfilePage']['graphql']['user']['profile_pic_url_hd']."' title='".$instas['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<img src='".$instas['entry_data']['ProfilePage']['graphql']['user']['profile_pic_url_hd']."' title='".$instas['entry_data']['ProfilePage']['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
 
-    if ( $instas['graphql']['user']['external_url'] <> "" ) {
-        echo "External: <a target='_blank' href='".$instas['graphql']['user']['external_url']."'>".$instas['graphql']['user']['external_url']."</a>";
+    if ( $instas['entry_data']['ProfilePage']['graphql']['user']['external_url'] <> "" ) {
+        echo "External: <a target='_blank' href='".$instas['entry_data']['ProfilePage']['graphql']['user']['external_url']."'>".$instas['entry_data']['ProfilePage']['graphql']['user']['external_url']."</a>";
     }
 
     echo "</div></div><br />";
 
-    if ( count($instas['graphql']['user']['edge_owner_to_timeline_media']['edges']) > 0 ) {
+    if ( count($instas['entry_data']['ProfilePage']['graphql']['user']['edge_owner_to_timeline_media']['edges']) > 0 ) {
       echo "<div><h2><a href='https://www.instagram.com/".$instaname."'>Instagram</a></h2>";
 
-      foreach ($instas['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $insta) {
+      foreach ($instas['entry_data']['ProfilePage']['graphql']['user']['edge_owner_to_timeline_media']['edges'] as $insta) {
         $postdate = date("m-d-Y @ H:i", $insta['node']['taken_at_timestamp']);
         echo "<a class='instapost' target='_blank' href='".$insta['node']['thumbnail_src']."'><img src='".$insta['node']['thumbnail_resources'][0]['src']."' title='".$insta['node']['edge_media_to_caption']['edges'][0]['node']['text']."' alt='".$postdate." - ".$insta['node']['edge_media_to_caption']['edges'][0]['node']['text']."' /></a>";
       }
