@@ -38,7 +38,7 @@ function get_string_between($string, $start, $end){
     $instaString = get_string_between($instaResult, '<script type="text/javascript">window._sharedData = ', ';</script>');
 
     $instas = json_decode($instaString,true);
-    $instas = json_encode($instas,true);
+    //$instas = json_encode($instas, JSON_PRETTY_PRINT);
     //echo $instas;die();
 
     echo "<div>";
