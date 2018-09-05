@@ -42,7 +42,7 @@ function get_string_between($string, $start, $end){
     //echo $instas;die();
 
     echo "<div>";
-    echo "<a href='https://www.instagram.com/".$instaname."/'><img  src='".$instas['entry_data']['ProfilePage']['0']['graphql']['user']['profile_pic_url_hd']."' title='".$instas['entry_data']['ProfilePage']['0']['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
+    echo "<a href='https://www.instagram.com/".$instaname."/' target='_blank'><img  src='".$instas['entry_data']['ProfilePage']['0']['graphql']['user']['profile_pic_url_hd']."' title='".$instas['entry_data']['ProfilePage']['0']['graphql']['user']['biography']."' alt='".$instaname." Profile Pic' /></a>
       </div>
       <div>";
 
