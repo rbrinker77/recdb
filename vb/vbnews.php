@@ -12,7 +12,7 @@
 
 <?php
   $rss = new DOMDocument();
-  $rss->load('http://host.madison.com/search/?f=rss&t=article&c=sports/college/volleyball&l=25&s=start_time&sd=desc'); // Set the blog RSS feed url here
+  $rss->load('https://host.madison.com/search/?f=rss&t=article&c=sports/college/volleyball&l=25&s=start_time&sd=desc'); // Set the blog RSS feed url here
 
   $feed = array();
   foreach ($rss->getElementsByTagName('item') as $node) {
