@@ -109,7 +109,7 @@ function updateDB() {
 		$post = "UPDATE theboxli_Recipes \n"
 			."SET \n"
 			."recName = '".trim(htmlentities($recName, ENT_QUOTES))."', "
-			."servings = '".$servings."', ";
+			."servings = ".$servings.", ";
 
 		$i = 0;
 		$count = 1;
