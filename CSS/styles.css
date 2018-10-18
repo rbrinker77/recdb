@@ -274,7 +274,8 @@ input[type="checkbox"] + label {
 }
 
 .servingsDiv input{
-	width:20em;
+	width:3em;
+	text-align: center;
 }
 
 .ingredDiv, .classSearchContainer{
