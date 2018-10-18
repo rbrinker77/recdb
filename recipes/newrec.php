@@ -14,6 +14,10 @@ function savetoDB() {
 		$today = date('Ymd');
 		$servings = preg_replace("/[^0-9]/", "", $_POST['servings']);
 
+		if ($servings == "") {
+			$servings = "NULL";
+		}
+
 		$ingred[] = $_POST['ingred'];
 		$instruct[] = $_POST['instruct'];
 		$cat[] = @$_POST['cat'];
