@@ -13,6 +13,7 @@ function updateDB() {
 //write records to database
 		$recNum = $_GET['recNum'];
 		$recName = $_POST['recName'];
+		$servings = preg_replace("/[^0-9]/", "", $_POST['servings']);
 
 		$ingred[] = $_POST['ingred'];
 		$instruct[] = $_POST['instruct'];
@@ -104,6 +105,7 @@ function updateDB() {
 		$post = "UPDATE theboxli_Recipes \n"
 			."SET \n"
 			."recName = '".trim(htmlentities($recName, ENT_QUOTES))."', ";
+			."servings = '".trim(htmlentities($servings, ENT_QUOTES))."', ";
 
 		$i = 0;
 		$count = 1;
@@ -212,6 +214,9 @@ echo "
 	<form name=\"recModify\" method=\"post\" action=\"./modrec.php?recNum=".$recNum."\" onsubmit='return validateRecipe(\"recModify\");'>
 	<div class=\"nameDiv\">
 		Name <input class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"110\" value=\"".$row['recName']."\" /></td>
+	</div>
+	<div class=\"servingsDiv\">
+		Servings <input class=\"servingsBox\" type=\"text\" name=\"servings\" id=\"servings\" maxlength=\"2\" value=\"".$row['servings']."\" /></td>
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">

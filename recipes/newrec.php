@@ -12,6 +12,7 @@ function savetoDB() {
 
 		$recName = $_POST['recName'];
 		$today = date('Ymd');
+		$servings = preg_replace("/[^0-9]/", "", $_POST['servings']);
 
 		$ingred[] = $_POST['ingred'];
 		$instruct[] = $_POST['instruct'];
@@ -78,7 +79,7 @@ function savetoDB() {
 		include("../DB/dbconnect.php");
 
 		$post = "INSERT INTO theboxli_Recipes \n"
-			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT, ";
+			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT,$servings ";
 
 		$i = 0;
 
@@ -142,6 +143,9 @@ echo "
 	<form name=\"recInsert\" id=\"insertRec\" method=\"post\" action=\"./newrec.php\" onsubmit='return validateRecipe(\"recInsert\");'>
 	<div class=\"nameDiv\">
 		Name <input autocorrect=\"off\" autocapitalize=\"off\" class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"110\" />
+	</div>
+	<div class=\"servingsDiv\">
+		Servings class=\"servingsBox\" type=\"text\" name=\"servings\" id=\"servings\" maxlength=\"2\" />
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">

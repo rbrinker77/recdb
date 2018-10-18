@@ -47,12 +47,17 @@ $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
 foreach($dbConnection->query($recQuery) as $row)
 {
+	if ($recQuery['servings'] > 0) {
+		$titleString = html_entity_decode($row['recName'], ENT_QUOTES)." - Serves ".$recQuery['servings'];
+	} else {
+		$titleString = html_entity_decode($row['recName'], ENT_QUOTES);
+	}
 	echo "
 		<html>
 		<head>
 			<meta name=\"viewport\" content=\"width=device-width\">
 			<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
-			<title>".html_entity_decode($row['recName'], ENT_QUOTES)."</title>
+			<title>".$titleString."</title>
 		</head>
 		<body>
 		  <div>
@@ -62,7 +67,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			<p></p>
 			<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
-				.html_entity_decode($row['recName'], ENT_QUOTES)."
+				.$titleString."
 			</div>
 			<div class=\"dateDiv\">";
 
