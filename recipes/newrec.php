@@ -145,7 +145,7 @@ echo "
 		Name <input autocorrect=\"off\" autocapitalize=\"off\" class=\"nameBox\" type=\"text\" name=\"recName\" id=\"recName\" maxlength=\"110\" />
 	</div>
 	<div class=\"servingsDiv\">
-		Servings class=\"servingsBox\" type=\"text\" name=\"servings\" id=\"servings\" maxlength=\"2\" />
+		Servings <input class=\"servingsBox\" type=\"text\" name=\"servings\" id=\"servings\" maxlength=\"2\" />
 	</div>
 	<div class=\"ingredBox\">
 		<div class=\"headerDiv\">
