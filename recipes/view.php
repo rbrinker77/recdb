@@ -47,8 +47,8 @@ $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
 foreach($dbConnection->query($recQuery) as $row)
 {
-	if ($recQuery['servings'] > 0) {
-		$titleString = html_entity_decode($row['recName'], ENT_QUOTES)." - Serves ".$recQuery['servings'];
+	if ($row['servings'] > 0) {
+		$titleString = html_entity_decode($row['recName'], ENT_QUOTES)." - Serves ".$row['servings'];
 	} else {
 		$titleString = html_entity_decode($row['recName'], ENT_QUOTES);
 	}
