@@ -13,11 +13,10 @@ function updateDB() {
 //write records to database
 		$recNum = $_GET['recNum'];
 		$recName = $_POST['recName'];
+		$servings = preg_replace("/[^0-9]/", "", $_POST['servings']);
 
-		if ($_POST['servings'] == NULL) {
+		if ($servings == "") {
 			$servings = NULL;
-		} else {
-			$servings = preg_replace("/[^0-9]/", "", $_POST['servings']);
 		}
 
 		$ingred[] = $_POST['ingred'];
