@@ -79,7 +79,7 @@ function savetoDB() {
 		include("../DB/dbconnect.php");
 
 		$post = "INSERT INTO theboxli_Recipes \n"
-			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT,$servings ";
+			."VALUES (DEFAULT,'".trim($recName)."','$today',DEFAULT,$servings, ";
 
 		$i = 0;
 
