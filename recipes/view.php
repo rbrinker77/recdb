@@ -59,9 +59,8 @@ foreach($dbConnection->query($recQuery) as $row)
 			<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/styles.css\">
 			<title>".$titleString."</title>
 		</head>
-		<body>";
-	file_exists("../whatthe.php") ? include("../whatthe.php"):"";
-	echo "<div>
+		<body>".file_exists("../whatthe.php") ? include("../whatthe.php"):""."
+		  <div>
 				<input class='cpbutton' name='cpLink' type='button' onclick=\"copyLink('twolinks')\" value='Copy Links' />
 				<textarea rows='2' type='text' class='cplink' readonly='readonly' id='twolinks'>http://recsite.ooguy.com/recipes/view.php?recNum=".$recNum."&#13;http://192.168.87.150/recipes/view.php?recNum=".$recNum."</textarea>
 			</div>
