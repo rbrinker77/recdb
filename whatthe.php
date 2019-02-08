@@ -1,6 +1,6 @@
 <?php
   echo "<div width=100% align='center'>";
-  if (isset($_POST['wtf']) {
+  if (isset($_POST['wtf'])) {
     echo "<iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/66g1_oTEWhIqE'></iframe>";
   }
   else {
