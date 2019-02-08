@@ -1,9 +1,9 @@
 <?php
-  echo "<div id='wtf' name='wtf' width=100% align='center'>";
+  echo "<br/><div id='wtf' name='wtf' width=100% align='center'>";
 
-  echo "<img src='../photo.jpg' alt='WTF?' height='60' width='60' onclick='changeImage()'/>";
+  echo "<img src='../photo.jpg' alt='WTF?' height='200' width='200' onclick='changeImage()'/>";
 
-  echo "</div>";
+  echo "</div><br/>";
 ?>
 
 <script language="javascript">
