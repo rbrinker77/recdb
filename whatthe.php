@@ -4,8 +4,7 @@
     echo "<iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/66g1_oTEWhIqE'></iframe>";
   }
   else {
-    echo "<form method='GET'>
-      <input type='hidden' name='recNum' value=".$recNum."/>
+    echo "<form method='GET' action='".$_SERVER['HTTPS']."'>
       <input type='submit' name='wtf'><img src='../photo.jpg' alt='WTF?' height='60' width='60'>
       </input>
     </form>";
