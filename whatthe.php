@@ -1,12 +1,13 @@
 <?php
-  echo "<div width=100% align='center'>";
-  if (isset($_POST['wtf'])) {
-    echo "<iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/66g1_oTEWhIqE'></iframe>";
+  echo "<div id='wtf' name='wtf' width=100% align='center'>";
+
+  echo "<img src='../photo.jpg' alt='WTF?' height='60' width='60' onclick='changeImage()'/>";
+
+  echo "</div>";
+?>
+
+<script language="javascript">
+  function changeImage() {
+    document.getElementById("wtf").innerHTML="<iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/66g1_oTEWhIqE'></iframe>";
   }
-  else {
-    echo "<form method='GET' action='".$_SERVER['REQUEST_URI']."'>
-      <input type='submit' name='wtf'><img src='../photo.jpg' alt='WTF?' height='60' width='60'>
-      </input>
-    </form>";
-  }
-    echo "</div>";
+</script>
