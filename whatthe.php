@@ -8,6 +8,6 @@
 
 <script language="javascript">
   function changeImage() {
-    document.getElementById("wtf").innerHTML="<iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/g1_oTEWhIqE?rel=0&amp;autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+    document.getElementById("wtf").innerHTML="<p>More obvious...?</p><iframe width='420' height='315' align='middle' src='https://www.youtube.com/embed/9powdAgDINs?rel=0&amp;autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
   }
 </script>
