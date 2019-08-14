@@ -25,11 +25,11 @@ else {
   {
     if ($row['jersey'] > 0)
     {
-      $row['name'].", ".$row['position'];
+      $titleline = $row['name'].", ".$row['position'];
     }
     else
     {
-      $row['name'];
+      $titleline = $row['name'];
     }
   	echo "<div class='thumbs'><form action='./index.php' method='post'>
       <input type='image' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
