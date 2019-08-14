@@ -23,8 +23,16 @@ else {
 
   foreach($dbConnection->query($vbroster) as $row)
   {
+    if ($row['jersey'] > 0)
+    {
+      $row['name'].", ".$row['position'];
+    }
+    else
+    {
+      $row['name'];
+    }
   	echo "<div class='thumbs'><form action='./index.php' method='post'>
-      <input type='image' src='../Images/".$row['name'].".jpg' title='".$row['name'].", ".$row['position']."' alt='".$row['name']." image'>
+      <input type='image' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
       <input type='hidden' name='position' value='".$row['position']."'>
