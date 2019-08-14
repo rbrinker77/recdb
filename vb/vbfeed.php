@@ -16,7 +16,7 @@ function get_string_between($string, $start, $end){
     $name=$_POST['jersey']." - ".$_POST['name'].", ".$_POST['position'];
   }
   else {
-    $name=$_POST['name'];
+    $name=$_POST['name'].", ".$_POST['position'];
   }
   $twittername=$_POST['twitter'];
   $instaname=$_POST['instagram'];
