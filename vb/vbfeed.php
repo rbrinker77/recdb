@@ -12,11 +12,11 @@ function get_string_between($string, $start, $end){
   return substr($string, $ini, $len);
 }
 
-  if ( $_POST['jersey'] > 0 ) {
-    $name=$_POST['jersey']." - ".$_POST['name'].", ".$_POST['position'];
+  if ( $_POST['jersey'] === NULL ) {
+    $name=$_POST['name'];
   }
   else {
-    $name=$_POST['name'];
+    $name=$_POST['jersey']." - ".$_POST['name'].", ".$_POST['position'];
   }
   $twittername=$_POST['twitter'];
   $instaname=$_POST['instagram'];
