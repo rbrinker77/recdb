@@ -13,7 +13,7 @@ function get_string_between($string, $start, $end){
 }
 
   if ( $_POST['jersey'] > 0 ) {
-    $name=$_POST['name'].", #".$_POST['jersey'];
+    $name=$_POST['jersey']." - ".$_POST['name'].", ".$_POST['position'];
   }
   else {
     $name=$_POST['name'];

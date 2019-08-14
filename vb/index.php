@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   include("./vbfeed.php");
 }
 else {
-?> 
+?>
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -24,9 +24,10 @@ else {
   foreach($dbConnection->query($vbroster) as $row)
   {
   	echo "<div class='thumbs'><form action='./index.php' method='post'>
-      <input type='image' src='../Images/".$row['name'].".jpg' title='".$row['name']."' alt='".$row['name']." image'>
+      <input type='image' src='../Images/".$row['name'].".jpg' title='".$row['name'].", ".$row['position']."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
+      <input type='hidden' name='position' value='".$row['position']."'>
       <input type='hidden' name='twitter' value='".$row['twitter']."'>
       <input type='hidden' name='instagram' value='".$row['instagram']."'>
       </form>
