@@ -2,4 +2,5 @@
 **/dbconnect.php
 **/.htpasswd
 **/.htaccess
+**/._DS_Store
 robots.txt
