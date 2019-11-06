@@ -19,7 +19,8 @@ else {
 
   include("../DB/dbconnect.php");
 
-  $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY name ASC;";
+    $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY name ASC;";
+    $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY CASE WHEN name LIKE 'Badger%' THEN 100 ELSE name END,name;";
 
   echo "<div class='thumbs'>";
 
