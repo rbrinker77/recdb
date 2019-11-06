@@ -33,9 +33,9 @@ else {
     {
       $titleline = $row['name'];
     }
-  	echo "<div style='max-width:20%;float:left;'>
+  	echo "<div class='vbdiv'>
       <form action='./index.php' method='post'>
-      <input type='image' style='max-width:20%;' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
+      <input type='image' class='vbimage' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
       <input type='hidden' name='position' value='".$row['position']."'>

@@ -19,6 +19,15 @@ form {
 	border-color: black;
 }
 
+.vbdiv {
+	float:left;
+	width:20%;
+}
+
+.vbimage {
+	width:100%;
+}
+
 .instapic {
 	height: 350px;
 	white-space:nowrap;
