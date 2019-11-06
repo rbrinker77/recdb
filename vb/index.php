@@ -21,6 +21,8 @@ else {
 
   $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY name ASC;";
 
+  echo "<div>";
+
   foreach($dbConnection->query($vbroster) as $row)
   {
     if ($row['jersey'] > 0)
@@ -41,6 +43,8 @@ else {
       </form>
       </div>";
   }
+
+  echo "</div>";
 
   $dbConnection = null;
 
