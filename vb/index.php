@@ -21,7 +21,7 @@ else {
 
   $vbroster = "SELECT * FROM vb WHERE active=1 ORDER BY name ASC;";
 
-  echo "<div>";
+  echo "<div class='thumbs'>";
 
   foreach($dbConnection->query($vbroster) as $row)
   {
@@ -33,15 +33,14 @@ else {
     {
       $titleline = $row['name'];
     }
-  	echo "<div class='thumbs'><form action='./index.php' method='post'>
+  	echo "<form action='./index.php' method='post'>
       <input type='image' style='max-width:20%;' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
       <input type='hidden' name='position' value='".$row['position']."'>
       <input type='hidden' name='twitter' value='".$row['twitter']."'>
       <input type='hidden' name='instagram' value='".$row['instagram']."'>
-      </form>
-      </div>";
+      </form>";
   }
 
   echo "</div>";
