@@ -33,14 +33,16 @@ else {
     {
       $titleline = $row['name'];
     }
-  	echo "<form action='./index.php' method='post'>
+  	echo "<div style='max-width:20%;'>
+      <form action='./index.php' method='post'>
       <input type='image' style='max-width:20%;' src='../Images/".$row['name'].".jpg' title='".$titleline."' alt='".$row['name']." image'>
       <input type='hidden' name='name' value='".$row['name']."'>
       <input type='hidden' name='jersey' value='".$row['jersey']."'>
       <input type='hidden' name='position' value='".$row['position']."'>
       <input type='hidden' name='twitter' value='".$row['twitter']."'>
       <input type='hidden' name='instagram' value='".$row['instagram']."'>
-      </form>";
+      </form>
+    </div>";
   }
 
   echo "</div>";
