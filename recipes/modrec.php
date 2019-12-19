@@ -255,7 +255,7 @@ while ($i < 16)
 
 	$i++;
 }
-
+ 
 echo "
 		</div>
 		<div class=\"categoryBox\">
