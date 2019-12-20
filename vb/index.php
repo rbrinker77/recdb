@@ -14,7 +14,7 @@ else {
     <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
   <body>
 <?php
- 
+
   echo "<div><a class='vblink' href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>";
 
   include("../DB/dbconnect.php");
