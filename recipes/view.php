@@ -153,11 +153,11 @@ foreach($dbConnection->query($recQuery) as $row)
 		foreach($dbConnection->query($catLoop) as $catname)
 		{
 			if ($row > 0) {
-				if (strlen($str) > 0) {
-					$tagstring+=$catname+",";
+				if (strlen($row) > 0) {
+					$tagstring .= $catname+",";
 				}
 				else {
-					$tagstring+=$catname;
+					$tagstring .= $catname;
 				}
 			}
 		}
