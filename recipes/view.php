@@ -154,7 +154,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		{
 			if ($row > 0) {
 				if (strlen($tagstring) > 0) {
-					$tagstring .= ","+$catname['catName'];
+					$tagstring .= ",".$catname['catName'];
 				}
 				else {
 					$tagstring .= $catname['catName'];
@@ -162,7 +162,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			}
 		}
 	}
-	echo "<br/>"+$tagstring+"<br/>";
+	echo "<br/>".$tagstring."<br/>";
 	echo "</div>";
 }
 
