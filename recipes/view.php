@@ -141,7 +141,29 @@ foreach($dbConnection->query($recQuery) as $row)
 			echo "<li class=\"instructLine\">".$instruction."</li>";
 		}
 	}
-	echo "</ol></div>";
+	echo "</ol>";
+
+	include("../DB/dbconnect.php");
+
+	$cats = array($row['cat1'],$row['cat2'],$row['cat3'],$row['cat4'],$row['cat5']);
+	$tagstring="";
+
+	foreach $cats as $cat {
+		$catLoop = "SELECT catName FROM theboxli_Categories WHERE $cat = catNumber;";
+		foreach($dbConnection->query($catLoop) as $catname)
+		{
+			if ($row > 0) {
+				if (strlen($str) > 0) {
+					$tagstring+=$catname+",";
+				}
+				else {
+					$tagstring+=$catname;
+				}
+			}
+		}
+	}
+	echo "<br/>"+$tagstring+"<br/>";
+	echo "</div>";
 }
 
 $dbConnection = null;
