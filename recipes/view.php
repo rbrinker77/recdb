@@ -154,10 +154,10 @@ foreach($dbConnection->query($recQuery) as $row)
 		{
 			if ($row > 0) {
 				if (strlen($tagstring) > 0) {
-					$tagstring .= ","+str($catname['catName']);
+					$tagstring .= ","+$catname['catName'];
 				}
 				else {
-					$tagstring .= str($catname['catName']);
+					$tagstring .= $catname['catName'];
 				}
 			}
 		}
