@@ -148,7 +148,7 @@ foreach($dbConnection->query($recQuery) as $row)
 	$cats = array($row['cat1'],$row['cat2'],$row['cat3'],$row['cat4'],$row['cat5']);
 	$tagstring="";
 
-	foreach $cats as $cat {
+	foreach($cats as $cat) {
 		$catLoop = "SELECT catName FROM theboxli_Categories WHERE $cat = catNumber;";
 		foreach($dbConnection->query($catLoop) as $catname)
 		{
