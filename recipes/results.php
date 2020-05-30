@@ -33,7 +33,7 @@ echo "
 			SEARCH RESULTS
 		</div>";
 
-	if (isset($_POST['viewByName']) || isset($_POST['viewByDate']))
+	if (isset($_POST['viewByName']) || isset($_POST['viewByNum']))
 	{
 		unset($_SESSION["compiledQuery"]);
 
@@ -119,8 +119,8 @@ echo "
 
 		if (!isset($_POST['viewByName']))
 		{
-			$searchLoop .= " ORDER BY dateChanged DESC, recName";
-			$_SESSION["searchView"] = 'byDate';
+			$searchLoop .= " ORDER BY recNumber, recName";
+			$_SESSION["searchView"] = 'byNum';
 		}
 		else
 		{
