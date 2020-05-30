@@ -16,7 +16,7 @@ echo "<html>
 		<input class=\"smallRed\" type=\"reset\" value=\"Reset\"  onclick=\"window.location.href='./search.php'\">
 		<input class=\"smallGreen\" type=\"button\" value=\"Home\"  onclick=\"window.location.href='./index.php'\">
 		<input class=\"smallPurple\" name=\"viewByName\" type=\"submit\" value=\"By Name\" >
-		<input class=\"smallPurple dateButton\" name=\"viewByNum\" type=\"submit\" value=\"By Rec Number\" >
+		<input class=\"smallPurple dateButton\" name=\"viewByNum\" type=\"submit\" value=\"By Rec Num\" >
 	</div>
 	<div class=\"pageDiv\">
 <div>
