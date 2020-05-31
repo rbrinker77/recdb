@@ -52,7 +52,7 @@ foreach($dbConnection->query($recQuery) as $row)
 		$servings = $row['servings'];
 	}
 	else {
-		$servings = ""
+		$servings = "";
 	}
 	echo "
 		<html>
