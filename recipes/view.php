@@ -49,7 +49,7 @@ foreach($dbConnection->query($recQuery) as $row)
 {
 	$titleString = html_entity_decode($row['recName'], ENT_QUOTES);
 	if ($row['servings'] > 0) {
-		$servings = $row['servings'];
+		$servings = "SERVINGS<br />".$row['servings'];
 	}
 	else {
 		$servings = "";
