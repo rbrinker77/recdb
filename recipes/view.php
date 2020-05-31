@@ -92,8 +92,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			<div class=\"category\">
 				INGREDIENTS
 			</div>
-			<div>
-			<ul>";
+			<div>";
 
 	for ($i=1; $i < 25; $i++)
 	{
@@ -111,17 +110,17 @@ foreach($dbConnection->query($recQuery) as $row)
 				$ingredient .= $ingredientparts[3];
 			}
 			if (strpos(strtolower($ingredient), "sugar") !== FALSE || strpos(strtolower($ingredient), "concentrate") !== FALSE || strpos(strtolower($ingredient), "flour") !== FALSE || strpos(strtolower($ingredient), "potato") !== FALSE || strpos(strtolower($ingredient), "rice") !== FALSE || strpos(strtolower($ingredient), "tortilla") !== FALSE) {
-				echo "<li class=\"ingredLineWarning\">".$ingredient."</li>";
+				echo "<p class=\"ingredLineWarning\">".$ingredient."</p>";
 			}
 			else {
-				echo "<li class=\"ingredLine\">".$ingredient."</li>";
+				echo "<p class=\"ingredLine\">".$ingredient."</p>";
 			}
 		}
 	}
 
-	echo	"</ul></div><div class=\"category\">
+	echo	"</div><div class=\"category\">
 				INSTRUCTIONS
-			</div><div><ol>";
+			</div><div>";
 
 	for ($i=1; $i < 16; $i++)
 	{
@@ -138,10 +137,9 @@ foreach($dbConnection->query($recQuery) as $row)
 				$instruction .= $instructionparts[2]."</a>";
 				$instruction .= $instructionparts[3];
 			}
-			echo "<li class=\"instructLine\">".$instruction."</li>";
+			echo "<p class=\"instructLine\">".$instruction."</p>";
 		}
 	}
-	echo "</ol>";
 
 	include("../DB/dbconnect.php");
 
