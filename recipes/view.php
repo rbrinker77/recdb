@@ -47,10 +47,12 @@ $recQuery = "SELECT * FROM theboxli_Recipes WHERE recNumber = ".$recNum.";";
 
 foreach($dbConnection->query($recQuery) as $row)
 {
+	$titleString = html_entity_decode($row['recName'], ENT_QUOTES);
 	if ($row['servings'] > 0) {
-		$titleString = html_entity_decode($row['recName'], ENT_QUOTES)." - Serves ".$row['servings'];
-	} else {
-		$titleString = html_entity_decode($row['recName'], ENT_QUOTES);
+		$servings = $row['servings'];
+	else {
+		$servings = ""
+	}
 	}
 	echo "
 		<html>
@@ -68,7 +70,7 @@ foreach($dbConnection->query($recQuery) as $row)
 			<p></p>
 			<div class=\"pageDiv\">
 			<div class=\"headerDiv big\">"
-				.$titleString."
+				.$titleString."<br />".$servings."
 			</div>
 			<div class=\"dateDiv\">";
 
