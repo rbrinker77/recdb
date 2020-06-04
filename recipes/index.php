@@ -15,8 +15,6 @@ ini_set('display_errors', '1');
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="../CSS/styles.css">
 		<title>Recipe Portal</title>
-/* Move to new site and ignore all older content */
-		<meta http-equiv = "refresh" content = "0; url = .:8000" />
 	</head>
 	<body>
 		<div class="headerDiv giant">
