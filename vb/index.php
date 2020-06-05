@@ -17,7 +17,7 @@ else {
 //Poll database table 'vb'
   echo "<div><a class='vblink' href='./vbnews.php'><h3>UW Volleyball news</h3></a></div>";
 
-  include("../DB/dbconnect.php");
+  include("../DB/vbconnect.php");
 
       $vbroster = "SELECT * FROM vb WHERE name NOT LIKE 'Badger%' AND active=1 ORDER BY name ASC;";
       $vbother = "SELECT * FROM vb WHERE name LIKE 'Badger%' AND active=1 ORDER BY name ASC;";
