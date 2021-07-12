@@ -1,8 +1,5 @@
 <?php
-#error_reporting(E_ALL);
-#ini_set('display_errors', 1);
-
-$targetDir = "uploads/";
+$targetDir = "./uploads/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
@@ -14,4 +11,3 @@ if (!empty($_FILES)) {
 	}
 }
 ?>
-<script>window.alert("Something");</script>
