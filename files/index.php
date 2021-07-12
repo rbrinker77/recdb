@@ -1,4 +1,7 @@
-<!doctype html>
+<?php<!doctype html>
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+?>
 <html>
     <head>
         <link href="../CSS/dropzone.css" rel="stylesheet" type="text/css">
