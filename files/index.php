@@ -9,7 +9,7 @@
         <div class="container" >
             <div class='content'>
             <form action="upload.php" class="dropzone" id="dropzonewidget">
-                
+                <button type="submit" name="Send files" />
             </form>  
             </div> 
         </div>
