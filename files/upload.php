@@ -7,6 +7,7 @@ $targetDir = "/home/pbox/recs/web/files/uploads/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
+    var_dump($_FILES);
 	$temporaryFile = $_FILES['file']['tmp_name']; 
     $targetFile = $target_dir . basename($_FILES["file"]["name"]);
 
