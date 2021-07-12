@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$targetDir = "uploads/";
+$targetDir = "/home/pbox/recs/web/files/uploads/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
