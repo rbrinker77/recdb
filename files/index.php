@@ -11,7 +11,7 @@
     <body >
         <div class="container" >
             <div class='content'>
-            <form action="upload.php" class="dropzone" id="dropzonewidget">
+            <form action="upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
                 <button type="submit" name="filesup">Send Files</button>
             </form>  
             </div> 
