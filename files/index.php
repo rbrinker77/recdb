@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
     <head>
-        <link href="style.css" rel="stylesheet" type="text/css">
-        <link href="dropzone.css" rel="stylesheet" type="text/css">
-        <script src="dropzone.js" type="text/javascript"></script>
+        <link href="../CSS/style.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/dropzone.css" rel="stylesheet" type="text/css">
+        <script src="../JS/dropzone.js" type="text/javascript"></script>
     </head>
     <body >
         <div class="container" >
