@@ -11,10 +11,10 @@
     <body >
         <div class="container" >
             <div class='content'>
-            <form action="upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
-                <button type="submit" name="filesup">Send Files</button>
+            <form action="./upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
             </form>  
             </div> 
         </div>
+        <div name="errors"></div>
     </body>
 </html>
