@@ -11,7 +11,7 @@ if (!empty($_FILES)) {
 
 	if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";	
-        echo "alert(".var_dump($_FILES).")";
+        echo "<script type='text/JavaScript'>alert(".var_dump($_FILES).");";
 	}
 }
 ?>
