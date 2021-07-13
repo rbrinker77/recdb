@@ -1,8 +1,15 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+#error_reporting(E_ALL);
+#ini_set('display_errors', 1);
 
-$targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Aiden";
+if ($_GET['type'] != "Aiden" && $_GET['type'] != "Mine") {
+	die("Go away");
+}
+else {
+	$targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/".$_GET['type'];
+}
+
+$targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/";
 $yearDir = $targetDir."/".date("Y");
 $monthDir = $yearDir."/".date("n");
 

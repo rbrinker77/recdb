@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+    if ($_GET['type'] != "Aiden" && $_GET['type'] != "Mine") {
+        die("Go away");
+    }
+?><!doctype html>
 <html>
     <head>
         <link href="../CSS/styles.css" rel="stylesheet" type="text/css">
@@ -8,7 +12,7 @@
     <body >
         <div class="container" >
             <div class='content'>
-            <form action="./aiden_upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
+            <form action="./upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
             </form>  
             </div> 
         </div>
