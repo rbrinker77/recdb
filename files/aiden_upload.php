@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Aiden";
 $yearDir = $targetDir."/".date("Y");
-$monthDir = $targetDir."/".date("n");
+$monthDir = $yearDir."/".date("n");
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
