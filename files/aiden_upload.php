@@ -2,8 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-$targetDir = $rootDir."/files/uploads/Aiden/";
+$targetDir = "./uploads/Aiden/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
