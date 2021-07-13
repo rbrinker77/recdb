@@ -13,16 +13,15 @@ if (!empty($_FILES)) {
 		echo "Error occurred while uploading the file to server!";
 	}
 }
-//path to directory to scan
-$directory = "../files/";
+$dir_path = "../files";
 
-//get all text files with a .txt extension.
-$texts = glob($directory . "*.txt");
-
-//print each file name
-foreach($texts as $text)
-{
-    echo $text;
+if (is_dir($dir_path)) {
+    if ($dir_handler = opendir($dir_path)) {
+        while (($file = readdir($dir_handler)) !== false) {
+            echo "filename: $file : filetype: " . filetype($dir_path . $file) . "\n";
+        }
+        closedir($dir_handler);
+    }
 }
 
 #$myfile = fopen($targetDir."newfile.txt", "w") or die("Unable to open file!");
