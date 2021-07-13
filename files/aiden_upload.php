@@ -13,7 +13,7 @@ if (!empty($_FILES)) {
 		echo "Error occurred while uploading the file to server!";
 	}
 }
-$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$myfile = fopen($targetDir."newfile.txt", "w") or die("Unable to open file!");
 $txt = "John Doe\n";
 fwrite($myfile, $txt);
 $txt = "Jane Doe\n";
