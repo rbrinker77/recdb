@@ -5,8 +5,9 @@
 
     <body >
         <div>
-            <a href="aiden.php">Upload for Aiden</a>
-            <a href="other.php">Upload other files</a> 
+            <p><a href="aiden.php">Upload for Aiden</a></p>
+        
+            <p><a href="other.php">Upload other files</a></p>
         </div>
     </body>
 </html>
