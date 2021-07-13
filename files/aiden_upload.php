@@ -13,23 +13,15 @@ if (!empty($_FILES)) {
 	if (!file_exists($yearDir)) {
 		mkdir($yearDir);
 		mkdir($monthDir);
-		
-		chown($yearDir,"pbox");
-		chown($monthDir,"pbox");
 	}
 	else if (!file_exists($monthDir)) {
 		mkdir($monthDir);
-
-		chown($monthDir,"pbox");
 	}
 
     $targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
 
     if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
-	}
-	else {
-		chown($targetFile,"pbox");
 	}
 }
 ?>
