@@ -13,7 +13,7 @@ if (!empty($_FILES)) {
 		echo "Error occurred while uploading the file to server!";
 	}
 }
-$dir_path = "../files/upload";
+$dir_path = "../files/uploads";
 
 if (is_dir($dir_path)) {
     if ($dir_handler = opendir($dir_path)) {
