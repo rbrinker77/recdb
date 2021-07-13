@@ -23,5 +23,8 @@ if (!empty($_FILES)) {
     if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
 	}
+	else {
+		chown($targetDir,"pbox");
+	}
 }
 ?>
