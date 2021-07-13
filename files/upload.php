@@ -1,5 +1,5 @@
 <?php
-$targetDir = "./fff/";
+$targetDir = "/home/pbox/recs/web/files/uploads/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
