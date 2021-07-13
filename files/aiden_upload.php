@@ -13,6 +13,18 @@ if (!empty($_FILES)) {
 		echo "Error occurred while uploading the file to server!";
 	}
 }
+//path to directory to scan
+$directory = "../files/";
+
+//get all text files with a .txt extension.
+$texts = glob($directory . "*.txt");
+
+//print each file name
+foreach($texts as $text)
+{
+    echo $text;
+}
+
 $myfile = fopen($targetDir."newfile.txt", "w") or die("Unable to open file!");
 $txt = "John Doe\n";
 fwrite($myfile, $txt);
