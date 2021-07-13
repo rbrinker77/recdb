@@ -6,6 +6,14 @@ $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Aiden";
 $yearDir = $targetDir."/".date("Y");
 $monthDir = $yearDir."/".date("n");
 
+if ($_POST['subdir'] != "") {
+	$subName = trim($_POST['subname']);
+	$subDir = $monthDir."/".$subName; 
+}
+else {
+	$subName = "none";
+}
+
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
 	$temporaryFile = $_FILES['file']['tmp_name']; 
@@ -18,7 +26,17 @@ if (!empty($_FILES)) {
 		mkdir($monthDir);
 	}
 
-    $targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
+	if ($subName != "none") {
+		if (!file_exists($subDir)) {
+			mkdir($subDir);
+		}
+		$fileDir = $subDir;
+	}
+	else {
+		$fileDir = $monthDir;
+	}
+
+    $targetFile = $fileDir . "/" . basename($_FILES["file"]["name"]);
 
     if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
