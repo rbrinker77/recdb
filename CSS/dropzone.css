@@ -376,7 +376,7 @@
       background: #be2626;
       background: linear-gradient(to bottom, #be2626, #a92222);
       padding: 0.5em 1.2em;
-      color: rgb(53, 50, 50); }
+      color: #514746; }
       .dropzone .dz-preview .dz-error-message:after {
         content: '';
         position: absolute;
