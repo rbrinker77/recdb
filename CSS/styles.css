@@ -405,8 +405,6 @@ input[type="checkbox"] + label {
 	top:1px;
 }
 .smallRed {
-}
-.smallRed {
 	padding: 0 1em;
 	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
