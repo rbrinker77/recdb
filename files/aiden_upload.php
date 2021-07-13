@@ -1,5 +1,5 @@
 <?php
-$targetDir = "uploads/Aiden/";
+$targetDir = "./uploads/Aiden/";
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
