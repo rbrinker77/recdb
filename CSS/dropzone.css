@@ -333,7 +333,7 @@
       margin-top: -8px;
       width: 80px;
       margin-left: -40px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(81, 71, 70, 0.9);
       -webkit-transform: scale(1);
       transform: scale(1);
       border-radius: 8px;
@@ -376,7 +376,7 @@
       background: #be2626;
       background: linear-gradient(to bottom, #be2626, #a92222);
       padding: 0.5em 1.2em;
-      color: #514746; }
+      color: white; }
       .dropzone .dz-preview .dz-error-message:after {
         content: '';
         position: absolute;
