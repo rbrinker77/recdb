@@ -9,7 +9,6 @@
         <div class="container" >
             <div class='content'>
             <form action="./aiden_upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
-                <input type="text" name="subname" />
             </form>  
             </div> 
         </div>
