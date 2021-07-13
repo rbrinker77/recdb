@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$targetDir = "../files/uploads/Aiden/";
-
+$targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Aiden/";
+echo $targetDir;
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
 	$temporaryFile = $_FILES['file']['tmp_name']; 
