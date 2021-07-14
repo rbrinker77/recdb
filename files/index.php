@@ -14,6 +14,10 @@
             <div class="indexContainer">
                 <button type="button" class="indexButton"><a href="file.php">Files</a></button>
             </div>
+            <br /><br />
+            <div class="indexContainer">
+                <button type="button" class="smallGreen"><a href="./uploads/">Files</a></button>
+            </div>
         </div>
     </body>
 </html>
