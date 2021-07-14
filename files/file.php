@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="icon" type="image/png" href="/favicon.ico">
         <link href="../CSS/styles.css" rel="stylesheet" type="text/css">
         <link href="../CSS/dropzone.css" rel="stylesheet" type="text/css">
         <script src="../JS/dropzone.js" type="text/javascript"></script>

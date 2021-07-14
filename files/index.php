@@ -2,7 +2,8 @@
 <html>
     <head>
         <link href="../CSS/styles.css" rel="stylesheet" type="text/css">
-
+        <link rel="icon" type="image/png" href="/favicon.ico">
+    </head>
     <body >
         <div class="pageDiv">
             <div class="indexContainer">

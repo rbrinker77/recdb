@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
   <title>Volleyball Feeds</title>
+  <link rel="icon" type="image/png" href="/favicon.ico">
   <link rel="stylesheet" href="../CSS/vb.css" type="text/css">
 <body>
 
