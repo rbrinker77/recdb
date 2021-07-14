@@ -34,7 +34,7 @@ input[type="checkbox"] + label {
     color: blue;
 }
 
-.indexes {
+a:link, a:visited, a:active {
 	color: white !important;
 	text-decoration: none !important;
 }
