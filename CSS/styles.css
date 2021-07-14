@@ -34,6 +34,11 @@ input[type="checkbox"] + label {
     color: blue;
 }
 
+.indexes {
+	color: white;
+	text-decoration: none;
+}
+
 .reclink {
 	color: #00FF33 !important;
 }
