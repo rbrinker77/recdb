@@ -6,7 +6,7 @@
         <script src="../JS/dropzone.js" type="text/javascript"></script>
     </head>
     <body >
-        <div><h1>MINE</h1></p>
+        <div><h1>VINOVA PICS & VIDS</h1></p>
         <br />
         <div class="container" >
             <div class='content'>
