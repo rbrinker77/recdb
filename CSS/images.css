@@ -36,7 +36,7 @@
    th.indexcollastmod a:visited { color:#323B40;text-decoration:none; }
    th.indexcollastmod a:hover   { color:#a81818;text-decoration:none; }
  
-   th.indexcolsize { text-align:right;padding-right:20px; }
+   th.indexcolsize { text-align:right;padding-right:10px; }
    th.indexcolsize a:link,
    th.indexcolsize a:visited { color:#323B40;text-decoration:none; }
    th.indexcolsize a:hover   { color:#a81818;text-decoration:none; }
@@ -73,3 +73,15 @@
        text-align:left;
        padding-right:10px;
      }
+
+@media (max-width: 708px) {
+    td.indexcollastmod, td.indexcolsize, td.indexcoldesc {
+        font-size:2em;
+    }
+    tr.indexhead, td.indexcolname {
+        font-size:2.5em;
+    }
+    h1#indextitle {
+        font-size:3em;
+    }
+}
