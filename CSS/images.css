@@ -1,27 +1,27 @@
-   body { background:#c8b570; }
+   body { background:black; }
  
-   table { margin:10px auto;width:1000px;background:#fffee9;padding:20px;-moz-border-radius: 15px;border-radius: 15px; }
+   table { margin:10px auto;width:80%;background:#afafaf;padding:10px;-moz-border-radius: 15px;border-radius: 15px; }
    table tr td { padding:2px; }
-   h1#indextitle { margin:20px auto;width:990px;color:#323B40;  }
+   h1#indextitle { margin:10px auto;width:75%;color:#323B40;  }
   
    h1#indextitle
      {
-       font-size:20px;
+       font-size: 1.5em;
        font-family:"Trebuchet MS";
      }
   
    tr.indexhead
      {
-       font-size:16px;
+       font-size:1.25em;
        font-family:"Trebuchet MS";
      }
    tr.even
      {
-       background:#fffff7; /*  */
+       background:#87b0cc; /*  */
      }
    tr.odd
      {
-       background:#fcfbe5; /*  */
+       background:#afafaf; /*  */
      }
     
    tr.indexbreakrow th hr { border:0;height:1px;background:black; }
@@ -48,7 +48,7 @@
  
    td.indexcolicon { text-align:center; }
  
-   td.indexcolname { font-family:verdana;font-size:14px; }
+   td.indexcolname { font-family:verdana;font-size:1.25em; }
    td.indexcolname a:link,
    td.indexcolname a:visited { color:#323B40;text-decoration:none; }
    td.indexcolname a:hover   { color:#a81818;text-decoration:none; }
@@ -56,20 +56,20 @@
    td.indexcollastmod
      {
        font-family:"Trebuchet MS";
-       font-size:12px;
+       font-size:1em;
        text-align:center;
      }
    td.indexcolsize
      {
        font-family:"Trebuchet MS";
-       font-size:12px;
+       font-size:1em;
        text-align:right;
-       padding-right:20px;
+       padding-right:10px;
      } 
    td.indexcoldesc
      {
        font-family:"Trebuchet MS";
-       font-size:12px;
+       font-size:1em;
        text-align:left;
-       padding-right:20px;
+       padding-right:10px;
      }
