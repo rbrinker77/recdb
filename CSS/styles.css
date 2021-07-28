@@ -1,14 +1,6 @@
 * {
 	margin: 0;
 }
-/* images */
-table tr td:first-of-type a[href$=".jpg"],
-table tr td:first-of-type a[href$=".png"],
-table tr td:first-of-type a[href$=".gif"],
-table tr td:first-of-type a[href$=".svg"],
-table tr td:first-of-type a[href$=".jpeg"] {
-  background-image: url(/Images/Izzy\ Ashburn.jpg);
-}
 .blink {
   animation: blinker 1s linear infinite;
 	color: #909;
