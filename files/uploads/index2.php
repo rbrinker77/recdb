@@ -36,12 +36,13 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 
 foreach ($arrayDirs as $dir) {
-    echo "<a class='indexes' href='./".$dir."'>".$dir."</a>";
+    echo "<a class='indexes' href='./".$dir."'><img src='' width='50' height='50' /></a>";
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='Example Image Link' width='50' height='50' /></a>";
+    echo "<a class='indexes' href='./".$file[0]."'><img src='".$file[0]."' title='".$file[0]."' width='50' height='50' /></a>";
 }
+echo "<br/>";var_dump($arrayFiles);
 ?>
     </body>
 </html>
