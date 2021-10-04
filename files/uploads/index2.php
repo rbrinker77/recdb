@@ -19,18 +19,17 @@ $thisDir = dirname(__FILE__);
 $arrayDirs = [];
 $arrayFiles =[];
 foreach (new DirectoryIterator($thisDir) as $fileInfo) {
-    $name = $fileInfo->getFilename();
-    $path = pathinfo($name);
+    $nameInfo = $fileInfo->getFilename();
+    $path = pathinfo($nameInfo);
     $extension = $path['extension'];
     if( $fileInfo->isDot() || $extension == "php" || $extension == "Trash-0" || $extension == "htaccess" ) continue;
     
     if(!$extension) {
-        $arrayDirs[] = $name;
+        $arrayDirs[] = $path;
     } else {
-        $modtime = filemtime($name);
-        $arrayFiles[] = [$name, $modtime];
+        $modtime = filemtime($path);
+        $arrayFiles[] = [$path, $modtime];
     }
-    var_dump($fileInfo);echo "<br/>";
 }
 sort($arrayDirs);
 //var_dump($arrayDirs);
