@@ -40,9 +40,11 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>";
+    echo "<figure>
+            <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>
+            <figcaption>".echo @date('M/j/y @ h:ia', $file['modtime']);."</figcaption>
+        </figure>";
 }
-echo "<br/>";var_dump($arrayFiles);
 ?>
     </body>
 </html>
