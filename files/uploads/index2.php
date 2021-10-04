@@ -22,7 +22,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $extension = $path['extension'];
     if( $fileInfo->isDot() || $extension == "php" || $extension == "Trash-0" || $extension == "htaccess" ) continue;
     echo $name . "<br>\n";
-    var_dump($extension);
+    var_dump($path);
 }
 ?>
     </body>
