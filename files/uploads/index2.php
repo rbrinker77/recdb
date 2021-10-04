@@ -27,13 +27,14 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     if(!$extension) {
         $arrayDirs[] = $name;
     } else {
-        $arrayFiles[] = $name;
+        $modtime = filemtime($name);
+        $arrayFiles[] = [$name, $modtime];
     }
     var_dump($fileInfo);echo "<br/>";
 }
 sort($arrayDirs);
 //var_dump($arrayDirs);
-//var_dump($arrayFiles);
+var_dump($arrayFiles);
 ?>
     </body>
 </html>
