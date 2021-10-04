@@ -20,9 +20,10 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $name = $fileInfo->getFilename();
     $path = pathinfo($name);
     $extension = $path['extension'];
-    //if( $fileInfo->isDot() || $extension == "php" || $extension == "Trash-0" || $extension == "htaccess" ) continue;
-    echo $name . "<br>\n";
-    var_dump($path);
+    if( $fileInfo->isDot() || $extension == "php" || $extension == "Trash-0" || $extension == "htaccess" ) continue;
+    
+    if(!$extension) echo $name;
+    if($extension) echo "XXX";
 }
 ?>
     </body>
