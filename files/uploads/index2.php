@@ -29,7 +29,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
         $arrayDirs[] = $name;
     } else {
         $modtime = filemtime($name);
-        $arrayFiles[] = [ ['name', $name], ['modtime', $modtime] ];
+        $arrayFiles[] = [ 'name'=>$name, 'modtime'=>$modtime ];
     }
 }
 
@@ -40,7 +40,7 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<a class='indexes' href='./".$file[0]."'><img src='".$file[0]."' title='".$file[0]."' width='50' height='50' /></a>";
+    echo "<a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>";
 }
 echo "<br/>";var_dump($arrayFiles);
 ?>
