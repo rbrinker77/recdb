@@ -18,6 +18,7 @@ ini_set('display_errors', 1);
 $thisDir = dirname(__FILE__);
 $arrayDirs = [];
 $arrayFiles =[];
+
 foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $name = $fileInfo->getFilename();
     $path = pathinfo($name);
@@ -31,9 +32,16 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
         $arrayFiles[] = [$name, $modtime];
     }
 }
+
 sort($arrayDirs);
-//var_dump($arrayDirs);
-var_dump($arrayFiles);
+
+foreach ($arrayDirs as $dir) {
+    echo "<a class='indexes' href='./".$dir."'>".$dir."</a>";
+}
+
+foreach ($arrayFiles as $file) {
+    echo "<a class='indexes' href='./".$file."'><img src='".$file."' title='Example Image Link' width='50' height='50' /></a>";
+}
 ?>
     </body>
 </html>
