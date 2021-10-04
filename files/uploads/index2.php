@@ -18,7 +18,8 @@ ini_set('display_errors', 1);
 $thisDir = dirname(__FILE__);
 foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $name = $fileInfo->getFilename();
-    if($fileInfo->isDot() || pathinfo($name)['extension'] != "php" ) continue;
+    $path = pathinfo($name);
+    if($fileInfo->isDot()) continue;
     echo $fileInfo->getFilename() . "<br>\n";
 }
 ?>
