@@ -19,8 +19,8 @@ $thisDir = dirname(__FILE__);
 foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $name = $fileInfo->getFilename();
     $path = pathinfo($name);
-    if($fileInfo->isDot()) continue;
-    echo $path['extension'] . "<br>\n";
+    if( $fileInfo->isDot() || $path['extension'] == "php" || $path['extension'] == "Trash-0" || $path['extension'] == "htaccess" ) continue;
+    echo $name . "<br>\n";
 }
 ?>
     </body>
