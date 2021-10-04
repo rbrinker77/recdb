@@ -29,10 +29,11 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     } else {
         $arrayFiles[] = $name;
     }
+    var_dump($fileInfo);echo "<br/>";
 }
 sort($arrayDirs);
-var_dump($arrayDirs);
-var_dump($arrayFiles);
+//var_dump($arrayDirs);
+//var_dump($arrayFiles);
 ?>
     </body>
 </html>
