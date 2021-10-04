@@ -20,7 +20,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $name = $fileInfo->getFilename();
     $path = pathinfo($name);
     if($fileInfo->isDot()) continue;
-    echo $path . "<br>\n";
+    echo $path['extension'] . "<br>\n";
 }
 ?>
     </body>
