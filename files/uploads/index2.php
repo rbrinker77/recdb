@@ -12,8 +12,6 @@
         <div>
             <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
         </div>
-        <div class="pageDiv">
-            <div class="leftDiv">
 <?
 $thisDir = dirname(__FILE__);
 $arrayDirs = [];
@@ -58,7 +56,6 @@ foreach ($arrayFiles as $file) {
             </div>
         </div>";
 }
-?>          </div>
-        </div>
+?>
     </body>
 </html>
