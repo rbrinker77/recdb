@@ -9,10 +9,10 @@
         <link rel="icon" type="image/png" href="/favicon.ico">
     </head>
     <body >
+        <div>
+            <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
+        </div>
         <div class="pageDiv">
-            <div>
-                <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
-            </div>
             <div>
 <?
 $thisDir = dirname(__FILE__);
@@ -34,14 +34,16 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 }
 
 sort($arrayDirs);
+$imagesize = 200;
+$textsize = .75;
 
 foreach ($arrayDirs as $dir) {
     echo "<div>
             <div>
-                <a href='./".$dir."'><img class='thumbs' src='' /></a>
+                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='' /></a>
             </div>
             <div>
-                <p class='thumbtext'>".$dir."</p>
+                <p style='font-size:.75em;'>".$dir."</p>
             </div>
         </div>";
 }
@@ -49,10 +51,10 @@ foreach ($arrayDirs as $dir) {
 foreach ($arrayFiles as $file) {
     echo "<div>
             <div>
-                <a href='./".$file['name']."'><img class='thumbs' src='".$file['name']."' title='".$file['name']."' /></a>
+                <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
             <div>
-                <p class='thumbtext'>".$file['modtime']."</p>
+                <p style='font-size:.75em;'>".$file['modtime']."</p>
             </div>
         </div>";
 }
