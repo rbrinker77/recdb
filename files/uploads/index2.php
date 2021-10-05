@@ -42,7 +42,7 @@ foreach ($arrayDirs as $dir) {
 foreach ($arrayFiles as $file) {
     echo "<figure>
             <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>
-            <figcaption>".$moddate."</figcaption>
+            <figcaption>".$file['modtime']."</figcaption>
         </figure>";
 }
 ?>          </div>
