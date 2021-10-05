@@ -34,7 +34,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 $imagesize = "200px";
 $textsize = ".75em";
-$style = "float:left;width:200px;font-size:".$textsize.";"
+$style = "float:left;width:200px;font-size:".$textsize.";";
 
 foreach ($arrayDirs as $dir) {
     echo "<div style='".$style."'>
