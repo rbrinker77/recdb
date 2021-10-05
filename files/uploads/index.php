@@ -27,13 +27,13 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
         $arrayDirs[] = $name;
     } else {
         $modtime = date("M/j/y @ h:i a", filemtime($name));
-        $arrayFiles[] = [ 'name'=>$name, 'modtime'=>$modtime ];
+        $arrayFiles[] = [ 'modtime'=>$modtime, 'name'=>$name ];
     }
 }
 
 sort($arrayDirs);
-usort($arrayFiles, 'modtime');
-
+sort($arrayFiles);
+var_dump($arrayFiles);
 $imagesize = "200px";
 $textsize = ".75em";
 $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
