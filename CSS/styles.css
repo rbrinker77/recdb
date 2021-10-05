@@ -166,12 +166,10 @@ a:link, a:visited, a:active {
 }
 
 .leftDiv {
-	all: unset;
+	width: 200px;
+	height: 200px;
 	padding: .25em !important;
 	float: left !important;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	color: white;
 }
 
 .dateDiv {
