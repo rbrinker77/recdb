@@ -34,9 +34,10 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 $imagesize = "200px";
 $textsize = ".75em";
+$style = "float:left;width:200px;font-size:".$textsize.";"
 
 foreach ($arrayDirs as $dir) {
-    echo "<div style='width:200px;font-size:".$textsize.";'>
+    echo "<div style='".$style."'>
             <div>
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='' /></a>
             </div>
@@ -47,7 +48,7 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<div style='width:200px;font-size:".$textsize.";'>
+    echo "<div style='".$style."'>
             <div>
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
