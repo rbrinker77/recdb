@@ -40,9 +40,13 @@ a:link, a:visited, a:active {
 }
 
 .thumbs {
-	width: 2em;
-	height: 2em;
-	font-size: 1.5em;
+	width: 200;
+	height: 200;
+}
+
+.thumbtext {
+	width: 200;
+	font-size: .75em;
 }
 
 .reclink {

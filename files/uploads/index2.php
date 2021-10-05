@@ -38,10 +38,10 @@ sort($arrayDirs);
 foreach ($arrayDirs as $dir) {
     echo "<div>
             <div>
-                <a class='thumbs' href='./".$dir."'><img src='' /></a>
+                <a href='./".$dir."'><img class='thumbs' src='' /></a>
             </div>
             <div>
-                <p>".$dir."</p>
+                <p class='thumbtext'>".$dir."</p>
             </div>
         </div>";
 }
@@ -49,10 +49,10 @@ foreach ($arrayDirs as $dir) {
 foreach ($arrayFiles as $file) {
     echo "<div>
             <div>
-                <a class='thumbs' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' /></a>
+                <a href='./".$file['name']."'><img class='thumbs' src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
             <div>
-                <p>".$file['modtime']."</p>
+                <p class='thumbtext'>".$file['modtime']."</p>
             </div>
         </div>";
 }
