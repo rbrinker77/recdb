@@ -48,7 +48,7 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    $mimeType = mime_content_type(public_path($file));
+    $mimeType = mime_content_type($file);
     $fileType = explode('/', $mimeType)[0]; // video|image
 
     if ($fileType === 'video') {
