@@ -36,9 +36,9 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 
 foreach ($arrayDirs as $dir) {
-    echo "<div class='thumbs'>
+    echo "<div>
             <div>
-                <a class='indexes' href='./".$dir."'><img src='' /></a>
+                <a class='thumbs' href='./".$dir."'><img src='' /></a>
             </div>
             <div>
                 <p>".$dir."</p>
@@ -47,9 +47,9 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<div class='thumbs'>
+    echo "<div>
             <div>
-                <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' /></a>
+                <a class='thumbs' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
             <div>
                 <p>".$file['modtime']."</p>
