@@ -39,6 +39,12 @@ a:link, a:visited, a:active {
 	text-decoration: none !important;
 }
 
+.thumbs {
+	width: 2em;
+	height: 2em;
+	font-size: 1.5em;
+}
+
 .reclink {
 	color: #00FF33 !important;
 }
