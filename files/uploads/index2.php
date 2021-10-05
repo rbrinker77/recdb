@@ -34,8 +34,8 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 }
 
 sort($arrayDirs);
-$imagesize = 200px;
-$textsize = .75em;
+$imagesize = "200px";
+$textsize = ".75em";
 
 foreach ($arrayDirs as $dir) {
     echo "<div class='leftDiv'>
