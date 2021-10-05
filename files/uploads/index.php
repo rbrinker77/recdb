@@ -48,9 +48,17 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
+    $mimeType = mime_content_type(public_path($file));
+    $fileType = explode('/', $mimeType)[0]; // video|image
+
+    if ($fileType === 'video') {
+        $imagesrc = "http://recsite.ooguy.com/icons/movie.gif";
+    } else {
+        $imagesrc = $file['name'];
+    }
     echo "<div style='".$style."'>
             <div>
-                <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$file['name']."' title='".$file['name']."' /></a>
+                <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
                 <p>".$file['modtime']."</p>
