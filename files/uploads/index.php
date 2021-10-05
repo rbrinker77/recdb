@@ -32,7 +32,8 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 }
 
 sort($arrayDirs);
-sort($arrayDirs['modtime']);
+sort($arrayFiles['modtime']);
+array_multisort($arrayFiles['modtime'], SORT_NUMERIC, SORT_DESC);
 
 $imagesize = "200px";
 $textsize = ".75em";
