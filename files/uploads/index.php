@@ -34,12 +34,12 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 $imagesize = "200px";
 $textsize = ".75em";
-$style = "align:center;float:left;width:200px;font-size:".$textsize.";";
+$style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
 
 foreach ($arrayDirs as $dir) {
     echo "<div style='".$style."'>
             <div>
-                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='' /></a>
+                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/icons/folder.gif' /></a>
             </div>
             <div>
                 <p>".$dir."</p>
