@@ -32,6 +32,8 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 }
 
 sort($arrayDirs);
+sort($arrayDirs['modtime']);
+
 $imagesize = "200px";
 $textsize = ".75em";
 $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
