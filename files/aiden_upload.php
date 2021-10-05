@@ -25,14 +25,14 @@ if (!empty($_FILES)) {
 	}
 
 	if($buildyear) {
-		$yearname = $yearDir."/index.php"
+		$yearname = $yearDir."/index.php";
 		$yearfile = fopen($yearname, "w") or die("Unable to open year file!");
 		fwrite($yearfile, $filetxt);
 		fclose($yearfile);
 	}
 
 	if($buildmonth) {
-		$monthname = $monthDir."/index.php"
+		$monthname = $monthDir."/index.php";
 		$monthfile = fopen($monthname, "w") or die("Unable to open month file!");
 		fwrite($monthfile, $filetxt);
 		fclose($monthfile);
