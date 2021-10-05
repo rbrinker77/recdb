@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 ?>
 <!doctype html>
 <html>
@@ -10,10 +10,7 @@ ini_set('display_errors', 1);
     </head>
     <body >
         <div class="pageDiv">
-            <div class="indexContainer">
-                <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
-            </div>
-        </div>
+            <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
 <?
 $thisDir = dirname(__FILE__);
 $arrayDirs = [];
@@ -36,11 +33,11 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 sort($arrayDirs);
 
 foreach ($arrayDirs as $dir) {
-    echo "<a class='indexes' href='./".$dir."'><img src='' width='50' height='50' /></a>";
+    echo "<a class='indexes' href='./".$dir."'><img src='' width='150' height='150' /></a>";
 }
 
 foreach ($arrayFiles as $file) {
-    $moddate = date('M/j/y @ h:ia', $file['modtime']);
+    $moddate = date('M/j/y @ h:ia', strtotime($file['modtime']));
 
     echo "<figure>
             <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>
@@ -48,5 +45,6 @@ foreach ($arrayFiles as $file) {
         </figure>";
 }
 ?>
+        </div>
     </body>
 </html>
