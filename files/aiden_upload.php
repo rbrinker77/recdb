@@ -7,7 +7,7 @@ $yearDir = $targetDir."/".date("Y");
 $monthDir = $yearDir."/".date("n");
 $buildyear = false;
 $buildmonth = false;
-$filetxt = "<?php include '/var/www/html/files/uploads/index.php'; ?>";
+$filetxt = '<?php include "/var/www/html/files/uploads/index.php"; ?>';
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
