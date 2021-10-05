@@ -34,13 +34,14 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 }
 
 sort($arrayDirs);
-$moddate = date('M/j/y @ h:ia', $file['modtime']);
 
 foreach ($arrayDirs as $dir) {
     echo "<a class='indexes' href='./".$dir."'><img src='' width='50' height='50' /></a>";
 }
 
 foreach ($arrayFiles as $file) {
+    $moddate = date('M/j/y @ h:ia', $file['modtime']);
+
     echo "<figure>
             <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>
             <figcaption>".$moddate."</figcaption>
