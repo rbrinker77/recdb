@@ -36,23 +36,23 @@ $imagesize = "200px";
 $textsize = ".75em";
 
 foreach ($arrayDirs as $dir) {
-    echo "<div class='leftDiv'>
-            <div class='leftDiv'>
+    echo "<div style='width:200px;font-size:".$textsize.";'>
+            <div>
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='' /></a>
             </div>
-            <div class='leftDiv'>
-                <p style='font-size:".$textsize.";'>".$dir."</p>
+            <div>
+                <p>".$dir."</p>
             </div>
         </div>";
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<div class='leftDiv'>
-            <div class='leftDiv'>
+    echo "<div style='width:200px;font-size:".$textsize.";'>
+            <div>
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
-            <div class='leftDiv'>
-                <p style='font-size:".$textsize.";'>".$file['modtime']."</p>
+            <div>
+                <p>".$file['modtime']."</p>
             </div>
         </div>";
 }
