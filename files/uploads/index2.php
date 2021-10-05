@@ -10,7 +10,10 @@
     </head>
     <body >
         <div class="pageDiv">
-            <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
+            <div>
+                <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
+            </div>
+            <div>
 <?
 $thisDir = dirname(__FILE__);
 $arrayDirs = [];
@@ -25,7 +28,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     if(!$extension) {
         $arrayDirs[] = $name;
     } else {
-        $modtime = filemtime($name);
+        $modtime = date("M/j/y @ h:i a", filemtime($name));
         $arrayFiles[] = [ 'name'=>$name, 'modtime'=>$modtime ];
     }
 }
@@ -37,14 +40,12 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    $moddate = date('M/j/y @ h:ia', strtotime($file['modtime']));
-
     echo "<figure>
             <a class='indexes' href='./".$file['name']."'><img src='".$file['name']."' title='".$file['name']."' width='50' height='50' /></a>
             <figcaption>".$moddate."</figcaption>
         </figure>";
 }
-?>
+?>          </div>
         </div>
     </body>
 </html>
