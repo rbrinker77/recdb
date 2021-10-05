@@ -50,7 +50,7 @@ foreach ($arrayDirs as $dir) {
 foreach ($arrayFiles as $file) {
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
-var_dump($mimeType);
+var_dump($fileType);
     if ($fileType === 'video') {
         $imagesrc = "http://recsite.ooguy.com/icons/movie.gif";
     } else {
