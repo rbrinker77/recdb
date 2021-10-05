@@ -33,7 +33,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
 
 sort($arrayDirs);
 sort($arrayFiles);
-var_dump($arrayFiles);
+
 $imagesize = "200px";
 $textsize = ".75em";
 $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
