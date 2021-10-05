@@ -165,6 +165,12 @@ a:link, a:visited, a:active {
 	padding: 1em 0 .5em 0;
 }
 
+.leftDiv {
+	padding: .25em;
+	float: left !important;
+	width: auto !important;
+}
+
 .dateDiv {
 	font-size: 0.75em;
 	font-style:italic;
