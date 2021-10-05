@@ -13,7 +13,7 @@
             <button type="button" class="smallGreen"><a class="indexes" href="../">Up a level</a></button>
         </div>
         <div class="pageDiv">
-            <div>
+            <div class="leftDiv">
 <?
 $thisDir = dirname(__FILE__);
 $arrayDirs = [];
@@ -38,22 +38,22 @@ $imagesize = 200;
 $textsize = .75;
 
 foreach ($arrayDirs as $dir) {
-    echo "<div class='leftDiv'>
-            <div class='leftDiv'>
+    echo "<div>
+            <div>
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='' /></a>
             </div>
-            <div class='leftDiv'>
+            <div>
                 <p style='font-size:.75em;'>".$dir."</p>
             </div>
         </div>";
 }
 
 foreach ($arrayFiles as $file) {
-    echo "<div class='leftDiv'>
-            <div class='leftDiv'>
+    echo "<div>
+            <div>
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$file['name']."' title='".$file['name']."' /></a>
             </div>
-            <div class='leftDiv'>
+            <div>
                 <p style='font-size:.75em;'>".$file['modtime']."</p>
             </div>
         </div>";
