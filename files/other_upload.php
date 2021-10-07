@@ -5,6 +5,9 @@ ini_set('display_errors', 1);
 $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Mine";
 $yearDir = $targetDir."/".date("Y");
 $monthDir = $yearDir."/".date("n");
+$buildyear = false;
+$buildmonth = false;
+$filename = '/var/www/html/files/uploads/index.php';
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
@@ -13,9 +16,26 @@ if (!empty($_FILES)) {
 	if (!file_exists($yearDir)) {
 		mkdir($yearDir);
 		mkdir($monthDir);
+		$buildyear = true;
+		$buildmonth = true;
 	}
 	else if (!file_exists($monthDir)) {
 		mkdir($monthDir);
+		$buildmonth = true;
+	}
+
+	if($buildyear) {
+		$yearname = $yearDir."/index.php";
+		if (!copy($filename, $yearname)) {
+			echo "Failed to copy $yearname...\n";
+		}
+	}
+
+	if($buildmonth) {
+		$monthname = $monthDir."/index.php";
+		if (!copy($filename, $monthname)) {
+			echo "Failed to copy $monthname...\n";
+		}
 	}
 
     $targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
