@@ -26,8 +26,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     if(!$extension) {
         $arrayDirs[] = $name;
     } else {
-        $modtime = date("M/j/y @ h:i a", filemtime($name));
-        $arrayFiles[] = [ 'modtime'=>$modtime, 'name'=>$name ];
+        $arrayFiles[] = [ 'modtime'=>filemtime($name), 'name'=>$name ];
     }
 }
 
@@ -64,6 +63,7 @@ foreach ($arrayDirs as $dir) {
 
 foreach ($arrayFiles as $file) {
     echo $file['name'] . " + " . $file['modtime'] . "<br />";
+    $modtime = date("M/j/y @ h:i a", $file['modtime']);
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
 
@@ -77,7 +77,7 @@ foreach ($arrayFiles as $file) {
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
-                <p>".$file['modtime']."</p>
+                <p>".$modtime."</p>
             </div>
         </div>";
 }
