@@ -31,8 +31,21 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     }
 }
 
+$sortArray = array();
+
+foreach($arrayFiles as $file){
+    foreach($file as $key=>$value){
+        if(!isset($sortArray[$key])){
+            $sortArray[$key] = array();
+        }
+        $sortArray[$key][] = $value;
+    }
+}
+
+$orderby = "modtime";
+
+array_multisort($sortArray[$orderby],SORT_DESC,$arrayFiles);
 sort($arrayDirs);
-sort($arrayFiles['modtime']);
 
 $imagesize = "200px";
 $textsize = ".75em";
