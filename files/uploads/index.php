@@ -43,7 +43,7 @@ foreach($arrayFiles as $file){
 
 $orderby = "modtime";
 
-array_multisort($sortArray[$orderby],SORT_DESC,$arrayFiles);
+array_multisort($sortArray[$orderby],$arrayFiles);
 sort($arrayDirs);
 
 $imagesize = "200px";
