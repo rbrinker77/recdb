@@ -62,7 +62,6 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    echo $file['name'] . " + " . $file['modtime'] . "<br />";
     $modtime = date("M/j/y @ h:i a", $file['modtime']);
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
