@@ -1,5 +1,6 @@
 <?php
 //error_reporting(E_ALL);
+ini_set('display_errors', 0);
 //ini_set('display_errors', 1);
 ?>
 <!doctype html>
@@ -22,7 +23,7 @@ foreach (new DirectoryIterator($thisDir) as $fileInfo) {
     $path = pathinfo($name);
     $extension = $path['extension'];
     if( $fileInfo->isDot() || $extension == "php" || $extension == "Trash-0" || $extension == "htaccess" ) continue;
-    
+
     if(!$extension) {
         $arrayDirs[] = $name;
     } else {
