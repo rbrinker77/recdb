@@ -44,8 +44,12 @@ foreach($arrayFiles as $file){
 
 $orderby = "modtime";
 
-array_multisort($sortArray[$orderby],$arrayFiles);
-sort($arrayDirs);
+if (!empty($arrayFiles)) {
+    array_multisort($sortArray[$orderby],$arrayFiles);
+}
+if (!empty($arrayDirs)) {
+    sort($arrayDirs);
+}
 
 $imagesize = "200px";
 $textsize = ".75em";
