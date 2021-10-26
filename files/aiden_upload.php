@@ -54,7 +54,7 @@ if (!empty($_FILES)) {
 	if ($fileType == 'image') {
 		make_thumb($targetFile,$thumbFile,$width);
 	}
-	$myfile = fopen("testfile.txt", "w");
+	$myfile = fopen($monthDir . "testfile.txt", "w");
 	fwrite($myfile, $targetFile);
 	fwrite($myfile, $thumbFile);
 	fwrite($myfile, $width);
