@@ -50,7 +50,7 @@ if (!empty($_FILES)) {
 	if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
 	}
-	sleep(2);
+
 	if ($fileType == 'image') {
 		make_thumb($targetFile,$thumbFile,$width);
 	}
