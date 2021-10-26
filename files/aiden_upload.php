@@ -48,13 +48,13 @@ if (!empty($_FILES)) {
 	$fileType = explode('/', $mimeType)[0]; // video|image
 
 	if(!move_uploaded_file($temporaryFile,$targetFile))  {
-		echo "Error occurred while uploading the file to server!";
+		error_log("Error occurred while uploading the file to server!",0);
 	}
 
-	$myfile = fopen($monthDir . "testfile.txt", "w");
-	fwrite($myfile, $targetFile);
-	fwrite($myfile, $thumbFile);
-	fwrite($myfile, $width);
-	fclose($myfile);
+	if ($fileType == 'image') {
+		make_thumb($targetFile,$thumbFile,$width);
+	} else {
+		error_log("Was not an image = thumb = " . $thumbFile . " = target = " . $targetFile,0);
+	}
 }
 ?>
