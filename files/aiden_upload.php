@@ -42,7 +42,7 @@ if (!empty($_FILES)) {
 	}
 
     $targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
-    $thumbFile = ".tmb_".$targetFile;
+    $thumbFile = $monthDir . "/.tmb_" . basename($_FILES["file"]["name"]);
 
     if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
