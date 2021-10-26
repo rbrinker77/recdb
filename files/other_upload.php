@@ -2,7 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include '/functions.php';
+$path = $_SERVER['DOCUMENT_ROOT'] . "/functions.php";
+include_once($path);
 
 $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Mine";
 $yearDir = $targetDir."/".date("Y");
@@ -48,10 +49,10 @@ if (!empty($_FILES)) {
 
 	if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
-	}
-
-	if ($fileType == 'image') {
-		make_thumb($targetFile,$thumbFile,$width);
+	} else {
+		if ($fileType == 'image') {
+			make_thumb($targetFile,$thumbFile,$width);
+		}
 	}
 }
 ?>
