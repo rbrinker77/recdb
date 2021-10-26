@@ -70,7 +70,7 @@ foreach ($arrayFiles as $file) {
     if ($fileType != 'image') {
         $imagesrc = "http://recsite.ooguy.com/icons/movie.gif";
     } else {
-        $imagesrc = ".tmb_".$file['name'];
+        $imagesrc = $file['name'].".tmb";
     }
     echo "<div style='".$style."'>
             <div>
