@@ -47,12 +47,14 @@ if (!empty($_FILES)) {
 	$mimeType = mime_content_type($_FILES["file"]["name"]);
 	$fileType = explode('/', $mimeType)[0]; // video|image
 
-	if ($fileType == 'image') {
-		make_thumb($temporaryFile,$thumbFile,$width);
-	}
-
 	if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
 	}
+
+	$myfile = fopen($monthDir . "testfile.txt", "w");
+	fwrite($myfile, $targetFile);
+	fwrite($myfile, $thumbFile);
+	fwrite($myfile, $width);
+	fclose($myfile);
 }
 ?>
