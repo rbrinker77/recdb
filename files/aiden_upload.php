@@ -41,12 +41,12 @@ if (!empty($_FILES)) {
 		}
 	}
 
-    $targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
-    $thumbFile = $monthDir . "/.tmb_" . basename($_FILES["file"]["name"]);
+	$targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
+	$thumbFile = $monthDir . "/.tmb_" . basename($_FILES["file"]["name"]);
 	$mimeType = mime_content_type($_FILES["file"]["name"]);
-    $fileType = explode('/', $mimeType)[0]; // video|image
+	$fileType = explode('/', $mimeType)[0]; // video|image
 
-    if(!move_uploaded_file($temporaryFile,$targetFile))  {
+	if(!move_uploaded_file($temporaryFile,$targetFile))  {
 		echo "Error occurred while uploading the file to server!";
 	} else {
 		if ($fileType == 'image') {
