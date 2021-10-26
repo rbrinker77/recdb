@@ -2,7 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$path = $_SERVER['DOCUMENT_ROOT'] . "/functions.php";
 include_once($path);
 
 $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Aiden";
