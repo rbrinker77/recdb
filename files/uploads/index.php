@@ -58,7 +58,7 @@ $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
 foreach ($arrayDirs as $dir) {
     echo "<div style='".$style."'>
             <div>
-                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/icons/folder.gif' /></a>
+                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
                 <p>".$dir."</p>
@@ -72,7 +72,7 @@ foreach ($arrayFiles as $file) {
     $fileType = explode('/', $mimeType)[0]; // video|image
 
     if ($fileType != 'image') {
-        $imagesrc = "http://recsite.ooguy.com/icons/movie.gif";
+        $imagesrc = "/Images/play.jpg";
     } else {
         $imagesrc = $file['name'].".tmb";
     }
