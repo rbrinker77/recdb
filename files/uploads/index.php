@@ -59,8 +59,7 @@ foreach ($arrayDirs as $dir) {
     $fulldir = str_replace("/var/www/html","",dirname(__FILE__))."/";
     echo "<div style='".$style."'>
             <div>
-            ".$fulldir."
-                <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
+                <a href='"$fulldir.$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
                 <p>".$dir."</p>
@@ -69,7 +68,7 @@ foreach ($arrayDirs as $dir) {
 }
 
 foreach ($arrayFiles as $file) {
-    $fulldir = dirname(__FILE__);
+    $fulldir = str_replace("/var/www/html","",dirname(__FILE__))."/";
     $modtime = date("M/j/y @ h:i a", $file['modtime']);
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
@@ -81,7 +80,7 @@ foreach ($arrayFiles as $file) {
     }
     echo "<div style='".$style."'>
             <div>
-                <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
+                <a href='"$fulldir.$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
                 <p>".$modtime."</p>
