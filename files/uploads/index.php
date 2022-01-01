@@ -80,7 +80,7 @@ foreach ($arrayFiles as $file) {
     }
     echo "<div style='".$style."'>
             <div>
-                <a href='"$fulldir.$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
+                <a href='".$fulldir.$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
                 <p>".$modtime."</p>
