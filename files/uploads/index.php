@@ -56,18 +56,20 @@ $textsize = ".75em";
 $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
 
 foreach ($arrayDirs as $dir) {
+    $fulldir = str_replace("/var/www/html","",dirname(__FILE__)."/";
     echo "<div style='".$style."'>
             <div>
-                ".$dir."
+            ".$fulldir."
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
-                <p>".$fulldir = dirname(__FILE__);$fulldir."</p>
+                <p>".$dir."</p>
             </div>
         </div>";
 }
 
 foreach ($arrayFiles as $file) {
+    $fulldir = dirname(__FILE__);
     $modtime = date("M/j/y @ h:i a", $file['modtime']);
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
@@ -79,7 +81,6 @@ foreach ($arrayFiles as $file) {
     }
     echo "<div style='".$style."'>
             <div>
-                ".$fullfile = dirname(__FILE__);$fullfile."
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
