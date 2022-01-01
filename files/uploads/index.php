@@ -59,7 +59,7 @@ foreach ($arrayDirs as $dir) {
     $fulldir = str_replace("/var/www/html","",dirname(__FILE__))."/";
     echo "<div style='".$style."'>
             <div>
-                <a href='"$fulldir.$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
+                <a href='".$fulldir.$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
                 <p>".$dir."</p>
