@@ -17,7 +17,7 @@
             </div>
             <br /><br />
             <div class="indexContainer">
-                <button type="button" class="smallGreen"><a class="indexes" href="./uploads/">Photos</a></button>
+                <button type="button" class="smallGreen"><a class="indexes" href="/files/uploads/">Photos</a></button>
             </div>
         </div>
     </body>

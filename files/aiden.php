@@ -11,7 +11,7 @@
         <br />
         <div class="container" >
             <div class='content'>
-            <form action="./aiden_upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
+            <form action="/files/aiden_upload.php" class="dropzone" id="dropzonewidget" method="post" enctype="multipart/form-data">
             </form>
             </div>
         </div>
