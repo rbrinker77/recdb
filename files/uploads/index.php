@@ -58,6 +58,7 @@ $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
 foreach ($arrayDirs as $dir) {
     echo "<div style='".$style."'>
             <div>
+                ".$dir."
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
@@ -78,6 +79,7 @@ foreach ($arrayFiles as $file) {
     }
     echo "<div style='".$style."'>
             <div>
+                ".$file."
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
