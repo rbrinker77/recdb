@@ -62,7 +62,7 @@ foreach ($arrayDirs as $dir) {
                 <a href='./".$dir."'><img width='".$imagesize."' height='".$imagesize."' src='/Images/folder.jpg' /></a>
             </div>
             <div>
-                <p>".$dir."</p>
+                <p>".$fulldir = dirname(__FILE__);$fulldir."</p>
             </div>
         </div>";
 }
@@ -79,7 +79,7 @@ foreach ($arrayFiles as $file) {
     }
     echo "<div style='".$style."'>
             <div>
-                ".$file."
+                ".$fullfile = dirname(__FILE__);$fullfile."
                 <a href='./".$file['name']."'><img width='".$imagesize."' height='".$imagesize."' src='".$imagesrc."' title='".$file['name']."' /></a>
             </div>
             <div>
