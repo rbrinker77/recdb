@@ -56,7 +56,7 @@ $textsize = ".75em";
 $style = "text-align:center;float:left;width:200px;font-size:".$textsize.";";
 
 foreach ($arrayDirs as $dir) {
-    $fulldir = str_replace("/var/www/html","",dirname(__FILE__)."/";
+    $fulldir = str_replace("/var/www/html","",dirname(__FILE__))."/";
     echo "<div style='".$style."'>
             <div>
             ".$fulldir."
