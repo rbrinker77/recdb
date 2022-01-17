@@ -72,14 +72,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $total = abs($goodcount-$badcount);
   if ($goodcount > $badcount) {
-    $style = 'good';
+    $style = 'green';
   } else {
-    $style = 'bad';
+    $style = 'red';
   }
 
   echo "</div>";
   echo "<div class='banner'>
-      The current total is <b class='".$style."count'>".$total."</b>
+      The current total is <b style='color:".$style.";'>".$total."</b>
     </div>";
 
   $dbConnection = null;
