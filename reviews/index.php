@@ -76,9 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   } else {
     $style = 'bad';
   }
-echo $goodcount;
-echo $badcount;
-echo $style;
+echo $goodcount."<br />";
+echo $badcount."<br />";
+echo $total."<br />";
+echo $style."<br />";
 
   echo "</div>";
 
