@@ -67,8 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
       }
 
-      echo "</table></div>";
+    } else {
+      echo "<div class='".$row['name']."Table' id='".$row['name']."Table' style='visibility: hidden;'><table><tr><td>NO ".$row['name']."</td></tr></table>";
     }
+    echo "</table></div>";
   }
 
   $total = abs($goodcount-$badcount);
