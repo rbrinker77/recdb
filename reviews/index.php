@@ -6,7 +6,7 @@ include("../DB/rvconnect.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty(trim($_POST['desc']))) {
-    $addevent = "INSERT INTO events (type, description) VALUES (".$_POST['id'].", ".$_POST['desc'].");";
+    $addevent = "INSERT INTO events (type, description) VALUES (".$_POST['id'].", '".$_POST['desc']."');";
   }
   else {
     $addevent = "INSERT INTO events (type, description) VALUES (".$_POST['id'].", NULL);";
