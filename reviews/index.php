@@ -13,8 +13,15 @@ ini_set('display_errors', 1);
 
   include("../DB/rvconnect.php");
 
+  $i=0;
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
-  $eventlist = "SELECT * FROM events ORDER BY date DESC;";
+
+  foreach($dbConnection->query($typelist) as $row)
+  {
+    $eventlist[$i] = "SELECT * FROM events WHERE id='".$i."' ORDER BY date DESC;";
+    $i++;
+    echo "<p>".$eventlist[$i]."</p>";
+  }
 
   echo "<div>";
 //Roster loop
