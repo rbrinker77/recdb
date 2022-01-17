@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
   	echo "<div>
       <form action='./index.php' method='post'>
         <h3>".$row['name']."</h3>
-        <input type='text' name='desc' spellcheck='yes' size='50'/>
+        <input type='text' name='desc' spellcheck='true' size='50'/>
         <input type='hidden' name='id' value='".$row['id']."' />
         <input type='submit' name='submit' value='Send' />
       </form>
