@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+include("../DB/rvconnect.php");
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!empty(trim($_POST['desc']))) {
     $addevent = "INSERT INTO events (type, description) VALUES (".$_POST['id'].", ".$_POST['desc'].");";
@@ -22,8 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <body>
 <?php
   echo "<div><h3>Reviews</h3></div>";
-
-  include("../DB/rvconnect.php");
 
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
 
