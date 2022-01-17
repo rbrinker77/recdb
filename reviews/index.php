@@ -35,9 +35,9 @@ ini_set('display_errors', 1);
     $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
 
     $result = $dbConnection->query($eventlist[$idnum]);
-    $numrows = $result->fetchColumn();
-    echo $numrows;
-    if ($numrows = 0) {
+    $data =  $result->fetch_assoc();
+    echo $data['total'];
+    if ($data['total'] = 0) {
       echo "NONE";
     }
 
