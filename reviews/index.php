@@ -40,7 +40,6 @@ ini_set('display_errors', 1);
     //$count = $result->rowCount();
     //$count = $dbConnection->query($countevents[$idnum]);
     var_dump($count);
-echo $count;
     echo "<div><table><tr><td>".$row['name']."</td></tr>";
     echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
