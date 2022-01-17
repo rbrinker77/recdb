@@ -15,22 +15,6 @@ ini_set('display_errors', 1);
 
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
 
-  foreach($dbConnection->query($typelist) as $row)
-  {
-    $idnum=$row['id'];
-    $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
-
-    echo "<table><tr><td>".$row['name']."</td></tr>";
-    echo "<table><tr><td>Date</td><td>Description</td></tr>";
-
-    foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
-    {
-      echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
-    }
-
-    echo "</table>";
-  }
-
   echo "<div>";
 
   foreach($dbConnection->query($typelist) as $row)
@@ -43,6 +27,27 @@ ini_set('display_errors', 1);
         <input type='submit' name='submit' value='Send' />
       </form>
     </div>";
+  }
+
+  foreach($dbConnection->query($typelist) as $row)
+  {
+    $idnum=$row['id'];
+    $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
+
+    $result = $dbConnection->query($eventlist[$idnum]);
+    if ($result->num_rows = 0) {
+      echo "NONE";
+    }
+
+    echo "<div><table><tr><td>".$row['name']."</td></tr>";
+    echo "<table><tr><td>Date</td><td>Description</td></tr>";
+
+    foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
+    {
+      echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
+    }
+
+    echo "</table></div>";
   }
 
   echo "</div>";
