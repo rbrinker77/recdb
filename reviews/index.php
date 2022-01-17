@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $goodcount=0;
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
 
-  echo "<div>";
+  echo "<div><br /><br />";
 
   foreach($dbConnection->query($typelist) as $row)
   {
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type='hidden' name='id' value='".$row['id']."' />
         <input type='submit' name='submit' value='Send' />
       </form>
-    </div>";
+    </div><br /><br />";
   }
 
   foreach($dbConnection->query($typelist) as $row)
