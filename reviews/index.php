@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
   $newevent = $dbConnection->prepare ($addevent);
   $newevent->execute();
-  $dbConnection->commit();
 }
 ?>
   <!DOCTYPE html>
