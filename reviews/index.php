@@ -35,6 +35,7 @@ ini_set('display_errors', 1);
     $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
 
     $result = $dbConnection->query($eventlist[$idnum]);
+    var_dump($result);
     if ($result->num_rows = 0) {
       echo "NONE";
     }
