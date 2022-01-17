@@ -6,12 +6,12 @@ ini_set('display_errors', 1);
   <html lang="en">
   <head>
     <title>Review System</title>
-    <link rel="stylesheet" href="/CSS/styles.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/styles.css" type="text/css">
   <body>
 <?php
   echo "<div><h3>Reviews</h3></div>";
 
-  include("/DB/rvconnect.php");
+  include("../DB/rvconnect.php");
 
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
   $eventlist = "SELECT * FROM events ORDER BY date DESC;";
