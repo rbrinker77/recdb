@@ -22,9 +22,9 @@ ini_set('display_errors', 1);
   {
   	echo "<div>
       <form action='./index.php' method='post'>
-        <h3>".$typelist['name']."</h3>
+        <h3>".$row['name']."</h3>
         <input type='textbox' name='desc' />
-        <input type='hidden' name='id' value='".$typelist['id']."' />
+        <input type='hidden' name='id' value='".$row['id']."' />
         <input type='submit' name='submit' value='Send' />
       </form>
     </div>";
