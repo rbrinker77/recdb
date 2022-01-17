@@ -76,12 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   } else {
     $style = 'bad';
   }
-echo $goodcount."<br />";
-echo $badcount."<br />";
-echo $total."<br />";
-echo $style."<br />";
 
   echo "</div>";
+  echo "<div class='banner'>
+      The current total is <b style='".$style."count';>".$total."</b>
+    </div>"
 
   $dbConnection = null;
 ?>
