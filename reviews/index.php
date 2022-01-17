@@ -37,16 +37,18 @@ ini_set('display_errors', 1);
 
     $result = $dbConnection->query($countevents[$idnum]);
     $num_rows = $result->fetchColumn();
-    echo "---".$num_rows."---";
-    echo "<div><table><tr><td>".$row['name']."</td></tr>";
-    echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
-    foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
-    {
-      echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
+    if ($num_rows > 0) {
+      echo "<div class=".$row['name']."Table><table><tr><td>".$row['name']."</td></tr>";
+      echo "<table><tr><td>Date</td><td>Description</td></tr>";
+
+      foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
+      {
+        echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
+      }
+
+      echo "</table></div>";
     }
-
-    echo "</table></div>";
   }
 
   echo "</div>";
