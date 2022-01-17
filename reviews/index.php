@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <head>
     <title>Review System</title>
     <link rel="stylesheet" href="../CSS/styles.css" type="text/css">
+    <script src="/JS/functions.js" type="text/javascript"></script>
   <body>
 <?php
   echo "<div><h3>Reviews</h3></div>";
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   {
   	echo "<div class='entryform'>
       <form action='./index.php' method='post'>
-        <h3>".$row['name']."<input type='button' value='Show' class='show".$row['name']."' onclick=\"showtable('".$row['name']."')\" /><input type='button' value='Hide' style='display:none;' class='hide".$row['name']."' onclick=\"hidetable('".$row['name']."')\" /></h3>
+        <h3>".$row['name']."<input type='button' value='Show' class='show".$row['name']."' id='show".$row['name']."' onclick=\"showtable('".$row['name']."')\" /><input type='button' value='Hide' style='display:none;' class='hide".$row['name']."' id='hide".$row['name']."' onclick=\"hidetable('".$row['name']."')\" /></h3>
         <input type='text' name='desc' spellcheck='true' size='50'/>
         <input type='hidden' name='id' value='".$row['id']."' />
         <input type='submit' name='submit' value='Send' />
@@ -58,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       else {
         $badcount=$badcount+$num_rows;
       }
-      echo "<div class=".$row['name']."Table style='display:none;'><table><tr><td>".$row['name']."</td></tr>";
+      echo "<div class='".$row['name']."Table' id='".$row['name']."Table' style='display:none;'><table><tr><td>".$row['name']."</td></tr>";
       echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
       foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
