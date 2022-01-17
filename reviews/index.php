@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php
   echo "<div><h3>Reviews</h3></div>";
 
+  $badcount=0;
+  $goodcount=0;
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
 
   echo "<div>";
@@ -50,6 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $num_rows = $result->fetchColumn();
 
     if ($num_rows > 0) {
+      if ($row['name'] == 'Positive') {
+        $goodcount=$goodcount+$num_rows;
+      }
+      else {
+        $badcount=$badcount+$num_rows;
+      }
       echo "<div class=".$row['name']."Table><table><tr><td>".$row['name']."</td></tr>";
       echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
@@ -61,6 +69,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       echo "</table></div>";
     }
   }
+
+  $total = abs($goodcount-$badcount);
+  if ($goodcount > $badcount) {
+    $style = 'good';
+  } else {
+    $style = 'bad';
+  }
+echo $goodcount;
+echo $badcount;
+echo $style;
 
   echo "</div>";
 
