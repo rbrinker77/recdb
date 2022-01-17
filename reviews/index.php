@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   {
   	echo "<div class='entryform'>
       <form action='./index.php' method='post'>
-        <h3>".$row['name']."<input type='button' class='show".$row['name']."' onclick=\"showtable('".$row['name']."')\" /><input type='button' class='hide".$row['name']."' onclick=\"hidetable('".$row['name']."')\" /></h3>
+        <h3>".$row['name']."<input type='button' class='show".$row['name']."' onclick=\"showtable('".$row['name']."')\" /><input type='button' style='display:none;' class='hide".$row['name']."' onclick=\"hidetable('".$row['name']."')\" /></h3>
         <input type='text' name='desc' spellcheck='true' size='50'/>
         <input type='hidden' name='id' value='".$row['id']."' />
         <input type='submit' name='submit' value='Send' />
