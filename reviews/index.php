@@ -19,8 +19,8 @@ ini_set('display_errors', 1);
   foreach($dbConnection->query($typelist) as $row)
   {
     $eventlist[$i] = "SELECT * FROM events WHERE id='".$i."' ORDER BY date DESC;";
-    $i++;
     echo "<p>".$eventlist[$i]."</p>";
+    $i++;
   }
 
   echo "<div>";
