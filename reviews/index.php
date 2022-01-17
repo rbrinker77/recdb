@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   echo "</div>";
   echo "<div class='banner'>
       The current total is <b style='".$style."count';>".$total."</b>
-    </div>"
+    </div>";
 
   $dbConnection = null;
 ?>
