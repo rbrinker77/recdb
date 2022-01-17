@@ -37,7 +37,7 @@ ini_set('display_errors', 1);
 
     $result = $dbConnection->query($countevents[$idnum]);
     $result->execute();
-    $count = $del->rowCount();
+    $count = $result->rowCount();
     //$count = $dbConnection->query($countevents[$idnum]);
     var_dump($count);
 
