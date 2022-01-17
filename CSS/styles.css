@@ -15,11 +15,11 @@
 }
 
 .badcount {
-	color: red;
+	color: red !important;
 }
 
 .goodcount {
-	color: green;
+	color: green !important;
 }
 
 html, body {
