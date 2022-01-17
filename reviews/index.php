@@ -33,10 +33,6 @@ ini_set('display_errors', 1);
   echo "</div>";
 
   $dbConnection = null;
-
 ?>
   </body>
   </html>
-<?php
-}
-?>
