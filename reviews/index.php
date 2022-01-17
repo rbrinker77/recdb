@@ -33,12 +33,11 @@ ini_set('display_errors', 1);
   {
     $idnum=$row['id'];
     $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
-    $countevents[$idnum] = "SELECT count(*) FROM events WHERE type='".$idnum."';";
+    $countevents[$idnum] = "SELECT count(*) as num_rows FROM events WHERE type='".$idnum."';";
 
     $result = $dbConnection->query($countevents[$idnum]);
-    //$count = $result[''];
-    var_dump($result);
-    //echo $count;
+    $num_rows = $result->fetchColumn();
+    echo "---".$num_rows."---";
     echo "<div><table><tr><td>".$row['name']."</td></tr>";
     echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
