@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       else {
         $badcount=$badcount+$num_rows;
       }
-      echo "<div class='".$row['name']."Table' id='".$row['name']."Table' style='display:none;'><table><tr><td>".$row['name']."</td></tr>";
+      echo "<div class='".$row['name']."Table' id='".$row['name']."Table' style='visibility: hidden;'><table><tr><td>".$row['name']."</td></tr>";
       echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
       foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
