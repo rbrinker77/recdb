@@ -37,7 +37,7 @@ ini_set('display_errors', 1);
     $result = $dbConnection->query($eventlist[$idnum]);
     $numrows = $result->fetchColumn();
     echo $numrows;
-    if ($result->fetchColumn() = 0) {
+    if ($numrows = 0) {
       echo "NONE";
     }
 
