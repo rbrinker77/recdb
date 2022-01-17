@@ -20,13 +20,15 @@ ini_set('display_errors', 1);
     $idnum=$row['id'];
     $eventlist[$idnum] = "SELECT * FROM events WHERE type='".$idnum."' ORDER BY date DESC;";
 
-    echo "<table><tr><td>".$row['type']."</td></tr>";
+    echo "<table><tr><td>".$row['name']."</td></tr>";
     echo "<table><tr><td>Date</td><td>Description</td></tr>";
 
-    foreach ($eventlist[$idnum] as $eventrow)
+    foreach ($dbConnection->query($eventlist[$idnum]) as $eventrow)
     {
-      echo "<td>".$eventrow['date']."</td><td>".$eventrow['description']."</td>";
+      echo "<tr><td>".$eventrow['date']."</td><td>".$eventrow['description']."</td></tr>";
     }
+
+    echo "</table>";
   }
 
   echo "<div>";
