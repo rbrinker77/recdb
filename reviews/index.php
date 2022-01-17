@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   echo "</div>";
   echo "<div class='banner'>
-      The current total is <b style='".$style."count';>".$total."</b>
+      The current total is <b class='".$style."count';>".$total."</b>
     </div>";
 
   $dbConnection = null;
