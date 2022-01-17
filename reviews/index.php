@@ -13,18 +13,29 @@ ini_set('display_errors', 1);
 
   include("../DB/rvconnect.php");
 
-  $i=0;
   $typelist = "SELECT * FROM type ORDER BY id ASC;";
 
   foreach($dbConnection->query($typelist) as $row)
   {
-    $eventlist[$i] = "SELECT * FROM events WHERE id='".$i."' ORDER BY date DESC;";
-    echo "<p>".$eventlist[$i]."</p>";
-    $i++;
+    $idnum=$row['id'];
+    $eventlist[$idnum] = "SELECT * FROM events WHERE id='".$idnum."' ORDER BY date DESC;";
   }
 
   echo "<div>";
-//Roster loop
+
+  foreach($dbConnection->query($typelist) as $row)
+  {
+  	echo "<div>
+      <form action='./index.php' method='post'>
+        <h3>".$row['name']."</h3>
+        <input type='text' name='desc' spellcheck='true' size='50'/>
+        <input type='hidden' name='id' value='".$row['id']."' />
+        <input type='submit' name='submit' value='Send' />
+      </form>
+    </div>";
+  }
+
+
   foreach($dbConnection->query($typelist) as $row)
   {
   	echo "<div>
