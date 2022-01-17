@@ -3,8 +3,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  //$addevent = "INSERT INTO events (type, description) VALUES ("..", "..");";
-  var_dump($_POST);
+  $addevent = "INSERT INTO events (type, description) VALUES (".$_POST['id'].", ".$_POST['desc'].");";
+  echo $addevent;
 }
 ?>
   <!DOCTYPE html>
