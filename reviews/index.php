@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   $total = abs($goodcount-$badcount);
-  if ($goodcount > $badcount) {
+  if ($goodcount => $badcount) {
     $style = 'green';
     $favor='POSTIVE';
   } else {
