@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <link href="../CSS/styles.css" rel="stylesheet" type="text/css">
+        <link href="/CSS/styles.css" rel="stylesheet" type="text/css">
         <link rel="icon" type="image/png" href="/favicon.ico">
     </head>
     <body >
@@ -17,7 +17,7 @@
             </div>
             <br /><br />
             <div class="indexContainer">
-                <button type="button" class="smallGreen"><a class="indexes" href="./uploads/">Photos</a></button>
+                <button type="button" class="smallGreen"><a class="indexes" href="/files/uploads/">Photos</a></button>
             </div>
         </div>
     </body>
