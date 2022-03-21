@@ -72,8 +72,10 @@ foreach ($arrayFiles as $file) {
     $modtime = date("M/j/y @ h:i a", $file['modtime']);
     $mimeType = mime_content_type($file['name']);
     $fileType = explode('/', $mimeType)[0]; // video|image
+    $fileinfo = new SplFileInfo($fulldir); 
+    $extension = strtolower($fileinfo->getExtension());
 
-    if ($fileType != 'image') {
+    if ($fileType != 'image' || $extension == "gif" ) {
         $imagesrc = "/Images/play.jpg";
     } else {
         $imagesrc = $file['name'].".tmb";
