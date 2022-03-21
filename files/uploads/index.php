@@ -76,7 +76,7 @@ foreach ($arrayFiles as $file) {
     $extension = strtolower($fileinfo->getExtension());
 
     if ($fileType != 'image' || $extension == "gif" ) {
-        $imagesrc = "/Images/play.jpg$extension";
+        $imagesrc = "/Images/play.jpg";
     } else {
         $imagesrc = $file['name'].".tmb";
     }
