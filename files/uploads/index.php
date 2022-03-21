@@ -74,10 +74,9 @@ foreach ($arrayFiles as $file) {
     $fileType = explode('/', $mimeType)[0]; // video|image
     $fileinfo = new SplFileInfo($fulldir); 
     $extension = strtolower($fileinfo->getExtension());
-    echo $extension;
 
     if ($fileType != 'image' || $extension == "gif" ) {
-        $imagesrc = "/Images/play.jpg";
+        $imagesrc = "/Images/play.jpg$extension";
     } else {
         $imagesrc = $file['name'].".tmb";
     }
