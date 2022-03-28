@@ -6,7 +6,7 @@ include_once($path);
 
 $targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Mine";
 $yearDir = $targetDir."/".date("Y");
-$monthDir = $yearDir."/".date("n");
+$monthDir = $yearDir."/".date("F");
 $buildyear = false;
 $buildmonth = false;
 $filename = '/var/www/html/files/uploads/index.php';
