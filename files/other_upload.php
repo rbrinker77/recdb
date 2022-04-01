@@ -4,41 +4,23 @@ ini_set('display_errors', 1);
 
 include_once($path);
 
-$targetDir = $_SERVER['DOCUMENT_ROOT']."/files/uploads/Mine";
+$targetDir = "/media/uploads/Mine";
 $yearDir = $targetDir."/".date("Y");
 $monthDir = $yearDir."/".date("F");
 $buildyear = false;
 $buildmonth = false;
-$filename = '/var/www/html/files/uploads/index.php';
 $width = 200;
 
 //PHP code to upload file to server directory
 if (!empty($_FILES)) {
-	$temporaryFile = $_FILES['file']['tmp_name']; 
+	$temporaryFile = $_FILES['file']['tmp_name'];
 
 	if (!file_exists($yearDir)) {
 		mkdir($yearDir);
 		mkdir($monthDir);
-		$buildyear = true;
-		$buildmonth = true;
 	}
 	else if (!file_exists($monthDir)) {
 		mkdir($monthDir);
-		$buildmonth = true;
-	}
-
-	if($buildyear) {
-		$yearname = $yearDir."/index.php";
-		if (!copy($filename, $yearname)) {
-			echo "Failed to copy $yearname...\n";
-		}
-	}
-
-	if($buildmonth) {
-		$monthname = $monthDir."/index.php";
-		if (!copy($filename, $monthname)) {
-			echo "Failed to copy $monthname...\n";
-		}
 	}
 
 	$targetFile = $monthDir . "/" . basename($_FILES["file"]["name"]);
