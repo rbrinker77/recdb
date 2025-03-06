@@ -1,3 +1,7 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>'
 <?php
 // Define the servers and ports to check
 $servers = [
@@ -23,10 +27,7 @@ function checkPort($host, $port, $timeout = 5) {
         return false;
     }
 }
-echo '<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/styles.css">
-</head>';
+
 // Monitor the ports and generate output
 header('Content-Type: text/html; charset=UTF-8');
 
