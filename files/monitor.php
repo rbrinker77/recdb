@@ -30,8 +30,6 @@ echo '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Port Checker</title>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>';
 echo "<h2>Port Monitoring Status</h2>";
@@ -40,7 +38,7 @@ echo "<table border='1' cellpadding='10'><tr><th>Host</th><th>Port</th><th>Statu
 foreach ($servers as $server) {
     $status = checkPort($server['host'], $server['port']) ? 'UP' : 'DOWN';
     $color = ($status === 'UP') ? 'green' : 'red';
-    echo "<tr><td>{$server['host']}</td><td>{$server['name']}</td><td>{$server['port']}</td><td style='color: {$color}; font-weight: bold;'>$status</td></tr>";
+    echo "<tr><td>{$server['name']}</td><td>{$server['port']}</td><td style='color: {$color}; font-weight: bold;'>$status</td></tr>";
 }
 
 echo "</table>";
