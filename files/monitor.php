@@ -26,24 +26,7 @@ function checkPort($host, $port, $timeout = 5) {
 
 // Monitor the ports and generate output
 header('Content-Type: text/html; charset=UTF-8');
-echo '<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Port Checker</title>
-    <link rel="stylesheet" href="CSS/styles.css">
-</head>
-<body>
-    <h1>Port Check Results</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Port</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>';
+
 echo "<h2>Port Monitoring Status</h2>";
 echo "<table border='1' cellpadding='10'><tr><th>Host</th><th>Port</th><th>Status</th></tr>";
 
