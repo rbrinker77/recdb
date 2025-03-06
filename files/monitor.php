@@ -1,7 +1,3 @@
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/styles.css">
-</head>'
 <?php
 // Define the servers and ports to check
 $servers = [
