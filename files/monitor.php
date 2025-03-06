@@ -33,7 +33,7 @@ echo '<!DOCTYPE html>
     <link rel="stylesheet" href="/CSS/styles.css">
 </head>';
 echo "<h2>Port Monitoring Status</h2>";
-echo "<table border='1' cellpadding='10'><tr><th>Host</th><th>Port</th><th>Status</th></tr>";
+echo "<table border='1' cellpadding='10'><tr><th>Service</th><th>Port</th><th>Status</th></tr>";
 
 foreach ($servers as $server) {
     $status = checkPort($server['host'], $server['port']) ? 'UP' : 'DOWN';
