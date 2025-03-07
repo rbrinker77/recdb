@@ -1,5 +1,5 @@
 <?php
-// Define the servers and ports to check
+// Define the servers and ports to check - AI Gen
 $servers = [
     ['host' => 'recsite.ooguy.com', 'port' => 80, 'name' => 'HTTP'],      		// HTTP
     ['host' => 'recsite.ooguy.com', 'port' => 8989, 'name' => 'Sonarr'],  		// Sonarr
