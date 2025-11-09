@@ -7,6 +7,7 @@ $servers = [
     ['host' => 'recsite.ooguy.com', 'port' => 7878, 'name' => 'Radarr'], 		// Radarr
     ['host' => 'recsite.ooguy.com', 'port' => 9091, 'name' => 'Transmission'],  // Transmission
     ['host' => 'recsite.ooguy.com', 'port' => 8787, 'name' => 'Readarr'], 		// Readarr
+    ['host' => 'recsite.ooguy.com', 'port' => 11011, 'name' => 'Cleanupparr'], 	// Cleanupparr
     ['host' => 'recsite.ooguy.com', 'port' => 9696, 'name' => 'Prowlarr'], 		// Prowlarr
     ['host' => 'recsite.ooguy.com', 'port' => 8000, 'name' => 'OpenEats'],   	// OpenEats
     ['host' => 'recsite.ooguy.com', 'port' => 90, 'name' => 'Lychee'],     		// Lychee
@@ -43,3 +44,4 @@ foreach ($servers as $server) {
 
 echo "</table>";
 ?>
+
