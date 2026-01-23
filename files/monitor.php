@@ -12,6 +12,7 @@ $servers = [
     ['host' => 'recsite.ooguy.com', 'port' => 8000, 'name' => 'OpenEats'],   	// OpenEats
     ['host' => 'recsite.ooguy.com', 'port' => 90, 'name' => 'Lychee'],     		// Lychee
     ['host' => 'recsite.ooguy.com', 'port' => 62341, 'name' => 'Plex'],  		// Plex
+    ['host' => 'recsite.ooguy.com', 'port' => 8096, 'name' => 'Jellyfin'],  	// Jellyfin
 ];
 
 // Function to check port status
@@ -44,4 +45,5 @@ foreach ($servers as $server) {
 
 echo "</table>";
 ?>
+
 
