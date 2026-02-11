@@ -1,18 +1,20 @@
 <?php
 // Define the servers and ports to check
 $servers = [
-    ['host' => 'recsite.ooguy.com', 'port' => 80, 'name' => 'HTTP'],      		// HTTP
-    ['host' => 'recsite.ooguy.com', 'port' => 8989, 'name' => 'Sonarr'],  		// Sonarr
-    ['host' => 'recsite.ooguy.com', 'port' => 8686, 'name' => 'Lidarr'], 		// Lidarr
-    ['host' => 'recsite.ooguy.com', 'port' => 7878, 'name' => 'Radarr'], 		// Radarr
-    ['host' => 'recsite.ooguy.com', 'port' => 9091, 'name' => 'Transmission'],  // Transmission
-    ['host' => 'recsite.ooguy.com', 'port' => 8787, 'name' => 'Readarr'], 		// Readarr
-    ['host' => 'recsite.ooguy.com', 'port' => 11011, 'name' => 'Cleanupparr'], 	// Cleanupparr
-    ['host' => 'recsite.ooguy.com', 'port' => 9696, 'name' => 'Prowlarr'], 		// Prowlarr
-    ['host' => 'recsite.ooguy.com', 'port' => 8000, 'name' => 'OpenEats'],   	// OpenEats
-    ['host' => 'recsite.ooguy.com', 'port' => 90, 'name' => 'Lychee'],     		// Lychee
-    ['host' => 'recsite.ooguy.com', 'port' => 62341, 'name' => 'Plex'],  		// Plex
-    ['host' => 'recsite.ooguy.com', 'port' => 8096, 'name' => 'Jellyfin'],  	// Jellyfin
+    ['host' => 'recsite.ooguy.com', 'port' => 80, 'name' => 'HTTP'],
+    ['host' => 'recsite.ooguy.com', 'port' => 9091, 'name' => 'Transmission'],
+    ['host' => 'recsite.ooguy.com', 'port' => 9696, 'name' => 'Prowlarr'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8989, 'name' => 'Sonarr'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8686, 'name' => 'Lidarr'],
+    ['host' => 'recsite.ooguy.com', 'port' => 7878, 'name' => 'Radarr'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8787, 'name' => 'Readarr'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8000, 'name' => 'OpenEats'],
+    ['host' => 'recsite.ooguy.com', 'port' => 90, 'name' => 'Lychee'],
+    ['host' => 'recsite.ooguy.com', 'port' => 62341, 'name' => 'Plex'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8096, 'name' => 'Jellyfin'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8080, 'name' => 'Watchstate'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8181, 'name' => 'Tautulli'],
+    ['host' => 'recsite.ooguy.com', 'port' => 5002, 'name' => 'Episeer'],
 ];
 
 // Function to check port status
@@ -45,5 +47,6 @@ foreach ($servers as $server) {
 
 echo "</table>";
 ?>
+
 
 
