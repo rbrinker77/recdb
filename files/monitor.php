@@ -13,8 +13,8 @@ $servers = [
     ['host' => 'recsite.ooguy.com', 'port' => 62341, 'name' => 'Plex'],
     ['host' => 'recsite.ooguy.com', 'port' => 8096, 'name' => 'Jellyfin'],
     ['host' => 'recsite.ooguy.com', 'port' => 8080, 'name' => 'Watchstate'],
-    ['host' => 'recsite.ooguy.com', 'port' => 8181, 'name' => 'Tautulli'],
-    ['host' => 'recsite.ooguy.com', 'port' => 5002, 'name' => 'Episeer'],
+    ['host' => '192.168.87.150', 'port' => 8181, 'name' => 'Tautulli'],
+    ['host' => '192.168.87.150', 'port' => 5002, 'name' => 'Episeer'],
 ];
 
 // Function to check port status
@@ -47,6 +47,7 @@ foreach ($servers as $server) {
 
 echo "</table>";
 ?>
+
 
 
 
