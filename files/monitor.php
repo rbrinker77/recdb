@@ -7,14 +7,11 @@ $servers = [
     ['host' => 'recsite.ooguy.com', 'port' => 8989, 'name' => 'Sonarr'],
     ['host' => 'recsite.ooguy.com', 'port' => 8686, 'name' => 'Lidarr'],
     ['host' => 'recsite.ooguy.com', 'port' => 7878, 'name' => 'Radarr'],
-    ['host' => 'recsite.ooguy.com', 'port' => 8787, 'name' => 'Readarr'],
     ['host' => 'recsite.ooguy.com', 'port' => 8000, 'name' => 'OpenEats'],
     ['host' => 'recsite.ooguy.com', 'port' => 90, 'name' => 'Lychee'],
     ['host' => 'recsite.ooguy.com', 'port' => 62341, 'name' => 'Plex'],
     ['host' => 'recsite.ooguy.com', 'port' => 8096, 'name' => 'Jellyfin'],
-    ['host' => 'recsite.ooguy.com', 'port' => 8080, 'name' => 'Watchstate'],
-    ['host' => '192.168.87.150', 'port' => 8181, 'name' => 'Tautulli'],
-    ['host' => '192.168.87.150', 'port' => 5002, 'name' => 'Episeer'],
+    ['host' => 'recsite.ooguy.com', 'port' => 8080, 'name' => 'Watchstate']
 ];
 
 // Function to check port status
