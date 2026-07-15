@@ -198,13 +198,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
             <h2>Review Interface</h2>
             
             <div class="question-row">
-                <h3>a) Lookup Answers by Specific Date</h3>
+                <h3>Lookup Answers by Date</h3>
                 <input type="date" id="lookup_date" onchange="fetchSingleDate()">
                 <div id="single-date-result" style="margin-top: 15px;"></div>
             </div>
 
             <div class="question-row">
-                <h3>b & c) Metrics and Aggregations</h3>
+                <h3>Metrics and Aggregations</h3>
                 
                 <div class="flex-inputs" style="margin-bottom: 15px;">
                     <div>
@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                     <div>
                         <label>Target Target Question</label>
                         <select id="target_question">
-                            <option value="all">All Questions Combined (Option C)</option>
+                            <option value="all">All Questions</option>
                             <option value="meds">Meds Taken</option>
                             <option value="spare_room">Slept in Spare Room</option>
                             <option value="sick">Was Sick</option>
