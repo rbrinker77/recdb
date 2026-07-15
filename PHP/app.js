@@ -29,10 +29,13 @@ function toggleExplanation(show) {
     }
 }
 
-// View Logic A - Process Singular date pull requests
+// View Logic A - Process Singular date pull requests (Runs only for Lookup)
 function fetchSingleDate() {
     const dateVal = document.getElementById('lookup_date').value;
-    if (!dateVal) return;
+    if (!dateVal) {
+        alert("Please select a date first.");
+        return;
+    }
 
     fetch(`index.php?fetch=single_date&date=${dateVal}`)
         .then(res => res.json())
