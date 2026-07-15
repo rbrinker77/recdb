@@ -204,7 +204,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         
             <div id="sub-view-lookup" class="question-row">
                 <h3>Lookup Answers by Date</h3>
-                <input type="date" id="lookup_date" onchange="fetchSingleDate()">
+                <div class="flex-inputs" style="margin-bottom: 15px;">
+                    <div>
+                        <label for="lookup_date">Select Date</label>
+                        <input type="date" id="lookup_date">
+                    </div>
+                </div>
+                <button type="button" onclick="fetchSingleDate()">Fetch Log</button>
                 <div id="single-date-result" style="margin-top: 15px;"></div>
             </div>
         
