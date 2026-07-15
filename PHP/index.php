@@ -197,13 +197,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         <div id="review-view" class="view-section hidden">
             <h2>Review Interface</h2>
             
-            <div class="question-row">
+            <div class="sub-nav-buttons" style="margin-bottom: 20px;">
+                <button type="button" onclick="switchReviewSubView('lookup')">Date Lookup</button>
+                <button type="button" onclick="switchReviewSubView('metrics')">Metrics & Aggregations</button>
+            </div>
+        
+            <div id="sub-view-lookup" class="question-row">
                 <h3>Lookup Answers by Date</h3>
                 <input type="date" id="lookup_date" onchange="fetchSingleDate()">
                 <div id="single-date-result" style="margin-top: 15px;"></div>
             </div>
-
-            <div class="question-row">
+        
+            <div id="sub-view-metrics" class="question-row hidden">
                 <h3>Metrics and Aggregations</h3>
                 
                 <div class="flex-inputs" style="margin-bottom: 15px;">
@@ -220,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                         <label>Year</label>
                         <input type="number" id="target_year" value="<?php echo date('Y'); ?>" min="2000" max="2100">
                     </div>
-
+        
                     <div id="custom-range-container" class="hidden flex-inputs" style="padding:0; gap:10px;">
                         <div>
                             <label>Start</label>
@@ -231,9 +236,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                             <input type="date" id="end_date">
                         </div>
                     </div>
-
+        
                     <div>
-                        <label>Target Target Question</label>
+                        <label>Target Question</label>
                         <select id="target_question">
                             <option value="all">All Questions</option>
                             <option value="meds">Meds Taken</option>
@@ -244,9 +249,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                         </select>
                     </div>
                 </div>
-
+        
                 <button type="button" onclick="fetchMetrics()">Generate Report</button>
-
+        
                 <table id="analytics-table" class="hidden">
                     <thead>
                         <tr>
