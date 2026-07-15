@@ -110,3 +110,14 @@ function fetchMetrics() {
             document.getElementById('analytics-table').classList.remove('hidden');
         });
 }
+
+// Sub-UI Route switcher for Review View modes
+function switchReviewSubView(subView) {
+    if (subView === 'lookup') {
+        document.getElementById('sub-view-lookup').classList.remove('hidden');
+        document.getElementById('sub-view-metrics').classList.add('hidden');
+    } else {
+        document.getElementById('sub-view-lookup').classList.add('hidden');
+        document.getElementById('sub-view-metrics').classList.remove('hidden');
+    }
+}
