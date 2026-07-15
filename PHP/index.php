@@ -50,9 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
     if ($type === 'single_date') {
         $date = $_GET['date'] ?? '';
         $stmt = $conn->prepare("SELECT *, TIME(entry_timestamp) as entry_time FROM responses WHERE review_date = ?");
-        $stmt->bind_param("s", $date);
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_assoc();
+        $stmt->execute([$date]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         echo json_encode($result ?: ['empty' => true]);
         exit;
     }
@@ -64,17 +63,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         $specific_q = $_GET['question'] ?? 'all';
 
         $query = "SELECT review_date, meds, spare_room, sick, work_on_time, sent_home_early FROM responses WHERE 1=1";
+        $params = [];
         
         if ($range_type === 'year') {
             $year = intval($_GET['year'] ?? date('Y'));
-            $query .= " AND YEAR(review_date) = $year";
+            $query .= " AND YEAR(review_date) = ?";
+            $params[] = $year;
         } elseif ($range_type === 'custom' && $start_date && $end_date) {
-            $query .= " AND review_date BETWEEN '" . $conn->real_escape_string($start_date) . "' AND '" . $conn->real_escape_string($end_date) . "'";
+            $query .= " AND review_date BETWEEN ? AND ?";
+            $params[] = $start_date;
+            $params[] = $end_date;
         }
 
-        $result = $conn->query($query);
-        $rows = [];
-        while($row = $result->fetch_assoc()) { $rows[] = $row; }
+        $stmt = $conn->prepare($query);
+        $stmt->execute($params);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $questions = ['meds', 'spare_room', 'sick', 'work_on_time', 'sent_home_early'];
         if ($specific_q !== 'all') {
@@ -82,7 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         }
 
         $stats = [];
-        // Calculate total weeks elapsed in scope or default to absolute days context / 7
         if (count($rows) > 0) {
             $dates = array_column($rows, 'review_date');
             $min_d = new DateTime(min($dates));
