@@ -1,8 +1,12 @@
 // Initialize default properties on window frame generation
 document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById('review_date').value = today;
-    document.getElementById('lookup_date').value = today;
+    if (document.getElementById('review_date')) {
+        document.getElementById('review_date').value = today;
+    }
+    if (document.getElementById('lookup_date')) {
+        document.getElementById('lookup_date').value = today;
+    }
 });
 
 // Primary UI Route switcher
@@ -13,6 +17,17 @@ function switchView(view) {
     } else {
         document.getElementById('answer-view').classList.add('hidden');
         document.getElementById('review-view').classList.remove('hidden');
+    }
+}
+
+// Sub-UI Route switcher for Review View modes (Date Lookup vs Metrics)
+function switchReviewSubView(subView) {
+    if (subView === 'lookup') {
+        document.getElementById('sub-view-lookup').classList.remove('hidden');
+        document.getElementById('sub-view-metrics').classList.add('hidden');
+    } else {
+        document.getElementById('sub-view-lookup').classList.add('hidden');
+        document.getElementById('sub-view-metrics').classList.remove('hidden');
     }
 }
 
@@ -29,7 +44,7 @@ function toggleExplanation(show) {
     }
 }
 
-// View Logic A - Process Singular date pull requests (Runs only for Lookup)
+// View Logic A - Process Singular date pull requests (Lookup only)
 function fetchSingleDate() {
     const dateVal = document.getElementById('lookup_date').value;
     if (!dateVal) {
@@ -48,7 +63,7 @@ function fetchSingleDate() {
             
             container.innerHTML = `
                 <div style="background:#121212; padding: 15px; border-radius:4px; border: 1px dashed var(--border-color)">
-                    <p><strong>Logged Timestamp:</strong> ${data.entry_timestamp} (Time: ${data.entry_time})</p>
+                    <p><strong>Logged Timestamp:</strong> ${data.entry_timestamp || data.review_date} (Time: ${data.entry_time || 'Logged'})</p>
                     <ul>
                         <li>Took Meds: ${data.meds}</li>
                         <li>Slept in Spare Room: ${data.spare_room}</li>
@@ -69,7 +84,7 @@ function handleTimeframeChange() {
     document.getElementById('custom-range-container').classList.toggle('hidden', tf !== 'custom');
 }
 
-// View Logic B & C - Dynamic Metric Array Parsing Engines
+// View Logic B & C - Dynamic Metric Array Parsing Engines (Metrics only)
 function fetchMetrics() {
     const tf = document.getElementById('time_frame').value;
     const question = document.getElementById('target_question').value;
@@ -112,15 +127,4 @@ function fetchMetrics() {
             }
             document.getElementById('analytics-table').classList.remove('hidden');
         });
-}
-
-// Sub-UI Route switcher for Review View modes
-function switchReviewSubView(subView) {
-    if (subView === 'lookup') {
-        document.getElementById('sub-view-lookup').classList.remove('hidden');
-        document.getElementById('sub-view-metrics').classList.add('hidden');
-    } else {
-        document.getElementById('sub-view-lookup').classList.add('hidden');
-        document.getElementById('sub-view-metrics').classList.remove('hidden');
-    }
 }
