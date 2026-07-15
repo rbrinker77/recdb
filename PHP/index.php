@@ -49,10 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
 
     if ($type === 'single_date') {
         $date = $_GET['date'] ?? '';
-        $stmt = $conn->prepare("SELECT *, TIME(entry_timestamp) as entry_time FROM responses WHERE review_date = ?");
+        // Note: entry_timestamp is our DB column, but we fallback to review_date if empty
+        $stmt = $conn->prepare("SELECT *, DATE_FORMAT(entry_timestamp, '%Y-%m-%d %H:%i:%s') as entry_timestamp_formatted FROM responses WHERE review_date = ?");
         $stmt->execute([$date]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($result ?: ['empty' => true]);
+        
+        if ($result) {
+            // Map formatted fields to match what frontend app.js expects
+            $result['entry_timestamp'] = $result['entry_timestamp_formatted'] ?? $result['review_date'];
+            $result['entry_time'] = $result['entry_timestamp_formatted'] ? date('H:i:s', strtotime($result['entry_timestamp_formatted'])) : 'Logged';
+            echo json_encode($result);
+        } else {
+            echo json_encode(['empty' => true]);
+        }
         exit;
     }
 
@@ -62,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         $end_date = $_GET['end'] ?? null;
         $specific_q = $_GET['question'] ?? 'all';
 
+        // Select review_date explicitly so our calculation matching doesn't return empty rows
         $query = "SELECT review_date, meds, spare_room, sick, work_on_time, sent_home_early FROM responses WHERE 1=1";
         $params = [];
         
@@ -86,12 +96,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
 
         $stats = [];
         if (count($rows) > 0) {
+            // Extract dates utilizing the correct 'review_date' DB column
             $dates = array_column($rows, 'review_date');
+            
             $min_d = new DateTime(min($dates));
             $max_d = new DateTime(max($dates));
             $days = $max_d->diff($min_d)->days + 1;
             $weeks = $days / 7;
-            if($weeks < 1) $weeks = 1; 
+            if ($weeks < 1) $weeks = 1; 
         } else {
             $weeks = 1;
         }
@@ -100,8 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
             $yes_count = 0;
             $no_count = 0;
             foreach ($rows as $r) {
-                if ($r[$q] === 'Yes') $yes_count++;
-                else $no_count++;
+                if ($r[$q] === 'Yes') {
+                    $yes_count++;
+                } else {
+                    $no_count++;
+                }
             }
             $stats[$q] = [
                 'yes' => $yes_count,
