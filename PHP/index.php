@@ -14,32 +14,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $sent_home_early = $_POST['sent_home_early'] ?? 'No';
     $explanation = ($sent_home_early === 'Yes') ? ($_POST['explanation'] ?? '') : null;
 
-    // Check for duplicate date
+    // 1. Check for duplicate date using PDO
     $check_stmt = $conn->prepare("SELECT id FROM responses WHERE review_date = ?");
-    $check_stmt->bind_param("s", $review_date);
-    $check_stmt->execute();
-    $check_stmt->store_result();
+    $check_stmt->execute([$review_date]);
+    $row = $check_stmt->fetch();
 
-    if ($check_stmt->num_rows > 0) {
+    if ($row) {
         $message = "An entry already exists for this calendar date. Please review the date due to duplication.";
         $messageClass = "alert-error";
     } else {
-        // Safe insertion with prepared statements
+        // 2. Safe insertion using PDO prepared statements
         $stmt = $conn->prepare("INSERT INTO responses (review_date, meds, spare_room, sick, work_on_time, sent_home_early, explanation) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        // HTML encoding data handling happens implicitly via strict types, but safely escaped for string usage
-        $encoded_explanation = $explanation !== null ? htmlspecialchars($explanation, ENT_QUOTES, 'UTF-8') : null;
-        $stmt->bind_param("sssssss", $review_date, $meds, $spare_room, $sick, $work_on_time, $sent_home_early, $encoded_explanation);
         
-        if ($stmt->execute()) {
-            $message = "Entry recorded successfully!";
-            $messageClass = "alert-success";
-        } else {
-            $message = "Error saving entry.";
-            $messageClass = "alert-error";
-        }
-        $stmt->close();
+        // Pass the parameters directly into execute() array
+        $stmt->execute([
+            $review_date, 
+            $meds, 
+            $spare_room, 
+            $sick, 
+            $work_on_time, 
+            $sent_home_early, 
+            $explanation
+        ]);
+        
+        $message = "Log entry saved successfully!";
+        $messageClass = "alert-success";
     }
-    $check_stmt->close();
 }
 
 // Handle AJAX operations for reviewing data
