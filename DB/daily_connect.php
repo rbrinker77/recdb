@@ -1,8 +1,8 @@
 <?php
-	$dbuser = 'rvuser';
-	$dbpass = 'e4M28FoWLl0vki2cNHHQ';
+	$dbuser = 'dailyuser';
+	$dbpass = 'VTG1nmn8xye9waeKrca';
 
-	$dsn = 'mysql:dbname=reviews;host=mysqldb';
+	$dsn = 'mysql:dbname=dailychecks;host=mysqldb';
 
 	try
 	{
