@@ -88,7 +88,9 @@ function handleTimeframeChange() {
 function fetchMetrics() {
     const tf = document.getElementById('time_frame').value;
     const question = document.getElementById('target_question').value;
-    let url = `index.php?fetch=stats&range_type=${tf}&question=${question}`;
+    
+    // We add the action=fetch_data parameter so index.php passes its wrapper checks smoothly
+    let url = `index.php?fetch=stats&action=fetch_data&range_type=${tf}&question=${question}`;
 
     if (tf === 'year') {
         url += `&year=${document.getElementById('target_year').value}`;
@@ -126,5 +128,8 @@ function fetchMetrics() {
                 });
             }
             document.getElementById('analytics-table').classList.remove('hidden');
+        })
+        .catch(err => {
+            console.error("Metric processing error: ", err);
         });
 }
