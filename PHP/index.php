@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/DB/CONN.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DB/daily_connect.php';
 
 $message = '';
 $messageClass = '';
