@@ -1,7 +1,4 @@
 <?php
-// Enable strict error reporting for mysqli execution issues
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
 $host = 'mysqldb';       // Docker container service name
 $user = 'dailyuser';
 $password = 'VTG1nmn8xye9waeKrca';
