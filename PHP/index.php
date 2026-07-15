@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $explanation = ($sent_home_early === 'Yes') ? ($_POST['explanation'] ?? '') : null;
 
     // Check for duplicate date
-    $check_stmt = $dbConnection->prepare("SELECT id FROM responses WHERE review_date = ?");
+    $check_stmt = $conn->prepare("SELECT id FROM responses WHERE review_date = ?");
     $check_stmt->bind_param("s", $review_date);
     $check_stmt->execute();
     $check_stmt->store_result();
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $messageClass = "alert-error";
     } else {
         // Safe insertion with prepared statements
-        $stmt = $dbConnection->prepare("INSERT INTO responses (review_date, meds, spare_room, sick, work_on_time, sent_home_early, explanation) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO responses (review_date, meds, spare_room, sick, work_on_time, sent_home_early, explanation) VALUES (?, ?, ?, ?, ?, ?, ?)");
         // HTML encoding data handling happens implicitly via strict types, but safely escaped for string usage
         $encoded_explanation = $explanation !== null ? htmlspecialchars($explanation, ENT_QUOTES, 'UTF-8') : null;
         $stmt->bind_param("sssssss", $review_date, $meds, $spare_room, $sick, $work_on_time, $sent_home_early, $encoded_explanation);
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
 
     if ($type === 'single_date') {
         $date = $_GET['date'] ?? '';
-        $stmt = $dbConnection->prepare("SELECT *, TIME(entry_timestamp) as entry_time FROM responses WHERE review_date = ?");
+        $stmt = $conn->prepare("SELECT *, TIME(entry_timestamp) as entry_time FROM responses WHERE review_date = ?");
         $stmt->bind_param("s", $date);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_assoc();
@@ -69,10 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
             $year = intval($_GET['year'] ?? date('Y'));
             $query .= " AND YEAR(review_date) = $year";
         } elseif ($range_type === 'custom' && $start_date && $end_date) {
-            $query .= " AND review_date BETWEEN '" . $dbConnection->real_escape_string($start_date) . "' AND '" . $dbConnection->real_escape_string($end_date) . "'";
+            $query .= " AND review_date BETWEEN '" . $conn->real_escape_string($start_date) . "' AND '" . $conn->real_escape_string($end_date) . "'";
         }
 
-        $result = $dbConnection->query($query);
+        $result = $conn->query($query);
         $rows = [];
         while($row = $result->fetch_assoc()) { $rows[] = $row; }
 
