@@ -2,7 +2,7 @@
 	$dbuser = 'dailyuser';
 	$dbpass = 'VTG1nmn8xye9waeKrca';
 
-	$dsn = 'mysql:dbname=dailychecks;host=mysqldb';
+	$dsn = 'mysql:dbname=daily_tracker;host=mysqldb';
 
 	try
 	{
