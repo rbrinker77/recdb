@@ -385,6 +385,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="/JS/app.js"></script>
 </body>
 </html>
