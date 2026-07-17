@@ -152,16 +152,16 @@ function fetchMetrics() {
     fetch(url)
         .then(res => res.json())
         .then(response => {
-            const data = response.stats; // Access the stats object
+            const data = response.stats;
             const totalDays = response.total_days;
             const tbody = document.getElementById('analytics-tbody');
             const summaryDiv = document.getElementById('metric-summary');
             
             tbody.innerHTML = '';
             
-            // Display Days Included outside the table if > 1
+            // Display Days Included outside the table if and only if > 1
             if (totalDays > 1) {
-                summaryDiv.innerHTML = `Days Included in Report: ${totalDays}`;
+                summaryDiv.innerHTML = `<div style="background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 4px; border: 1px solid var(--border-color); display: inline-block;"><strong>Days Included in Report:</strong> ${totalDays}</div>`;
                 summaryDiv.classList.remove('hidden');
             } else {
                 summaryDiv.innerHTML = '';
