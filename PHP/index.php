@@ -154,16 +154,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                 'yes' => $yes_count,
                 'no' => $no_count,
                 'weekly_avg' => round($yes_count / $weeks, 2),
-                'total_days' => $days,
                 'yes_percent' => $yes_percent
             ];
         }
 
         echo json_encode([
-			'stats' => $stats,
-			'total_days' => $days
-		]);
-		exit;
+            'stats' => $stats,
+            'total_days' => $days
+        ]);
+        exit;
     }
 }
 ?>
@@ -267,7 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                 <button type="button" onclick="fetchSingleDate()">Fetch Log</button>
                 <div id="single-date-result" style="margin-top: 15px;"></div>
 
-                <!-- EDIT SECTION (Dynamically shown only when single date data is successfully found) -->
+                <!-- EDIT SECTION (Dynamically pre-populated and shown upon lookup) -->
                 <div id="edit-entry-container" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed var(--border-color);">
                     <h3>Edit Log for <span id="edit_review_date_display"></span></h3>
                     <form action="" method="POST">
@@ -366,21 +365,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                 </div>
         
                 <button type="button" onclick="fetchMetrics()">Generate Report</button>
-
-				<div id="metric-summary" style="margin: 15px 0; font-weight: bold; color: var(--text-color);"></div>
-
-				<table id="analytics-table" class="hidden">
-					<thead>
-						<tr>
-							<th>Metric Question</th>
-							<th>Yes Count</th>
-							<th>No Count</th>
-							<th>Weekly Average (Yes)</th>
-							<th>Yes % (Rounded Up)</th>
-						</tr>
-					</thead>
-					<tbody id="analytics-tbody"></tbody>
-				</table>
+        
+                <!-- Summary Display Area outside the table -->
+                <div id="metric-summary" class="hidden" style="margin: 20px 0 15px 0;"></div>
+        
+                <table id="analytics-table" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Metric Question</th>
+                            <th>Yes Count</th>
+                            <th>No Count</th>
+                            <th>Weekly Average (Yes)</th>
+                            <th>Yes % (Rounded Up)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="analytics-tbody"></tbody>
+                </table>
             </div>
         </div>
     </div>
