@@ -4,41 +4,72 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/DB/daily_connect.php';
 $message = '';
 $messageClass = '';
 
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'submit_answers') {
-    $review_date = $_POST['review_date'] ?? '';
-    $meds = $_POST['meds'] ?? 'No';
-    $spare_room = $_POST['spare_room'] ?? 'No';
-    $sick = $_POST['sick'] ?? 'No';
-    $work_on_time = $_POST['work_on_time'] ?? 'No';
-    $sent_home_early = $_POST['sent_home_early'] ?? 'No';
-    $explanation = ($sent_home_early === 'Yes') ? ($_POST['explanation'] ?? '') : null;
+// Handle form submissions
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    
+    // ACTION 1: Submit Daily Log
+    if ($_POST['action'] === 'submit_answers') {
+        $review_date = $_POST['review_date'] ?? '';
+        $meds = $_POST['meds'] ?? 'No';
+        $spare_room = $_POST['spare_room'] ?? 'No';
+        $sick = $_POST['sick'] ?? 'No';
+        $work_on_time = $_POST['work_on_time'] ?? 'No';
+        $sent_home_early = $_POST['sent_home_early'] ?? 'No';
+        $explanation = ($sent_home_early === 'Yes') ? ($_POST['explanation'] ?? '') : null;
 
-    // 1. Check for duplicate date using PDO
-    $check_stmt = $conn->prepare("SELECT id FROM responses WHERE review_date = ?");
-    $check_stmt->execute([$review_date]);
-    $row = $check_stmt->fetch();
+        // 1. Check for duplicate date using PDO
+        $check_stmt = $conn->prepare("SELECT id FROM responses WHERE review_date = ?");
+        $check_stmt->execute([$review_date]);
+        $row = $check_stmt->fetch();
 
-    if ($row) {
-        $message = "An entry already exists for this calendar date. Please review the date due to duplication.";
-        $messageClass = "alert-error";
-    } else {
-        // 2. Safe insertion using PDO prepared statements
-        $stmt = $conn->prepare("INSERT INTO responses (review_date, meds, spare_room, sick, work_on_time, sent_home_early, explanation) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        
-        // Pass the parameters directly into execute() array
-        $stmt->execute([
-            $review_date, 
-            $meds, 
-            $spare_room, 
-            $sick, 
-            $work_on_time, 
-            $sent_home_early, 
-            $explanation
-        ]);
-        
-        $message = "Log entry saved successfully!";
-        $messageClass = "alert-success";
+        if ($row) {
+            $message = "An entry already exists for this calendar date. Please review the date due to duplication.";
+            $messageClass = "alert-error";
+        } else {
+            // 2. Safe insertion using PDO prepared statements
+            $stmt = $conn->prepare("INSERT INTO responses (review_date, meds, spare_room, sick, work_on_time, sent_home_early, explanation) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([
+                $review_date, 
+                $meds, 
+                $spare_room, 
+                $sick, 
+                $work_on_time, 
+                $sent_home_early, 
+                $explanation
+            ]);
+            
+            $message = "Log entry saved successfully!";
+            $messageClass = "alert-success";
+        }
+    }
+
+    // ACTION 2: Edit Existing Log (Date is kept static, only update values)
+    if ($_POST['action'] === 'edit_answers') {
+        $review_date = $_POST['edit_review_date'] ?? '';
+        $meds = $_POST['edit_meds'] ?? 'No';
+        $spare_room = $_POST['edit_spare_room'] ?? 'No';
+        $sick = $_POST['edit_sick'] ?? 'No';
+        $work_on_time = $_POST['edit_work_on_time'] ?? 'No';
+        $sent_home_early = $_POST['edit_sent_home_early'] ?? 'No';
+        $explanation = ($sent_home_early === 'Yes') ? ($_POST['edit_explanation'] ?? '') : null;
+
+        if (!empty($review_date)) {
+            $stmt = $conn->prepare("UPDATE responses SET meds = ?, spare_room = ?, sick = ?, work_on_time = ?, sent_home_early = ?, explanation = ? WHERE review_date = ?");
+            $stmt->execute([
+                $meds,
+                $spare_room,
+                $sick,
+                $work_on_time,
+                $sent_home_early,
+                $explanation,
+                $review_date
+            ]);
+            $message = "Log entry for " . htmlspecialchars($review_date) . " updated successfully!";
+            $messageClass = "alert-success";
+        } else {
+            $message = "Unable to update: Date was missing.";
+            $messageClass = "alert-error";
+        }
     }
 }
 
@@ -49,13 +80,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
 
     if ($type === 'single_date') {
         $date = $_GET['date'] ?? '';
-        // Note: entry_timestamp is our DB column, but we fallback to review_date if empty
         $stmt = $conn->prepare("SELECT *, DATE_FORMAT(entry_timestamp, '%Y-%m-%d %H:%i:%s') as entry_timestamp_formatted FROM responses WHERE review_date = ?");
         $stmt->execute([$date]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($result) {
-            // Map formatted fields to match what frontend app.js expects
             $result['entry_timestamp'] = $result['entry_timestamp_formatted'] ?? $result['review_date'];
             $result['entry_time'] = $result['entry_timestamp_formatted'] ? date('H:i:s', strtotime($result['entry_timestamp_formatted'])) : 'Logged';
             echo json_encode($result);
@@ -71,7 +100,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         $end_date = $_GET['end'] ?? null;
         $specific_q = $_GET['question'] ?? 'all';
 
-        // Select review_date explicitly so our calculation matching doesn't return empty rows
         $query = "SELECT review_date, meds, spare_room, sick, work_on_time, sent_home_early FROM responses WHERE 1=1";
         $params = [];
         
@@ -95,10 +123,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
         }
 
         $stats = [];
+        $days = 0;
         if (count($rows) > 0) {
-            // Extract dates utilizing the correct 'review_date' DB column
             $dates = array_column($rows, 'review_date');
-            
             $min_d = new DateTime(min($dates));
             $max_d = new DateTime(max($dates));
             $days = $max_d->diff($min_d)->days + 1;
@@ -118,15 +145,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                     $no_count++;
                 }
             }
+            
+            // Calculate overall percentage of yes responses, rounded up to the nearest whole number
+            $total_responses = $yes_count + $no_count;
+            $yes_percent = ($total_responses > 0) ? ceil(($yes_count / $total_responses) * 100) : 0;
+
             $stats[$q] = [
                 'yes' => $yes_count,
                 'no' => $no_count,
-                'weekly_avg' => round($yes_count / $weeks, 2)
+                'weekly_avg' => round($yes_count / $weeks, 2),
+                'total_days' => $days,
+                'yes_percent' => $yes_percent
             ];
         }
 
-        echo json_encode($stats);
-        exit;
+        echo json_encode([
+			'stats' => $stats,
+			'total_days' => $days
+		]);
+		exit;
     }
 }
 ?>
@@ -229,6 +266,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                 </div>
                 <button type="button" onclick="fetchSingleDate()">Fetch Log</button>
                 <div id="single-date-result" style="margin-top: 15px;"></div>
+
+                <!-- EDIT SECTION (Dynamically shown only when single date data is successfully found) -->
+                <div id="edit-entry-container" class="hidden" style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed var(--border-color);">
+                    <h3>Edit Log for <span id="edit_review_date_display"></span></h3>
+                    <form action="" method="POST">
+                        <input type="hidden" name="action" value="edit_answers">
+                        <input type="hidden" id="edit_review_date" name="edit_review_date">
+
+                        <div class="question-row">
+                            <p>1. Did she take meds on this date?</p>
+                            <div class="radio-group">
+                                <label><input type="radio" id="edit_meds_yes" name="edit_meds" value="Yes"> Yes</label>
+                                <label><input type="radio" id="edit_meds_no" name="edit_meds" value="No"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="question-row">
+                            <p>2. Did she sleep in the spare room overnight?</p>
+                            <div class="radio-group">
+                                <label><input type="radio" id="edit_spare_room_yes" name="edit_spare_room" value="Yes"> Yes</label>
+                                <label><input type="radio" id="edit_spare_room_no" name="edit_spare_room" value="No"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="question-row">
+                            <p>3. Was she sick?</p>
+                            <div class="radio-group">
+                                <label><input type="radio" id="edit_sick_yes" name="edit_sick" value="Yes"> Yes</label>
+                                <label><input type="radio" id="edit_sick_no" name="edit_sick" value="No"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="question-row">
+                            <p>4. Did she go to work on time?</p>
+                            <div class="radio-group">
+                                <label><input type="radio" id="edit_work_on_time_yes" name="edit_work_on_time" value="Yes"> Yes</label>
+                                <label><input type="radio" id="edit_work_on_time_no" name="edit_work_on_time" value="No"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="question-row">
+                            <p>5. Did she get sent home early from work?</p>
+                            <div class="radio-group">
+                                <label><input type="radio" id="edit_sent_home_early_yes" name="edit_sent_home_early" value="Yes" onchange="toggleEditExplanation(true)"> Yes</label>
+                                <label><input type="radio" id="edit_sent_home_early_no" name="edit_sent_home_early" value="No" onchange="toggleEditExplanation(false)"> No</label>
+                            </div>
+                            <div id="edit-explanation-box" class="form-group hidden" style="margin-top:15px;">
+                                <label for="edit_explanation">Provide Explanation (Max 500 characters):</label>
+                                <textarea id="edit_explanation" name="edit_explanation" maxlength="500" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" style="background-color: #28a745;">Save Edits</button>
+                    </form>
+                </div>
             </div>
         
             <div id="sub-view-metrics" class="question-row hidden">
@@ -274,18 +366,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['fetch'])) {
                 </div>
         
                 <button type="button" onclick="fetchMetrics()">Generate Report</button>
-        
-                <table id="analytics-table" class="hidden">
-                    <thead>
-                        <tr>
-                            <th>Metric Question</th>
-                            <th>Yes Count</th>
-                            <th>No Count</th>
-                            <th>Weekly Average (Yes)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="analytics-tbody"></tbody>
-                </table>
+
+				<div id="metric-summary" style="margin: 15px 0; font-weight: bold; color: var(--text-color);"></div>
+
+				<table id="analytics-table" class="hidden">
+					<thead>
+						<tr>
+							<th>Metric Question</th>
+							<th>Yes Count</th>
+							<th>No Count</th>
+							<th>Weekly Average (Yes)</th>
+							<th>Yes % (Rounded Up)</th>
+						</tr>
+					</thead>
+					<tbody id="analytics-tbody"></tbody>
+				</table>
             </div>
         </div>
     </div>
